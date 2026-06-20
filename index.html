@@ -2089,6 +2089,27 @@ window.addEventListener('resize', bdgsScheduleActiveTab);
 // Initial state
 bdgsUpdateActiveTab();
 
+// Smooth scroll for Explore Services hero button to perfectly align with the first card
+var heroExploreBtn = document.querySelector('a[href="#svc"]');
+if (heroExploreBtn) {
+  heroExploreBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    var target = document.getElementById('svc-setup');
+    if (target) {
+      var oldPos = target.style.position;
+      var oldTransform = target.style.transform;
+      target.style.position = 'static';
+      target.style.transform = 'none';
+      var targetUnstuckTop = target.getBoundingClientRect().top + window.scrollY;
+      target.style.position = oldPos;
+      target.style.transform = oldTransform;
+      
+      var offset = window.matchMedia('(min-width: 992px)').matches ? bdgsStackStickyTopsPx[0] : 112;
+      window.scrollTo({ top: Math.max(0, targetUnstuckTop - offset), behavior: 'smooth' });
+    }
+  });
+}
+
 // Sync card heights so shorter cards fully cover taller cards stacked behind them
 function bdgsSyncCardHeights() {
   if (!window.matchMedia('(min-width: 992px)').matches) {
