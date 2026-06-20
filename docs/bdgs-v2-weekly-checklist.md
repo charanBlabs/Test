@@ -67,7 +67,7 @@
 ### Tuesday Jun 23 — Sections 4–6
 
 - [x] **§4** Hire Developer card *(done 2026-06-20 via antigravity)*
-- [ ] **§5** Why BDGS / pain cards
+- [x] **§5** Why BDGS / pain cards *(done 2026-06-20 via antigravity)*
 - [ ] **§6** Trust stats (500+ · 169+ reviews · 10+ yrs · 20+ devs)
 
 ### Wednesday Jun 24 — Sections 7–9
