@@ -501,7 +501,6 @@ body {
   box-shadow: 0 8px 30px rgba(0,0,0,0.06);
   position: sticky;
   margin-bottom: clamp(48px, 11vh, 140px);
-  scroll-margin-top: 168px;
   transform-origin: top center;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
 }
@@ -2096,16 +2095,7 @@ svcLinks.forEach(function(link) {
     e.preventDefault();
     var target = document.getElementById('svc-setup');
     if (target) {
-      var oldPos = target.style.position;
-      var oldTransform = target.style.transform;
-      target.style.position = 'static';
-      target.style.transform = 'none';
-      var targetUnstuckTop = target.getBoundingClientRect().top + window.scrollY;
-      target.style.position = oldPos;
-      target.style.transform = oldTransform;
-      
-      var offset = window.matchMedia('(min-width: 992px)').matches ? bdgsStackStickyTopsPx[0] : 112;
-      window.scrollTo({ top: Math.max(0, targetUnstuckTop - offset), behavior: 'smooth' });
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
 });
