@@ -269,7 +269,7 @@ body {
 .bdgsownv2-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; }
 .bdgsownv2-badge-dark { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); }
 .bdgsownv2-badge-coral { background: var(--bdgs-coral-light); border: 1px solid rgba(231,77,86,0.15); color: var(--bdgs-coral); }
-.bdgsownv2-hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.bdgsownv2-hero-ctas { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
 .bdgsownv2-btn-primary {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 14px 28px; font-size: 15px; font-weight: 600;
@@ -292,6 +292,40 @@ body {
   display: flex; align-items: center; justify-content: center; border: 1px solid var(--bdgs-border);
 }
 .bdgsownv2-hero-visual-placeholder { font-size: 14px; color: var(--bdgs-text-muted); text-align: center; padding: 40px; }
+
+/* Hero specific responsive classes */
+.bdgsownv2-hero-section {
+  background: var(--bdgs-gradient-subtle);
+  padding: 80px 0 90px;
+  text-align: center;
+  border-bottom: 1px solid var(--bdgs-border);
+}
+.bdgsownv2-hero-h1 {
+  font-size: 46px; font-weight: 700; line-height: 1.12; margin: 0 auto 20px; max-width: 780px; letter-spacing: -1.5px; color: var(--bdgs-dark);
+}
+.bdgsownv2-hero-h1 span {
+  color: var(--bdgs-coral);
+}
+.bdgsownv2-hero-sub {
+  font-size: 17px; color: var(--bdgs-text-muted); max-width: 580px; margin: 0 auto 4px; line-height: 1.65;
+}
+@media (max-width: 991px) {
+  .bdgsownv2-hero-section { padding: 60px 0 70px; }
+  .bdgsownv2-hero-h1 { font-size: 32px !important; }
+}
+@media (max-width: 768px) {
+  .bdgsownv2-hero-section { padding: 48px 20px 60px; }
+  .bdgsownv2-hero-h1 { font-size: 28px !important; letter-spacing: -1px; }
+  .bdgsownv2-hero-sub { font-size: 16px; padding: 0 10px; max-width: 100%; }
+  .bdgsownv2-hero-badges { gap: 8px; margin-bottom: 20px; }
+  .bdgsownv2-ai-strip { padding: 16px 20px; gap: 20px; margin: 24px auto; }
+  .bdgsownv2-hero-ctas { flex-direction: column; width: 100%; gap: 10px; }
+  .bdgsownv2-hero-ctas a, .bdgsownv2-hero-ctas button { width: 100%; justify-content: center; }
+}
+@media (max-width: 480px) {
+  .bdgsownv2-hero-section { padding: 40px 16px 50px; }
+  .bdgsownv2-badge { font-size: 11px; padding: 5px 12px; }
+}
 
 /* ============================================
    AI STRIP
@@ -1048,15 +1082,15 @@ body {
 <!-- ============================================
      HOME: HERO — Finetuned Option 1 + 3B AI Embed
      ============================================ -->
-<section class="bdgsownv2-section" style="background:var(--bdgs-gradient-subtle);padding:80px 0 90px;text-align:center">
+<section class="bdgsownv2-section bdgsownv2-hero-section">
   <div class="container">
     <div class="bdgsownv2-hero-badges">
       <span class="bdgsownv2-badge bdgsownv2-badge-coral">🏅 Gold Certified Brilliant Directories Partner</span>
       <span class="bdgsownv2-badge bdgsownv2-badge-coral">🤖 Claude / Anthropic Service Partner</span>
       <span class="bdgsownv2-badge bdgsownv2-badge-coral">🌍 500+ Directory Sites · 7+ Countries</span>
     </div>
-    <h1 style="font-size:46px;font-weight:700;line-height:1.12;margin:0 auto 20px;max-width:780px;letter-spacing:-1.5px;color:var(--bdgs-dark)">The only directory team that gets you from <span style="color:var(--bdgs-coral)">0→1→10→100…$1M</span></h1>
-    <p style="font-size:17px;color:var(--bdgs-text-muted);max-width:580px;margin:0 auto 4px;line-height:1.65">Brilliant Directories developers who think like co-founders—with directory website expert judgment baked in. Backed by a founder who's done it himself. The only Brilliant Directories team where strategy isn't an add-on — it's how we build.</p>
+    <h1 class="bdgsownv2-hero-h1">The only directory team that gets you from <span>0→1→10→100…$1M</span></h1>
+    <p class="bdgsownv2-hero-sub">Brilliant Directories developers who think like co-founders—with directory website expert judgment baked in. Backed by a founder who's done it himself. The only Brilliant Directories team where strategy isn't an add-on — it's how we build.</p>
     <div class="bdgsownv2-ai-strip">
       <div class="bdgsownv2-ai-strip-item">
         <div class="num">2×</div>
@@ -1068,9 +1102,9 @@ body {
         <div class="lbl">AI Agents Fleet</div>
       </div>
     </div>
-    <div class="bdgsownv2-hero-ctas" style="justify-content:center">
-      <a href="/services" class="bdgsownv2-btn-primary">Explore Services</a>
-      <a href="/zoom-clinics" class="bdgsownv2-btn-secondary bdgsownv2-btn-light">Join Free Zoom Clinic</a>
+    <div class="bdgsownv2-hero-ctas">
+      <a href="#svc" class="bdgsownv2-btn-primary">Explore Services</a>
+      <button type="button" class="bdgsownv2-btn-secondary bdgsownv2-btn-light" onclick="bdgsOpenZoomModal(); return false;">Join Free Zoom Clinic</button>
     </div>
   </div>
 </section>
@@ -1253,7 +1287,7 @@ Chatbots. Agents. Smart search.<br>
 <!-- ============================================
      HOME: Razorpay-Style Stacking Services Section
      ============================================ -->
-<section class="bdgsownv2-section bdgsownv2-services-stack">
+<section class="bdgsownv2-section bdgsownv2-services-stack" id="svc">
   <div class="container">
     <h2>Everything you need to grow your Brilliant Directories site</h2>
     <p class="sub">With BD Growth Suite, you can:</p>
