@@ -41,6 +41,10 @@
   --bdgs-gradient-subtle: linear-gradient(135deg, #FDF0F0 0%, #F8EDF5 100%);
 }
 * { box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 68px; /* Accounts for sticky header */
+}
 body {
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--bdgs-text); background: var(--bdgs-white); margin: 0;
