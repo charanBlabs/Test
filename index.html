@@ -475,11 +475,14 @@ body {
   margin-bottom: 32px; position: sticky; top: 68px; z-index: 50;
   background: var(--bdgs-bg); padding: 12px 0;
 }
+.bdgsownv2-stack-tabs::-webkit-scrollbar { display: none; }
+.bdgsownv2-stack-tabs { -ms-overflow-style: none; scrollbar-width: none; }
 .bdgsownv2-stack-tab {
   padding: 10px 20px; font-size: 14px; font-weight: 500;
   color: var(--bdgs-text-muted); background: var(--bdgs-white);
   border: 1px solid var(--bdgs-border); border-radius: 8px;
   cursor: pointer; transition: all 0.2s; text-decoration: none;
+  white-space: nowrap; flex-shrink: 0;
 }
 .bdgsownv2-stack-tab:hover, .bdgsownv2-stack-tab.active {
   color: var(--bdgs-coral); border-color: var(--bdgs-coral);
@@ -637,6 +640,7 @@ body {
 .bdgsownv2-tier-cta button.free-cta:hover { background: #15803D; }
 @media (max-width: 768px) {
   .bdgsownv2-tier-grid { grid-template-columns: 1fr; }
+  .bdgsownv2-services-stack { padding: 50px 16px 40px; }
 }
 .bdgsownv2-clinic-time {
   margin: 12px 0 14px;
@@ -1299,7 +1303,7 @@ Chatbots. Agents. Smart search.<br>
       <a class="bdgsownv2-stack-tab" href="#svc-ai">AI Development</a>
       <a class="bdgsownv2-stack-tab" href="#svc-solutions">Solutions</a>
       <a class="bdgsownv2-stack-tab" href="#svc-tools">Tools &amp; Themes</a>
-      <a class="bdgsownv2-stack-tab" href="#svc-growth">Growth Plan</a>
+      <a class="bdgsownv2-stack-tab" href="#svc-founders-track">Founder's Track</a>
     </div>
 
     <!-- Stacking cards -->
@@ -1464,9 +1468,9 @@ Chatbots. Agents. Smart search.<br>
         <div class="bdgsownv2-stack-card-cta"><a href="/tools">Browse tools &amp; themes →</a></div>
       </div>
 
-      <div class="bdgsownv2-stack-card" id="svc-growth">
+      <div class="bdgsownv2-stack-card" id="svc-founders-track">
         <div class="bdgsownv2-stack-card-accent" style="background:var(--bdgs-gradient)"></div>
-        <div class="bdgsownv2-stack-card-title">Growth Plan — Apply to Join</div>
+        <div class="bdgsownv2-stack-card-title">Founder's Track — Apply to Join</div>
         <div class="bdgsownv2-stack-card-desc">Co-founder level strategy from Yakin Shah + dedicated Brilliant Directories developer + AI dev fleet access + SEO (technical + content + on-page) + everything—execution from business directories developers who understand how directories actually monetize. This isn't a service — it's a partnership. By application only.</div>
         <div class="bdgsownv2-stack-card-features">
           <span>Yakin's strategy hours</span>
@@ -1475,7 +1479,7 @@ Chatbots. Agents. Smart search.<br>
           <span>Full SEO</span>
           <span>Invite only</span>
         </div>
-        <div class="bdgsownv2-stack-card-cta"><a href="/growth-plans">Apply for Growth Plan →</a></div>
+        <div class="bdgsownv2-stack-card-cta"><a href="/founders-track">Apply for Founder's Track →</a></div>
       </div>
 
     </div>
