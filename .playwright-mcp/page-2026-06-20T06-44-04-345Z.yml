@@ -1,0 +1,522 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "BD Growth Suite" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "BD Growth Suite" [ref=e5]
+      - button "Get Started →" [ref=e6] [cursor=pointer]
+  - generic [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]: 🏅 Gold Certified Brilliant Directories Partner
+      - generic [ref=e11]: 🤖 Claude / Anthropic Service Partner
+      - generic [ref=e12]: 🌍 500+ Directory Sites · 7+ Countries
+    - heading "The only directory team that gets you from 0→1→10→100…$1M" [level=1] [ref=e13]
+    - paragraph [ref=e14]: Brilliant Directories developers who think like co-founders—with directory website expert judgment baked in. Backed by a founder who's done it himself. The only Brilliant Directories team where strategy isn't an add-on — it's how we build.
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - generic [ref=e17]: 2×
+        - generic [ref=e18]: Faster Delivery
+      - generic [ref=e20]:
+        - generic [ref=e21]: 24/7
+        - generic [ref=e22]: AI Agents Fleet
+    - generic [ref=e23]:
+      - link "Explore Services" [ref=e24] [cursor=pointer]:
+        - /url: /services
+      - link "Join Free Zoom Clinic" [ref=e25] [cursor=pointer]:
+        - /url: /zoom-clinics
+  - generic [ref=e28]:
+    - generic [ref=e29]:
+      - generic [ref=e30]: 🏅 Recommended by Brilliant Directories' CEO
+      - heading "Don't take our word for it. Hear from the source." [level=2] [ref=e31]:
+        - text: Don't take our word for it.
+        - text: Hear from the source.
+      - paragraph [ref=e32]: Jason, CEO of Brilliant Directories, personally endorsed BD Growth Suite across 3 official webinars. When the platform's own CEO recommends a team — that says everything.
+      - generic [ref=e33]:
+        - link "Explore Services" [ref=e34] [cursor=pointer]:
+          - /url: /services
+        - link "Read 169+ Reviews" [ref=e35] [cursor=pointer]:
+          - /url: /blabs-review
+    - generic [ref=e36]:
+      - iframe [ref=e38]:
+        - generic [active] [ref=f1e1]:
+          - generic "YouTube Video Player" [ref=f1e3]
+          - generic [ref=f1e5]:
+            - generic:
+              - generic:
+                - button "Play video" [ref=f1e10] [cursor=pointer]
+                - button "Hide player controls" [ref=f1e12] [cursor=pointer]
+                - generic [ref=f1e14]:
+                  - generic [ref=f1e19]:
+                    - generic [ref=f1e20]:
+                      - link "Your First 100 Members 📈 Simplify Your Directory + Membership Website 🚀 Easy Tips & Tricks" [ref=f1e21] [cursor=pointer]:
+                        - /url: https://www.youtube.com/watch?v=pxKOMfuuPO8
+                      - link "Brilliant Directories" [ref=f1e22] [cursor=pointer]:
+                        - /url: /channel/UCVQfwMCFnjXEVqPAEJVjH0Q
+                        - generic [ref=f1e23]: Brilliant Directories
+                    - generic [ref=f1e24]:
+                      - button [ref=f1e25] [cursor=pointer]
+                      - generic [ref=f1e27]:
+                        - generic: Brilliant Directories
+                        - generic: 12.4K subscribers
+                  - generic [ref=f1e28]:
+                    - button "Copy link" [ref=f1e31] [cursor=pointer]:
+                      - generic [ref=f1e35]:
+                        - img
+                    - link "Watch on YouTube" [ref=f1e42] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=pxKOMfuuPO8
+                      - generic [ref=f1e45]:
+                        - text: Watch on
+                        - img [ref=f1e47]:
+                          - generic [ref=f1e49]:
+                            - img
+      - link "Check out more webinars →" [ref=e40] [cursor=pointer]:
+        - /url: https://www.youtube.com/@BrilliantDirectories/videos
+  - generic [ref=e42]:
+    - heading "Sound familiar? We've heard it all." [level=2] [ref=e43]
+    - generic [ref=e44]:
+      - generic [ref=e46]:
+        - generic [ref=e47]: "\"I Bought Brilliant Directories... now what?\""
+        - generic [ref=e48]:
+          - text: You expected plug-and-play. Reality hit.
+          - text: "We take you from:"
+          - strong [ref=e49]: purchase → launch → first paying member.
+        - link "Start your setup →" [ref=e51] [cursor=pointer]:
+          - /url: /setup
+      - generic [ref=e53]:
+        - generic [ref=e54]: "\"This isn't as no-code as I thought.\""
+        - generic [ref=e55]:
+          - text: Our team handles the technical parts.
+          - text: You handle the vision.
+          - strong [ref=e56]: We handle everything else.
+        - link "Get a dedicated developer →" [ref=e58] [cursor=pointer]:
+          - /url: "#svc-dev"
+      - generic [ref=e60]:
+        - generic [ref=e61]: "\"I need a team that's actually done this before.\""
+        - generic [ref=e62]:
+          - text: BusinessLabs grew from solo to 50+ devs serving 500+ sites.
+          - text: Every dev on your account trained under that playbook.
+          - strong [ref=e63]: 1000+ Brilliant Directories features shipped — yours next.
+        - link "Meet the team →" [ref=e65] [cursor=pointer]:
+          - /url: /about
+      - generic [ref=e67]:
+        - generic [ref=e68]: "\"I don't want to explain my business to every new dev.\""
+        - generic [ref=e69]:
+          - text: Hire a dedicated Brilliant Directories developer who knows your codebase, your vision, your niche.
+          - strong [ref=e70]: One team. Forever.
+        - link "Hire for the long term →" [ref=e72] [cursor=pointer]:
+          - /url: "#svc-dev"
+      - generic [ref=e74]:
+        - generic [ref=e75]: "\"I want a site I'd be proud to pitch to investors.\""
+        - generic [ref=e76]:
+          - text: We've sat with founders through pivots, pitches, and pivots.
+          - text: Some raised funding. Some hit 7 figures.
+          - strong [ref=e77]: Wherever you're aiming — we've been there.
+        - link "See solutions →" [ref=e79] [cursor=pointer]:
+          - /url: /solutions
+      - generic [ref=e81]:
+        - generic [ref=e82]: "\"I need AI but I don't know where to start.\""
+        - generic [ref=e83]:
+          - text: We don't just use AI — we build it INTO your directory.
+          - text: Chatbots. Agents. Smart search.
+          - strong [ref=e84]: Automation that removes real busywork.
+        - link "Grow with AI →" [ref=e86] [cursor=pointer]:
+          - /url: /grow-with-ai
+  - generic [ref=e88]:
+    - heading "We Made These Directories Happy VERY HAPPY" [level=2] [ref=e89]:
+      - text: We Made These Directories Happy
+      - emphasis [ref=e90]: VERY HAPPY
+    - paragraph [ref=e91]: Clients say we feel like in-house Brilliant Directories experts—not a ticket queue. We delivered beyond their expectations — and we'll do the same for you.
+    - generic [ref=e92]:
+      - generic [ref=e93]:
+        - img "Client logo"
+      - generic [ref=e94]:
+        - img "Client logo"
+      - generic [ref=e95]:
+        - img "Client logo"
+      - generic [ref=e96]:
+        - img "Client logo"
+      - generic [ref=e97]:
+        - img "CCRG"
+      - generic [ref=e98]:
+        - img "Supplyseys"
+      - generic [ref=e99]:
+        - img "Client logo"
+      - generic [ref=e100]:
+        - img "Hotels Junction"
+      - generic [ref=e101]:
+        - img "Yep"
+      - generic [ref=e102]:
+        - img "Client logo"
+      - generic [ref=e103]:
+        - img "ISO Stylist"
+      - generic [ref=e104]:
+        - img "Client logo"
+      - generic [ref=e105]:
+        - img "Client logo"
+      - generic [ref=e106]:
+        - img "LocalBulls"
+      - generic [ref=e107]:
+        - img "Insure Black"
+      - generic [ref=e108]:
+        - img "Client logo"
+    - generic [ref=e109]:
+      - link "Client review" [ref=e110] [cursor=pointer]:
+        - /url: /blabs-review
+        - img "Client review"
+      - link "Client review" [ref=e111] [cursor=pointer]:
+        - /url: /blabs-review
+        - img "Client review"
+      - link "Client review" [ref=e112] [cursor=pointer]:
+        - /url: /blabs-review
+        - img "Client review"
+      - link "Client review" [ref=e113] [cursor=pointer]:
+        - /url: /blabs-review
+        - img "Client review"
+      - link "Client review" [ref=e114] [cursor=pointer]:
+        - /url: /blabs-review
+        - img "Client review"
+      - link "Client review" [ref=e115] [cursor=pointer]:
+        - /url: /blabs-review
+        - img "Client review"
+      - link "Client review" [ref=e116] [cursor=pointer]:
+        - /url: /blabs-review
+        - img "Client review"
+      - link "Client review" [ref=e117] [cursor=pointer]:
+        - /url: /blabs-review
+        - img "Client review"
+      - link "Client review" [ref=e118] [cursor=pointer]:
+        - /url: /blabs-review
+        - img "Client review"
+      - link "Client review" [ref=e119] [cursor=pointer]:
+        - /url: /blabs-review
+        - img "Client review"
+      - link "Client review" [ref=e120] [cursor=pointer]:
+        - /url: /blabs-review
+        - img "Client review"
+    - link "See all 169+ reviews →" [ref=e122] [cursor=pointer]:
+      - /url: /blabs-review
+  - generic [ref=e125]:
+    - generic [ref=e126]:
+      - generic [ref=e127]: 500+
+      - generic [ref=e128]: Directory Sites Served
+    - generic [ref=e129]:
+      - generic [ref=e130]: 169+
+      - generic [ref=e131]: Verified Reviews
+    - generic [ref=e132]:
+      - generic [ref=e133]: 10+
+      - generic [ref=e134]: Years in Directory Ecosystem
+    - generic [ref=e135]:
+      - generic [ref=e136]: 20+
+      - generic [ref=e137]: In-House Developers
+  - generic [ref=e139]:
+    - heading "Everything you need to grow your Brilliant Directories site" [level=2] [ref=e140]
+    - paragraph [ref=e141]: "With BD Growth Suite, you can:"
+    - generic [ref=e142]:
+      - link "Setup" [ref=e143] [cursor=pointer]:
+        - /url: "#svc-setup"
+      - link "Dedicated Devs" [ref=e144] [cursor=pointer]:
+        - /url: "#svc-dev"
+      - link "AI Development" [ref=e145] [cursor=pointer]:
+        - /url: "#svc-ai"
+      - link "Solutions" [ref=e146] [cursor=pointer]:
+        - /url: "#svc-solutions"
+      - link "Tools & Themes" [ref=e147] [cursor=pointer]:
+        - /url: "#svc-tools"
+      - link "Growth Plan" [ref=e148] [cursor=pointer]:
+        - /url: "#svc-growth"
+    - generic [ref=e149]:
+      - generic [ref=e150]:
+        - generic [ref=e152]: Launch Your Brilliant Directories Site
+        - generic [ref=e153]: Budget-tight? Ready to launch fast? Aiming for a million-dollar directory? There's a path for you.
+        - generic [ref=e154]:
+          - generic [ref=e155]:
+            - generic [ref=e156]: FREE
+            - generic [ref=e157]: Zoom Clinics
+            - generic [ref=e158]: Free · drop in
+            - generic [ref=e159]: Small silly things? Never pay a developer again. Learn Brilliant Directories. Our devs show you live.
+            - generic [ref=e160]:
+              - text: 📅 Tuesdays & Thursdays
+              - text: 🕡 6:30–7:30 PM IST
+              - text: (We stay another 30 min if active queues need help)
+            - button "Join Next Session →" [ref=e162] [cursor=pointer]
+          - generic [ref=e163]:
+            - generic [ref=e164]: POPULAR
+            - generic [ref=e165]: Express Setup
+            - generic [ref=e166]: $900 · one-time
+            - generic [ref=e167]: Fast, technical setup. Our devs configure your directory in 3 days once we have your inputs.
+            - list [ref=e168]:
+              - listitem [ref=e169]: ✓ 3-day turnaround
+              - listitem [ref=e170]: ✓ Full configuration
+              - listitem [ref=e171]: ✓ Categories & tiers
+              - listitem [ref=e172]: ✓ SEO basics
+            - link "Start Express →" [ref=e174] [cursor=pointer]:
+              - /url: /setup#express
+          - generic [ref=e175]:
+            - generic [ref=e176]: APPLY ONLY
+            - generic [ref=e177]: For million-dollar directory founders
+            - generic [ref=e178]: Founder Concierge
+            - generic [ref=e179]: $3,500 · by application
+            - generic [ref=e180]: Yakin joins to think alongside you. Pay $900 floor. If no fit in 30 min, devs do Express. If fit, pay $2,600 more.
+            - list [ref=e181]:
+              - listitem [ref=e182]: ✓ 2× strategy sessions with Yakin
+              - listitem [ref=e183]: ✓ Setup + 5 hrs customization
+              - listitem [ref=e184]: ✓ 2× post-launch GTM sessions
+              - listitem [ref=e185]: ✓ $900 floor — refundable
+            - link "Apply for Concierge →" [ref=e187] [cursor=pointer]:
+              - /url: /setup#founder-concierge
+        - generic [ref=e188]:
+          - text: Not sure which fits?
+          - link "Compare all three on Setup & Launch →" [ref=e189] [cursor=pointer]:
+            - /url: /setup
+      - generic [ref=e190]:
+        - generic [ref=e192]: Dedicated Developers
+        - generic [ref=e193]: Your directory is a technology business. Get a developer who knows your codebase, your vision, your niche — permanently. AI-savvy. Brilliant Directories-native.
+        - generic [ref=e194]:
+          - generic [ref=e195]:
+            - generic [ref=e196]: FREE
+            - generic [ref=e197]: Zoom Clinics
+            - generic [ref=e198]: Free · drop in
+            - generic [ref=e199]: Quick questions or stuck on small things? Drop in. Our devs help you live.
+            - list [ref=e200]:
+              - listitem [ref=e201]: ✓ Live dev help
+              - listitem [ref=e202]: ✓ No commitment
+              - listitem [ref=e203]: ✓ Learn as you build
+            - button "Join Next Session →" [ref=e205] [cursor=pointer]
+          - generic [ref=e206]:
+            - generic [ref=e207]: POPULAR
+            - generic [ref=e208]: Dedicated BD Developer
+            - generic [ref=e209]: $X,XXX · /month
+            - generic [ref=e210]: Your own AI-savvy Brilliant Directories developer. Knows your codebase. Ships ideas as you have them.
+            - list [ref=e211]:
+              - listitem [ref=e212]: ✓ Long-term commitment
+              - listitem [ref=e213]: ✓ AI-savvy & BD-native
+              - listitem [ref=e214]: ✓ 2× faster with AI
+              - listitem [ref=e215]: ✓ Friday idea → Monday prototype
+            - link "Get a BD Developer →" [ref=e217] [cursor=pointer]:
+              - /url: /hire-developer#bd-dev
+          - generic [ref=e218]:
+            - generic [ref=e219]: APPLY ONLY
+            - generic [ref=e220]: For aggressive scaling
+            - generic [ref=e221]: AI Dev Fleet
+            - generic [ref=e222]: $X,XXX · /month
+            - generic [ref=e223]: A team of AI agents + supervisor working on your directory. Pay for one. Get the throughput of many.
+            - list [ref=e224]:
+              - listitem [ref=e225]: ✓ Multiple AI agents working in parallel
+              - listitem [ref=e226]: ✓ Human supervisor reviewing every output
+              - listitem [ref=e227]: ✓ 3× the velocity at lower cost
+              - listitem [ref=e228]: ✓ Claude / Anthropic powered
+            - link "Apply for AI Fleet →" [ref=e230] [cursor=pointer]:
+              - /url: /hire-developer#ai-fleet
+        - generic [ref=e231]:
+          - text: Not sure which fits?
+          - link "Compare all three on Hire a Developer →" [ref=e232] [cursor=pointer]:
+            - /url: /hire-developer
+      - generic [ref=e233]:
+        - generic [ref=e235]: AI Development
+        - generic [ref=e236]: We don't just use AI — we build it for your directory. Chatbots, AI agents, smart search, automated follow-ups, content generation, custom AI employees, and bd automation where it removes real busywork. The only directory team that's a Claude / Anthropic service partner.
+        - generic [ref=e237]:
+          - generic [ref=e238]: ✓ AI chatbots
+          - generic [ref=e239]: ✓ Smart search
+          - generic [ref=e240]: ✓ Content AI
+          - generic [ref=e241]: ✓ AI agent fleet
+        - link "Grow with AI →" [ref=e243] [cursor=pointer]:
+          - /url: /grow-with-ai
+      - generic [ref=e244]:
+        - generic [ref=e246]: Solutions (Done-For-You)
+        - generic [ref=e247]: Pre-defined services where our team implements specific outcomes on your directory. Custom homepage design, schema markup, SEO audits, lead gen widgets, profile customizations — each with expert execution and warranty. Not plugins. We do the work.
+        - generic [ref=e248]:
+          - generic [ref=e249]: ✓ Homepage design
+          - generic [ref=e250]: ✓ Schema implementation
+          - generic [ref=e251]: ✓ SEO audits
+          - generic [ref=e252]: ✓ Profile customizations
+          - generic [ref=e253]: ✓ 1-year warranty
+        - link "Browse all solutions →" [ref=e255] [cursor=pointer]:
+          - /url: /solutions
+      - generic [ref=e256]:
+        - generic [ref=e258]: Tools & Themes
+        - generic [ref=e259]: Productized software and design assets you install or subscribe to—built by brilliant directories developers who still ship weekly on the platform. BrilliantChat (our AI chatbot), 6 premium industry-specific themes, and a growing list of AI-powered tools coming under our automation suite. Self-serve or have us set them up.
+        - generic [ref=e260]:
+          - generic [ref=e261]: ✓ BrilliantChat AI
+          - generic [ref=e262]: ✓ 6 premium themes
+          - generic [ref=e263]: ✓ AI follow-ups
+          - generic [ref=e264]: ✓ Lead gen tools
+          - generic [ref=e265]: ✓ More coming
+        - link "Browse tools & themes →" [ref=e267] [cursor=pointer]:
+          - /url: /tools
+      - generic [ref=e268]:
+        - generic [ref=e270]: Growth Plan — Apply to Join
+        - generic [ref=e271]: Co-founder level strategy from Yakin Shah + dedicated Brilliant Directories developer + AI dev fleet access + SEO (technical + content + on-page) + everything—execution from business directories developers who understand how directories actually monetize. This isn't a service — it's a partnership. By application only.
+        - generic [ref=e272]:
+          - generic [ref=e273]: ✓ Yakin's strategy hours
+          - generic [ref=e274]: ✓ Dedicated dev
+          - generic [ref=e275]: ✓ AI fleet access
+          - generic [ref=e276]: ✓ Full SEO
+          - generic [ref=e277]: ✓ Invite only
+        - link "Apply for Growth Plan →" [ref=e279] [cursor=pointer]:
+          - /url: /growth-plans
+  - generic [ref=e281]:
+    - heading "Where are you on your Brilliant Directories journey?" [level=2] [ref=e282]
+    - paragraph [ref=e283]: Choose your stage. We'll show you the fastest path forward.
+    - generic [ref=e284]:
+      - generic [ref=e286]:
+        - heading "🚀 Just Starting" [level=3] [ref=e287]
+        - paragraph [ref=e288]: You bought Brilliant Directories and need help launching. You want a team that gets it done right the first time.
+        - link "Start Setup →" [ref=e289] [cursor=pointer]:
+          - /url: /setup
+      - generic [ref=e291]:
+        - heading "⚡ Growing & Need Firepower" [level=3] [ref=e292]
+        - paragraph [ref=e293]: You're live but need a dedicated BD developer, custom features, or AI tools. You want speed and a long-term partner.
+        - link "Hire a Developer →" [ref=e294] [cursor=pointer]:
+          - /url: /hire-developer
+      - generic [ref=e296]:
+        - heading "🎯 Serious About $1M" [level=3] [ref=e297]
+        - paragraph [ref=e298]: You have capital, vision, and commitment. You want co-founder level strategy + a full team with directory website expert leadership on the directory side. By application only.
+        - link "Apply for Growth Plan →" [ref=e299] [cursor=pointer]:
+          - /url: /growth-plans
+  - generic [ref=e302]:
+    - generic [ref=e303]:
+      - generic [ref=e304]: 🧠 The BDGS Team
+      - heading "Your directory deserves a team that thinks like founders — because every one of ours is trained to." [level=2] [ref=e305]:
+        - text: Your directory deserves a team that thinks like founders —
+        - text: because every one of ours is trained to.
+      - paragraph [ref=e306]: "We select a handful of developers from thousands of applications, then train them for months beyond code: directory strategy, founder decisions, conversion thinking, and when to push back on a weak idea. Brilliant Directories developers' training is not a slideshow—it is supervised shipping until quality is reflexive."
+      - paragraph [ref=e307]: Every dev carries the playbook of 500+ directories we've served. They suggest what works before you ask, flag what can waste your time, and work under Yakin Shah's founder-led direction.
+      - generic [ref=e308]:
+        - text: "\""
+        - paragraph [ref=e309]: If something doesn't work for you — that's our responsibility to fix. Adding value is our job. The final call is always yours.
+        - paragraph [ref=e310]: — The BDGS team mantra
+    - generic [ref=e312]: "[Team photo / training process visual]"
+  - generic [ref=e314]:
+    - heading "Ready to talk about your directory site?" [level=2] [ref=e315]
+    - paragraph [ref=e316]: Tell us where you are, what you need, and how fast you want to move. Our team will route it to the right person.
+    - button "Get Started" [ref=e318] [cursor=pointer]
+  - generic [ref=e320]:
+    - generic [ref=e321]:
+      - heading "Common Questions About BD Growth Suite" [level=2] [ref=e322]
+      - paragraph [ref=e323]: Clear answers for Brilliant Directories founders comparing setup help, dedicated developers, BD automation, SEO, and growth support.
+    - generic [ref=e324]:
+      - generic [ref=e325]:
+        - heading "What does BD Growth Suite actually do?" [level=3] [ref=e326]
+        - paragraph [ref=e327]: BD Growth Suite helps Brilliant Directories site owners launch, improve, automate, and scale directory websites. We offer setup, dedicated BD developers, BD automation, AI-powered development, design, SEO, tools, themes, and growth support.
+      - generic [ref=e328]:
+        - heading "Are you Brilliant Directories developers?" [level=3] [ref=e329]
+        - paragraph [ref=e330]: Yes. BDGS is built for Brilliant Directories site owners. Our team works on Brilliant Directories websites every day, including setup, custom features, member flows, search pages, schema, SEO, design, automation, and ongoing development.
+      - generic [ref=e331]:
+        - heading "Do you only work with Brilliant Directories websites?" [level=3] [ref=e332]
+        - paragraph [ref=e333]: We are Brilliant Directories first, but not limited to only BD. If your business uses CRMs, email platforms, automation systems, or AI tools, our team can connect those systems around your directory business.
+      - generic [ref=e334]:
+        - heading "What is a dedicated BD developer?" [level=3] [ref=e335]
+        - paragraph [ref=e336]: A dedicated BD developer is a long-term developer who learns your directory, niche, goals, and codebase. Instead of explaining every task from scratch, you get ongoing execution from someone who understands your business.
+      - generic [ref=e337]:
+        - heading "Why hire a dedicated developer instead of doing one-off projects?" [level=3] [ref=e338]
+        - paragraph [ref=e339]: A directory website is a technology business. If you want to keep improving, testing, launching ideas, and growing revenue, ongoing development matters. One-off projects fix tasks. A dedicated developer helps you keep moving.
+      - generic [ref=e340]:
+        - heading "What is BD automation?" [level=3] [ref=e341]
+        - paragraph [ref=e342]: BD automation means using workflows, AI, integrations, follow-ups, lead routing, content systems, and internal tools to make your Brilliant Directories business run faster. It can include member follow-up, lead generation, AI search, CRM syncing, and custom automations.
+      - generic [ref=e343]:
+        - heading "Can you help if I just bought Brilliant Directories and feel stuck?" [level=3] [ref=e344]
+        - paragraph [ref=e345]: Yes. This is one of the main reasons BDGS exists. We help new Brilliant Directories site owners go from "I bought BD, now what?" to a launched, structured, and growth-ready directory website.
+      - generic [ref=e346]:
+        - heading "Are you a directory website expert or just a development agency?" [level=3] [ref=e347]
+        - paragraph [ref=e348]: BDGS is a directory website expert team, not a generic agency. We understand Brilliant Directories, directory monetization, member experiences, search pages, SEO, schema, lead generation, and the founder journey from launch to scale.
+      - generic [ref=e349]:
+        - heading "Can BD Growth Suite help with SEO for directory websites?" [level=3] [ref=e350]
+        - paragraph [ref=e351]: Yes. We help with directory SEO, schema implementation, member results pages, jobs results pages, speed improvements, on-page structure, content planning, and technical fixes built around Brilliant Directories.
+      - generic [ref=e352]:
+        - heading "Why choose BDGS over other business directories developers?" [level=3] [ref=e353]
+        - paragraph [ref=e354]: BDGS combines Brilliant Directories experience, dedicated developers, AI automation, SEO, design, tools, themes, and founder-led strategy. We do not just build features. We help you build and scale the directory business behind them.
+  - contentinfo [ref=e355]:
+    - generic [ref=e356]:
+      - generic [ref=e357]:
+        - generic [ref=e358]:
+          - heading "Services" [level=4] [ref=e359]
+          - list [ref=e360]:
+            - listitem [ref=e361]:
+              - link "Setup & Launch" [ref=e362] [cursor=pointer]:
+                - /url: /setup
+            - listitem [ref=e363]:
+              - link "Solutions (Done-For-You)" [ref=e364] [cursor=pointer]:
+                - /url: /solutions
+            - listitem [ref=e365]:
+              - link "Dedicated Developers" [ref=e366] [cursor=pointer]:
+                - /url: /hire-developer
+            - listitem [ref=e367]:
+              - link "Maintenance Plans" [ref=e368] [cursor=pointer]:
+                - /url: /maintenance
+            - listitem [ref=e369]:
+              - link "Consultation" [ref=e370] [cursor=pointer]:
+                - /url: /consultation
+            - listitem [ref=e371]:
+              - link "Growth Plan (Apply)" [ref=e372] [cursor=pointer]:
+                - /url: /growth-plans
+            - listitem [ref=e373]:
+              - link "Free Zoom Clinics 🟢" [ref=e374] [cursor=pointer]:
+                - /url: /zoom-clinics
+        - generic [ref=e375]:
+          - heading "Grow with AI" [level=4] [ref=e376]
+          - list [ref=e377]:
+            - listitem [ref=e378]:
+              - link "AI-Powered Development" [ref=e379] [cursor=pointer]:
+                - /url: /ai-development
+            - listitem [ref=e380]:
+              - link "AI Dev Fleet" [ref=e381] [cursor=pointer]:
+                - /url: /ai-dev-fleet
+            - listitem [ref=e382]:
+              - link "AI for Your Directory" [ref=e383] [cursor=pointer]:
+                - /url: /ai-for-your-site
+            - listitem [ref=e384]:
+              - link "Directory Automation" [ref=e385] [cursor=pointer]:
+                - /url: /bd-automation
+            - listitem [ref=e386]:
+              - link "SEO & Growth" [ref=e387] [cursor=pointer]:
+                - /url: /seo-growth
+        - generic [ref=e388]:
+          - heading "Resources" [level=4] [ref=e389]
+          - list [ref=e390]:
+            - listitem [ref=e391]:
+              - link "Tools & Themes" [ref=e392] [cursor=pointer]:
+                - /url: /tools
+            - listitem [ref=e393]:
+              - link "Solutions (61+ done-for-you)" [ref=e394] [cursor=pointer]:
+                - /url: /solutions
+            - listitem [ref=e395]:
+              - link "Directory Themes (6)" [ref=e396] [cursor=pointer]:
+                - /url: /themes
+            - listitem [ref=e397]:
+              - link "Blog" [ref=e398] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=e399]:
+              - link "Client Reviews (169+)" [ref=e400] [cursor=pointer]:
+                - /url: /blabs-review
+            - listitem [ref=e401]:
+              - link "About Us" [ref=e402] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e403]:
+              - link "CEO Webinars" [ref=e404] [cursor=pointer]:
+                - /url: /webinars
+        - generic [ref=e405]:
+          - heading "Get Started" [level=4] [ref=e406]
+          - list [ref=e407]:
+            - listitem [ref=e408]:
+              - link "WhatsApp Chat" [ref=e409] [cursor=pointer]:
+                - /url: https://wa.me/917799285123
+            - listitem [ref=e410]:
+              - link "Book a Consultation" [ref=e411] [cursor=pointer]:
+                - /url: /consultation
+            - listitem [ref=e412]:
+              - button "Contact Us" [ref=e413] [cursor=pointer]
+            - listitem [ref=e414]:
+              - link "Login" [ref=e415] [cursor=pointer]:
+                - /url: /login
+      - generic [ref=e416]:
+        - paragraph [ref=e417]:
+          - text: © 2026 BD Growth Suite by BusinessLabs. All rights reserved. |
+          - link "Terms" [ref=e418] [cursor=pointer]:
+            - /url: /terms
+          - text: "|"
+          - link "Privacy" [ref=e419] [cursor=pointer]:
+            - /url: /privacy
+        - generic [ref=e420]:
+          - generic [ref=e421]: 🏅 Gold Certified Brilliant Directories Partner
+          - generic [ref=e422]: 🤖 Claude / Anthropic Partner
+          - generic [ref=e423]: 🌍 500+ Sites · 7+ Countries
