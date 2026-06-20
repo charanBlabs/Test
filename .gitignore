@@ -1,0 +1,9 @@
+node_modules/
+.playwright-mcp/
+test-results/
+playwright-report/
+blob-report/
+out.json
+.agents/
+skills-lock.json
+verification_report.md
