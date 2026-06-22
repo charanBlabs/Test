@@ -1688,7 +1688,7 @@ Chatbots. Agents. Smart search.<br>
   </div>
 </footer>
 
-<!-- Zoom Clinics Modal (placeholder content — to be locked later) -->
+<!-- Zoom Clinics Modal -->
 <div class="bdgsownv2-modal-overlay" id="bdgsZoomModal">
   <div class="bdgsownv2-modal">
     <button class="bdgsownv2-modal-close" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; top: 14px; right: 14px; padding: 0;" onclick="bdgsCloseZoomModal()">
@@ -1698,7 +1698,20 @@ Chatbots. Agents. Smart search.<br>
       <h3>🟢 Join Free Zoom Clinics</h3>
       <p>Small silly things on your directory site? Never pay a developer for those again. Drop into our live Zoom session, get help, learn how BD works.</p>
       <form id="bdgsZoomBookingForm" onsubmit="event.preventDefault(); bdgsProcessZoomBooking();">
-        <p style="background:var(--bdgs-bg);padding:12px 14px;border-radius:8px;font-size:13px;border-left:3px solid var(--bdgs-coral)"><strong style="color:var(--bdgs-dark)">Next session:</strong> [Schedule placeholder — to be locked]<br><strong style="color:var(--bdgs-dark)">Format:</strong> 60-min open Q&amp;A with our devs<br><strong style="color:var(--bdgs-dark)">Cost:</strong> Free, forever</p>
+        <div class="bdgsownv2-modal-form" style="margin-top:0; margin-bottom:16px;">
+          <input type="text" id="bdgsZoomName" name="name" placeholder="Your Name" required>
+          <input type="email" id="bdgsZoomEmail" name="email" placeholder="Your Email" required>
+          <select id="bdgsZoomTimezone" onchange="bdgsUpdateTimezoneDisplay()" style="padding:12px; border-radius:8px; border:1px solid var(--bdgs-border); width:100%; font-size:14px;">
+            <option value="EDT" selected>Eastern Daylight Time (EDT)</option>
+            <option value="CDT">Central Daylight Time (CDT)</option>
+            <option value="MDT">Mountain Daylight Time (MDT)</option>
+            <option value="PDT">Pacific Daylight Time (PDT)</option>
+            <option value="BST">British Summer Time (BST)</option>
+            <option value="IST">Indian Standard Time (IST)</option>
+          </select>
+        </div>
+        
+        <p style="background:var(--bdgs-bg);padding:12px 14px;border-radius:8px;font-size:13px;border-left:3px solid var(--bdgs-coral)"><strong style="color:var(--bdgs-dark)">Next session:</strong> <span id="bdgsZoomSessionDisplay">9:00 AM - 10:00 AM EDT</span><br><strong style="color:var(--bdgs-dark)">Format:</strong> 60-min open Q&amp;A with our devs<br><strong style="color:var(--bdgs-dark)">Cost:</strong> Free, forever</p>
         <p style="font-size:12px;color:var(--bdgs-text-muted);margin-top:14px;margin-bottom:24px;">Strategy questions? Those need our Founder Concierge or Express Setup. Everything else — come on in.</p>
         <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
           <button type="submit" id="bdgsZoomScheduleBtn" class="bdgsownv2-btn-primary" style="width:100%;padding:14px 20px;font-size:15px;text-align:center;">Schedule Session</button>
@@ -1840,7 +1853,33 @@ Chatbots. Agents. Smart search.<br>
 
 <script>
 // Modal — Zoom Clinics
+function bdgsZoomAutoFill() {
+  // Logic to auto-fill logged-in user data
+  const loggedInUser = null; // placeholder for user object
+  if(loggedInUser) {
+    document.getElementById('bdgsZoomName').value = loggedInUser.name || '';
+    document.getElementById('bdgsZoomEmail').value = loggedInUser.email || '';
+  }
+}
+
+function bdgsUpdateTimezoneDisplay() {
+  const tz = document.getElementById('bdgsZoomTimezone').value;
+  const display = document.getElementById('bdgsZoomSessionDisplay');
+  const sessionTimes = {
+    'EDT': '9:00 AM - 10:00 AM EDT',
+    'CDT': '8:00 AM - 9:00 AM CDT',
+    'MDT': '7:00 AM - 8:00 AM MDT',
+    'PDT': '6:00 AM - 7:00 AM PDT',
+    'BST': '2:00 PM - 3:00 PM BST',
+    'IST': '6:30 PM - 7:30 PM IST'
+  };
+  if(display && sessionTimes[tz]) {
+    display.innerText = sessionTimes[tz];
+  }
+}
+
 function bdgsOpenZoomModal() {
+  bdgsZoomAutoFill();
   document.getElementById('bdgsZoomModal').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
@@ -1854,6 +1893,8 @@ function bdgsCloseZoomModal() {
     if (content && success) {
       content.style.display = 'block';
       success.style.display = 'none';
+      document.getElementById('bdgsZoomBookingForm').reset();
+      bdgsUpdateTimezoneDisplay();
     }
   }, 300);
 }
