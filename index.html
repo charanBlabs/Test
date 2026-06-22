@@ -168,12 +168,12 @@ body {
   gap: 0;
 }
 .bdgsownv2-dropdown-mega-services {
-  flex: 0 0 66.666%;
+  flex: 0 0 38%;
   min-width: 0;
   padding-right: 20px;
 }
 .bdgsownv2-dropdown-mega-solutions {
-  flex: 0 0 33.333%;
+  flex: 0 0 62%;
   min-width: 0;
   padding-left: 24px;
 }
@@ -209,9 +209,9 @@ body {
   white-space: nowrap;
 }
 .bdgsownv2-dropdown-solutions-grid {
-  grid-template-rows: auto;
-  grid-auto-flow: row;
-  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 @media (max-width: 1199px) {
   .bdgsownv2-dropdown-mega {
@@ -1040,6 +1040,13 @@ body {
             <div class="bdgsownv2-dropdown-mega-solutions">
               <p class="bdgsownv2-dropdown-col-heading">Solutions Done For You</p>
               <div class="bdgsownv2-dropdown-grid bdgsownv2-dropdown-solutions-grid">
+                <a href="/solutions?category=seo" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">SEO &amp; Schema</div></a>
+                <a href="/solutions?category=lead-gen" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Lead Generation &amp; Conversion</div></a>
+                <a href="/solutions?category=member-profile" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Member Profile Enhancement</div></a>
+                <a href="/solutions?category=search" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Search &amp; Discovery</div></a>
+                <a href="/solutions?category=design" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Page Design &amp; Development</div></a>
+                <a href="/solutions?category=content" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Content &amp; Engagement</div></a>
+                <a href="/solutions?category=integrations" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Integrations</div></a>
                 <a href="/solutions/member-management" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Member Management</div></a>
               </div>
             </div>
