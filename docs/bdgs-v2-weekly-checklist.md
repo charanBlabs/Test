@@ -58,13 +58,86 @@
 
 **Also daily (5 min):** Solutions/Tools CTAs still work · **MoM #2**
 
-### Monday Jun 22 — Sections 1–3
+### Monday Jun 22 — Sections 1–3 *(MoM call 22 Jun — rework + new scope)*
 
-- [x] **§1** Header / nav *(done 2026-06-20 via antigravity)*
-- [x] **§2** Hero (copy, AI strip, CTAs) *(done 2026-06-20 via antigravity)*
-- [x] **§3** Service tiles / stacking intro *(done 2026-06-20 via antigravity)*
+**Repo (before any UI work):**
+- [x] Revert repo to **original V7 structure** — N/A; structure untouched *(done 2026-06-22 via manual)*
 
-### Tuesday Jun 23 — Sections 4–6
+---
+
+#### Homepage §1 Header / nav — target **99% today** *(antigravity shell done 20 Jun — meeting rework)*
+
+**Menu — Solutions Done For You (approved Antigravity 22 Jun):**
+- [x] Menu approved on **Antigravity `index.html`** *(done 2026-06-22 via AG — descriptions + dashed divider + full-width mega)*
+- [x] v8/v9 planning drafts synced to approved menu *(done 2026-06-22 via cursor)*
+- [ ] ~~V8 vs V9 screenshot pick~~ — superseded by AG approval
+
+**Menu CTAs & pages:**
+- [ ] **Explore Services** CTA → new static **hub page** (not in-page anchor); simple design aligned with expanded menu IA
+- [ ] Provide **2–3 layout options** for Explore Services (reuse V1/V2/V3 section ideas from Claude chat) — share in 1–2 hrs
+
+**Free Zoom Clinics (header menu item):**
+- [x] Popup: enlarge **X** hit area on overall button → **remove bottom Close** button *(done 2026-06-22 via antigravity)*
+- [x] **Schedule** button (centered) — on click, **same popup** swaps to schedule form (no nested popup, no page reload) *(done 2026-06-22 via antigravity)*
+- [x] Schedule form: name, email, date/time, **timezone dropdown** (US×4, AU×2, London, IST); smart **EST/EDT**; display converts on TZ change; backend stores **EST or IST** *(done 2026-06-22 via antigravity)*
+- [x] Logged-in member: **pre-fill** name + email only *(done 2026-06-22 via antigravity)*
+- [x] Below Schedule: **See Full Schedule** hyperlink (arrow) → closes popup, opens results/static schedule page *(done 2026-06-22 via antigravity)*
+- [ ] Backend: customize **event post type** → Zoom Clinics; admin can create sessions; "next session" surfaces in popup *(◐ post type created + config done)*
+- [ ] **Event results page:** card grid, no filters; card click → opens schedule modal (not detail tail page); optional detail page with Schedule button → same modal
+- [ ] Tighten URLs + page titles for all Zoom Clinics routes
+- [x] Provide **2–3 layout options** for Schedule + Full Schedule placement — screenshot for pick *(done 2026-06-22 via antigravity - layout locked)*
+
+**Zoom Clinics content (blocking before launch):**
+- [ ] Confirm session **day/time** from prior chat (not Wednesday); 2-hr format
+- [ ] Draft **next 8 session topics:** title + 2–5 bullets each; teaching **15–30 min** then Q&A + free live dev fixes
+
+---
+
+#### Homepage §2 Hero — sign-off pass *(shell done 20 Jun)*
+
+- [ ] Quick review vs V7 — no new blockers from menu/CTA changes above
+
+---
+
+#### Homepage §3 Service tiles — fix today *(shell done 20 Jun)*
+
+- [ ] Title peek: show **~50% of card title** on scroll (match V7 — half visible so back cards feel stacked); not full title
+
+---
+
+#### Meeting track §2 — **Check out all webinars** *(today)*
+
+- [ ] Rename CTA: **Check out all webinars** (two words — confirmed correct)
+- [ ] Build page wired to **video post type** (currently wrong link)
+
+---
+
+#### Meeting track §2 — **Read 169 Reviews** → checklist **§7** *(start today)*
+
+- [ ] Results page via post-type listing — **no filters**
+- [ ] Custom plugin + DB tables (report table names to Yakin)
+- [ ] Scrape/copy review UI from marketplace verified-client profile (HTML/CSS)
+- [ ] Row fields (11): overall rating, surveys, responsiveness, expertise, results, communication, ID, title, text, date, **verify review** link
+- [ ] Remove "reply from BusinessLabs" → **Verify review** opens real review in new tab
+- [ ] Lazy load / on-scroll (or View more) for 30+ then batch load
+- [ ] **Review schema** on `/blabs-review` page (marketplace profile has none — build best-practice here)
+
+---
+
+#### Meeting track §3 — **Meet the Team** *(carry to Tue Jun 23 unless §1–§2 close early)*
+
+- [ ] Meet the Team section → links to **discovery call** flow
+
+---
+
+**Today goal (meeting):** Meeting §1 (menu + Explore Services + Zoom Clinics) **~99%** · Meeting §2 (webinars + reviews start) · 10-min review cycles + EOD wire
+
+### Tuesday Jun 23 — Sections 4–6 + carryover
+
+**Carry from Mon 22 (close at any cost per meeting):**
+- [ ] Any open **§1** menu V8/V9, Explore Services, Zoom Clinics items
+- [ ] **§7** reviews plugin/DB/lazy-load/schema (finish if not done Mon)
+- [ ] **Meeting §3** Meet the Team → discovery call
 
 - [x] **§4** Hire Developer card *(done 2026-06-20 via antigravity)*
 - [x] **§5** Why BDGS / pain cards *(done 2026-06-20 via antigravity)*
