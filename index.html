@@ -1719,10 +1719,10 @@ Chatbots. Agents. Smart search.<br>
         </div>
       </form>
     </div>
-    <div id="bdgsZoomModalSuccess" style="display:none;text-align:center;padding:30px 20px;">
-      <div style="font-size:48px;margin-bottom:16px;">🎉</div>
-      <h3 style="color:var(--bdgs-coral);font-size:24px;margin-bottom:12px;">You're Booked!</h3>
-      <p>We've sent the calendar invite to your email. See you at the session!</p>
+    <div id="bdgsZoomModalSuccess" style="display:none;text-align:center;padding:40px 20px;">
+      <div style="font-size:64px;margin-bottom:20px;display:inline-block;text-shadow: 0 10px 30px rgba(231,77,86,0.2);">🎉</div>
+      <h3 style="color:var(--bdgs-coral);font-size:26px;margin-bottom:12px;letter-spacing:-0.5px;">You're Booked!</h3>
+      <p style="font-size:15px;color:var(--bdgs-text-muted);line-height:1.6;">We've sent the calendar invite to your email.<br>See you at the session!</p>
     </div>
   </div>
 </div>
@@ -1886,12 +1886,14 @@ function bdgsOpenZoomModal() {
 function bdgsCloseZoomModal() {
   document.getElementById('bdgsZoomModal').classList.remove('active');
   document.body.style.overflow = '';
-  // Reset the modal content in case they reopen it
+  // Reset the modal content smoothly
   setTimeout(() => {
     const content = document.getElementById('bdgsZoomModalContent');
     const success = document.getElementById('bdgsZoomModalSuccess');
     if (content && success) {
       content.style.display = 'block';
+      content.style.opacity = '1';
+      content.style.transform = 'none';
       success.style.display = 'none';
       document.getElementById('bdgsZoomBookingForm').reset();
       bdgsUpdateTimezoneDisplay();
@@ -1901,18 +1903,40 @@ function bdgsCloseZoomModal() {
 
 function bdgsProcessZoomBooking() {
   const btn = document.getElementById('bdgsZoomScheduleBtn');
-  btn.innerText = 'Processing...';
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '<span style="opacity:0.8; letter-spacing: 0.5px;">Scheduling...</span>';
   btn.disabled = true;
   
   setTimeout(() => {
-    document.getElementById('bdgsZoomModalContent').style.display = 'none';
-    document.getElementById('bdgsZoomModalSuccess').style.display = 'block';
+    const content = document.getElementById('bdgsZoomModalContent');
+    const success = document.getElementById('bdgsZoomModalSuccess');
+    
+    // Fade out form
+    content.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+    content.style.opacity = '0';
+    content.style.transform = 'translateY(-10px)';
     
     setTimeout(() => {
-      btn.innerText = 'Schedule Session';
-      btn.disabled = false;
-    }, 500);
-  }, 800);
+      content.style.display = 'none';
+      
+      // Prepare and fade in success message with slight pop
+      success.style.display = 'block';
+      success.style.opacity = '0';
+      success.style.transform = 'scale(0.92)';
+      success.style.transition = 'opacity 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      
+      // Trigger reflow
+      void success.offsetWidth;
+      
+      success.style.opacity = '1';
+      success.style.transform = 'scale(1)';
+      
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }, 500);
+    }, 250);
+  }, 1200);
 }
 function bdgsOpenInquiryModal() {
   document.getElementById('bdgsInquiryModal').classList.add('active');
