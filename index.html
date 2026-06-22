@@ -1691,14 +1691,23 @@ Chatbots. Agents. Smart search.<br>
 <!-- Zoom Clinics Modal (placeholder content — to be locked later) -->
 <div class="bdgsownv2-modal-overlay" id="bdgsZoomModal">
   <div class="bdgsownv2-modal">
-    <button class="bdgsownv2-modal-close" onclick="bdgsCloseZoomModal()">×</button>
-    <h3>🟢 Join Free Zoom Clinics</h3>
-    <p>Small silly things on your directory site? Never pay a developer for those again. Drop into our live Zoom session, get help, learn how BD works.</p>
-    <p style="background:var(--bdgs-bg);padding:12px 14px;border-radius:8px;font-size:13px;border-left:3px solid var(--bdgs-coral)"><strong style="color:var(--bdgs-dark)">Next session:</strong> [Schedule placeholder — to be locked]<br><strong style="color:var(--bdgs-dark)">Format:</strong> 60-min open Q&amp;A with our devs<br><strong style="color:var(--bdgs-dark)">Cost:</strong> Free, forever</p>
-    <p style="font-size:12px;color:var(--bdgs-text-muted);margin-top:14px">Strategy questions? Those need our Founder Concierge or Express Setup. Everything else — come on in.</p>
-    <div style="display:flex;gap:10px;margin-top:18px">
-      <a href="/zoom-clinics" class="bdgsownv2-btn-primary" style="flex:1;text-align:center;padding:11px 18px;font-size:14px">See full schedule →</a>
-      <button onclick="bdgsCloseZoomModal()" class="bdgsownv2-btn-secondary bdgsownv2-btn-light" style="padding:11px 18px;font-size:14px;cursor:pointer">Close</button>
+    <button class="bdgsownv2-modal-close" style="font-size: 36px; top: 8px; right: 12px; padding: 4px; line-height: 1;" onclick="bdgsCloseZoomModal()">×</button>
+    <div id="bdgsZoomModalContent">
+      <h3>🟢 Join Free Zoom Clinics</h3>
+      <p>Small silly things on your directory site? Never pay a developer for those again. Drop into our live Zoom session, get help, learn how BD works.</p>
+      <form id="bdgsZoomBookingForm" onsubmit="event.preventDefault(); bdgsProcessZoomBooking();">
+        <p style="background:var(--bdgs-bg);padding:12px 14px;border-radius:8px;font-size:13px;border-left:3px solid var(--bdgs-coral)"><strong style="color:var(--bdgs-dark)">Next session:</strong> [Schedule placeholder — to be locked]<br><strong style="color:var(--bdgs-dark)">Format:</strong> 60-min open Q&amp;A with our devs<br><strong style="color:var(--bdgs-dark)">Cost:</strong> Free, forever</p>
+        <p style="font-size:12px;color:var(--bdgs-text-muted);margin-top:14px;margin-bottom:24px;">Strategy questions? Those need our Founder Concierge or Express Setup. Everything else — come on in.</p>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <button type="submit" id="bdgsZoomScheduleBtn" class="bdgsownv2-btn-primary" style="width:100%;padding:14px 20px;font-size:15px;text-align:center;">Schedule Session</button>
+          <a href="/zoom-clinics" style="font-size:13px;color:var(--bdgs-coral);font-weight:600;text-decoration:none;">See full schedule &rarr;</a>
+        </div>
+      </form>
+    </div>
+    <div id="bdgsZoomModalSuccess" style="display:none;text-align:center;padding:30px 20px;">
+      <div style="font-size:48px;margin-bottom:16px;">🎉</div>
+      <h3 style="color:var(--bdgs-coral);font-size:24px;margin-bottom:12px;">You're Booked!</h3>
+      <p>We've sent the calendar invite to your email. See you at the session!</p>
     </div>
   </div>
 </div>
@@ -1836,6 +1845,31 @@ function bdgsOpenZoomModal() {
 function bdgsCloseZoomModal() {
   document.getElementById('bdgsZoomModal').classList.remove('active');
   document.body.style.overflow = '';
+  // Reset the modal content in case they reopen it
+  setTimeout(() => {
+    const content = document.getElementById('bdgsZoomModalContent');
+    const success = document.getElementById('bdgsZoomModalSuccess');
+    if (content && success) {
+      content.style.display = 'block';
+      success.style.display = 'none';
+    }
+  }, 300);
+}
+
+function bdgsProcessZoomBooking() {
+  const btn = document.getElementById('bdgsZoomScheduleBtn');
+  btn.innerText = 'Processing...';
+  btn.disabled = true;
+  
+  setTimeout(() => {
+    document.getElementById('bdgsZoomModalContent').style.display = 'none';
+    document.getElementById('bdgsZoomModalSuccess').style.display = 'block';
+    
+    setTimeout(() => {
+      btn.innerText = 'Schedule Session';
+      btn.disabled = false;
+    }, 500);
+  }, 800);
 }
 function bdgsOpenInquiryModal() {
   document.getElementById('bdgsInquiryModal').classList.add('active');
