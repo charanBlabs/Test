@@ -1343,6 +1343,25 @@ async function fetchReviews(offset, limit) {
   }
 }
 
+// Inject AggregateRating Schema dynamically
+function injectAggregateRatingSchema(totalCount) {
+  if (document.getElementById('dynamic-aggregate-schema')) return;
+  const script = document.createElement('script');
+  script.id = 'dynamic-aggregate-schema';
+  script.type = 'application/ld+json';
+  script.text = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Business Labs",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": totalCount.toString()
+    }
+  });
+  document.head.appendChild(script);
+}
+
 let isLoading = false;
 async function loadMoreReviews() {
   if (isLoading || currentIndex >= totalReviews) return;
@@ -1354,6 +1373,11 @@ async function loadMoreReviews() {
   if (loadMoreBtn) loadMoreBtn.style.display = 'none';
   
   const reviews = await fetchReviews(currentIndex, REVIEWS_PER_PAGE);
+  
+  // Dynamically inject schema using the total API count
+  if (totalReviews !== Infinity) {
+    injectAggregateRatingSchema(totalReviews);
+  }
   
   const indicator = document.getElementById('loadingIndicator');
   if (indicator) indicator.remove();
