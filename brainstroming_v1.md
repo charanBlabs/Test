@@ -690,7 +690,7 @@ The Razorpay-style CSS sticky stacking cards have two remaining visual issues:
 ### Stacking Card Active Tab Logic
 
 The active tab JS (`bdgsUpdateActiveTab`) works as follows:
-- On desktop: compares each card's `getBoundingClientRect().top` against its CSS `sticky top` value (array: `[140, 190, 240, 290, 336, 368]`)
+- On desktop: compares each card's `getBoundingClientRect().top` against its CSS `sticky top` value (array: `[140, 156, 172, 188, 204, 220]`)
 - Uses strict band (22px) and loose band (40px) for sub-pixel browser variance
 - Falls back to document probe if no sticky match found
 - Tab click: smooth scrolls to card with scroll offset = 168px (desktop) / 112px (mobile)
@@ -707,8 +707,8 @@ The active tab JS (`bdgsUpdateActiveTab`) works as follows:
 
 /* Sticky top values per card — must match JS array above */
 .bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(1) { z-index: 1; top: 140px; }
-.bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(2) { z-index: 2; top: 190px; }
-/* ... through nth-child(6) at top: 368px */
+.bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(2) { z-index: 2; top: 156px; }
+/* ... through nth-child(6) at top: 220px */
 ```
 
 ### Lead Intake Structure

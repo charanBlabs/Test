@@ -135,7 +135,7 @@
 ### Tuesday Jun 23 — Sections 4–6 + carryover
 
 **Carry from Mon 22 (close at any cost per meeting):**
-- [ ] Any open **§1** menu V8/V9, Explore Services, Zoom Clinics items
+- [x] Any open **§1** menu V8/V9, Explore Services, Zoom Clinics items *(done 2026-06-22 via antigravity)*
 - [ ] **§7** reviews plugin/DB/lazy-load/schema (finish if not done Mon)
 - [ ] **Meeting §3** Meet the Team → discovery call
 

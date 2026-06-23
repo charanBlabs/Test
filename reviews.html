@@ -1323,8 +1323,8 @@ const API_KEY = '3d5ca826459ec3a3b47675f7ea0a0cd3';
 // Optimized Async Fetch Function for the BD Endpoint
 async function fetchReviews(offset, limit) {
   try {
-    const url = `${API_ENDPOINT}?action=list&published_only=1&limit=${limit}&offset=${offset}`;
-    const response = await fetch(url, { headers: { 'X-Api-Key': API_KEY } });
+    const url = `${API_ENDPOINT}?action=list&published_only=1&limit=${limit}&offset=${offset}&bd_api_key=${API_KEY}`;
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }

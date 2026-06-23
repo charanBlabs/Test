@@ -60,6 +60,7 @@ body {
 .bdgsownv2-nav {
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 24px; height: 68px; max-width: 1240px; margin: 0 auto;
+  position: relative;
 }
 .bdgsownv2-logo {
   display: flex; align-items: center; text-decoration: none; gap: 10px; flex-shrink: 0;
@@ -78,6 +79,7 @@ body {
   display: flex; align-items: center; gap: 2px; list-style: none; margin: 0; padding: 0;
 }
 .bdgsownv2-nav-item { position: relative; }
+.bdgsownv2-nav-item-mega { position: static; }
 .bdgsownv2-nav-link {
   display: flex; align-items: center; gap: 4px;
   padding: 8px 13px; font-size: 14px; font-weight: 500;
@@ -118,12 +120,15 @@ body {
   position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
   background: var(--bdgs-white); border: 1px solid var(--bdgs-border);
   border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-  padding: 20px; min-width: 520px;
+  padding: 20px; width: 520px; max-width: calc(100vw - 48px); max-height: calc(100vh - 90px); overflow-y: auto;
   opacity: 0; visibility: hidden; transition: all 0.2s; pointer-events: none;
   z-index: 1000;
 }
 .bdgsownv2-nav-item.active .bdgsownv2-dropdown {
   opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0);
+}
+.bdgsownv2-nav-item-mega.active .bdgsownv2-dropdown-mega {
+  transform: none;
 }
 .bdgsownv2-dropdown-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
 .bdgsownv2-dropdown-item {
@@ -140,12 +145,17 @@ body {
 }
 .bdgsownv2-dropdown-highlight a { color: var(--bdgs-coral); font-weight: 600; font-size: 14px; text-decoration: none; }
 .bdgsownv2-dropdown-highlight p { font-size: 12px; color: var(--bdgs-text-muted); margin: 4px 0 0; }
-.bdgsownv2-dropdown-sm { min-width: 280px; }
+.bdgsownv2-dropdown-sm { width: 280px; }
 .bdgsownv2-dropdown-sm .bdgsownv2-dropdown-grid { grid-template-columns: 1fr; }
 /* Services mega menu (3-column: Services grid | divider | Solutions) */
 .bdgsownv2-dropdown-mega {
-  min-width: 800px;
-  max-width: min(840px, calc(100vw - 48px));
+  top: 60px;
+  left: 24px;
+  right: 24px;
+  transform: none;
+  width: auto;
+  min-width: 0;
+  max-width: none;
   padding: 22px 28px;
 }
 .bdgsownv2-dropdown-mega-layout {
@@ -154,13 +164,13 @@ body {
   gap: 0;
 }
 .bdgsownv2-dropdown-mega-services {
-  flex: 1 1 auto;
+  flex: 0 0 38%;
   min-width: 0;
   padding-right: 20px;
 }
 .bdgsownv2-dropdown-mega-solutions {
-  flex: 0 0 228px;
-  min-width: 228px;
+  flex: 0 0 62%;
+  min-width: 0;
   padding-left: 24px;
 }
 .bdgsownv2-dropdown-mega-divider {
@@ -194,11 +204,13 @@ body {
 .bdgsownv2-dropdown-item--prominent .bdgsownv2-dropdown-item-title {
   white-space: nowrap;
 }
-@media (max-width: 991px) {
+.bdgsownv2-dropdown-solutions-grid {
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 1199px) {
   .bdgsownv2-dropdown-mega {
-    min-width: 0;
-    max-width: none;
-    width: 100%;
     padding: 16px 18px;
   }
   .bdgsownv2-dropdown-mega-layout {
@@ -221,6 +233,19 @@ body {
     padding-left: 0;
   }
   .bdgsownv2-dropdown-mega .bdgsownv2-dropdown-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .bdgsownv2-dropdown-mega .bdgsownv2-dropdown-solutions-grid {
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 991px) {
+  .bdgsownv2-dropdown-mega .bdgsownv2-dropdown-grid {
+    grid-template-columns: 1fr;
+  }
+  .bdgsownv2-dropdown-mega .bdgsownv2-dropdown-solutions-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -436,19 +461,20 @@ body {
   position: sticky;
   margin-bottom: clamp(48px, 11vh, 140px);
   scroll-margin-top: 168px;
+  transform-origin: top center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
 }
-.bdgsownv2-stack-cards > .bdgsownv2-stack-card:last-child { margin-bottom: 0; }
+.bdgsownv2-stack-cards > .bdgsownv2-stack-card:last-child { /* Removed margin-bottom: 0 to maintain consistent sticky unstacking */ }
 @media (min-width: 992px) {
   .bdgsownv2-stack-cards > .bdgsownv2-stack-card { min-height: clamp(320px, 44vh, 540px); }
 }
-/* z-index: later cards stack ON TOP of earlier ones — prevents leak */
+/* z-index: later cards stack ON TOP of earlier ones. Tighter 16px offsets. */
 .bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(1) { z-index: 1; top: 140px; }
-.bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(2) { z-index: 2; top: 190px; }
-.bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(3) { z-index: 3; top: 240px; }
-.bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(4) { z-index: 4; top: 290px; }
-/* Tighter 5→6 step (~32px) so the card behind shows ~title band only when Growth Plan is front */
-.bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(5) { z-index: 5; top: 336px; }
-.bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(6) { z-index: 6; top: 368px; }
+.bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(2) { z-index: 2; top: 156px; }
+.bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(3) { z-index: 3; top: 172px; }
+.bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(4) { z-index: 4; top: 188px; }
+.bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(5) { z-index: 5; top: 204px; }
+.bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(6) { z-index: 6; top: 220px; }
 .bdgsownv2-stack-card-title {
   font-size: 22px; font-weight: 700; color: var(--bdgs-dark); margin-bottom: 8px;
 }
@@ -825,8 +851,14 @@ body {
 /* CEO Section */
 .bdgsownv2-video-embed {
   background: var(--bdgs-dark); border-radius: 12px; min-height: 300px;
-  display: flex; align-items: center; justify-content: center;
+  display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 24px;
   color: rgba(255,255,255,0.4); font-size: 14px;
+}
+@media (max-width: 991px) {
+  .bdgsownv2-video-embed {
+    margin-top: 28px;
+    min-height: 240px;
+  }
 }
 
 /* ============================================
@@ -942,7 +974,7 @@ body {
       <img referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png" alt="BD Growth Suite">
     </a>
     <ul class="bdgsownv2-nav-links">
-      <li class="bdgsownv2-nav-item">
+      <li class="bdgsownv2-nav-item bdgsownv2-nav-item-mega">
         <a class="bdgsownv2-nav-link" href="/services">Services <svg viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
         <div class="bdgsownv2-dropdown bdgsownv2-dropdown-mega">
           <div class="bdgsownv2-dropdown-mega-layout">
@@ -959,10 +991,16 @@ body {
             <div class="bdgsownv2-dropdown-mega-divider" aria-hidden="true"></div>
             <div class="bdgsownv2-dropdown-mega-solutions">
               <p class="bdgsownv2-dropdown-col-heading">Solutions Done For You</p>
-              <a href="/all-solutions" class="bdgsownv2-dropdown-item bdgsownv2-dropdown-item--prominent">
-                <div class="bdgsownv2-dropdown-item-title">All Solutions</div>
-                <div class="bdgsownv2-dropdown-item-desc">Done-for-you services for your directory.</div>
-              </a>
+              <div class="bdgsownv2-dropdown-grid bdgsownv2-dropdown-solutions-grid">
+                <a href="/solutions?category=seo" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">SEO &amp; Schema</div><div class="bdgsownv2-dropdown-item-desc">Advanced markup &amp; technical SEO. Rank higher.</div></a>
+                <a href="/solutions?category=lead-gen" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Lead Generation &amp; Conversion</div><div class="bdgsownv2-dropdown-item-desc">Capture more leads. Turn visitors into members.</div></a>
+                <a href="/solutions?category=member-profile" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Member Profile Enhancement</div><div class="bdgsownv2-dropdown-item-desc">Custom profile layouts. Make members stand out.</div></a>
+                <a href="/solutions?category=search" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Search &amp; Discovery</div><div class="bdgsownv2-dropdown-item-desc">Optimized search flows. Help users find what they need.</div></a>
+                <a href="/solutions?category=design" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Page Design &amp; Development</div><div class="bdgsownv2-dropdown-item-desc">Stunning layouts. Built for modern directories.</div></a>
+                <a href="/solutions?category=content" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Content &amp; Engagement</div><div class="bdgsownv2-dropdown-item-desc">Keep audiences hooked. Automated content strategies.</div></a>
+                <a href="/solutions?category=integrations" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Integrations</div><div class="bdgsownv2-dropdown-item-desc">Connect your favorite tools. Seamless API integrations.</div></a>
+                <a href="/solutions?category=automation" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Member Management &amp; Automation</div><div class="bdgsownv2-dropdown-item-desc">Automate the busywork. Scale your directory smoothly.</div></a>
+              </div>
             </div>
           </div>
         </div>
@@ -1054,7 +1092,12 @@ body {
         </div>
       </div>
       <div class="col-md-7">
-        <div class="bdgsownv2-video-embed">[Embedded Brilliant Directories CEO Webinar Clip — 30-60 seconds]<br><small>YouTube embed from official BD channel</small></div>
+        <div class="bdgsownv2-video-embed" style="padding: 0; overflow: hidden; position: relative; padding-bottom: 56.25%; height: 0; min-height: 0; border: none; background: transparent;">
+          <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" src="https://www.youtube-nocookie.com/embed/pxKOMfuuPO8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div style="text-align: center; margin-top: 16px;">
+          <a href="https://www.youtube.com/@BrilliantDirectories/videos" target="_blank" style="font-size: 14px; color: var(--bdgs-coral); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: opacity 0.2s;">Check out more webinars →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1863,10 +1906,28 @@ bdgsTabs.forEach(function(tab) {
     var targetId = this.getAttribute('href').replace('#', '');
     var target = document.getElementById(targetId);
     if (target) {
-      var offset = bdgsStackScrollOffsetPx();
-      var top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      // Temporarily unstick and un-transform to get the true document Y position
+      var oldPos = target.style.position;
+      var oldTransform = target.style.transform;
+      target.style.position = 'static';
+      target.style.transform = 'none';
+      
+      var targetUnstuckTop = target.getBoundingClientRect().top + window.scrollY;
+      
+      target.style.position = oldPos;
+      target.style.transform = oldTransform;
+      
       var idx = Array.prototype.indexOf.call(bdgsStackCards, target);
+      var offset = bdgsStackScrollOffsetPx();
+      
+      // On desktop, scroll exactly to the sticky rail offset
+      if (idx >= 0 && window.matchMedia('(min-width: 992px)').matches) {
+        offset = bdgsStackStickyTopsPx[idx];
+      }
+      
+      var top = targetUnstuckTop - offset;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      
       if (idx >= 0) {
         bdgsTabs.forEach(function(t, i) {
           t.classList.toggle('active', i === idx);
@@ -1879,7 +1940,7 @@ bdgsTabs.forEach(function(tab) {
 // 2. Auto-activate tab — see bdgsUpdateActiveTab() comment (desktop stack rail + fallbacks).
 
 /** Must stay in sync with `.bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(n){ top: … }` */
-var bdgsStackStickyTopsPx = [140, 190, 240, 290, 336, 368];
+var bdgsStackStickyTopsPx = [140, 156, 172, 188, 204, 220];
 
 function bdgsDocTopFromViewport(el) {
   var rect = el.getBoundingClientRect();
@@ -1928,32 +1989,22 @@ function bdgsUpdateActiveTab() {
 
     var minBottom = 100;
     var RAIL_STRICT_PX = 22;
-    var RAIL_LOOSE_BELOW_PX = 40;
-    var strictHits = [];
-    var bestLooseIdx = -1;
-    var bestLooseBottom = -Infinity;
+    var foundActive = -1;
 
     for (var i = 0; i < n; i++) {
       var rect = bdgsStackCards[i].getBoundingClientRect();
       var t = bdgsStackStickyTopsPx[i];
       if (rect.bottom <= minBottom) continue;
 
-      if (Math.abs(rect.top - t) <= RAIL_STRICT_PX) {
-        strictHits.push(i);
-      }
-
-      if (rect.top <= t + RAIL_STRICT_PX && rect.top >= t - RAIL_LOOSE_BELOW_PX) {
-        if (rect.bottom > bestLooseBottom || (rect.bottom === bestLooseBottom && i > bestLooseIdx)) {
-          bestLooseBottom = rect.bottom;
-          bestLooseIdx = i;
-        }
+      // If the card has reached its sticky rail (or been pushed past it), it's a candidate.
+      // Since later cards stack on top, the highest index candidate is the visible front card.
+      if (rect.top <= t + RAIL_STRICT_PX) {
+        foundActive = i;
       }
     }
 
-    if (strictHits.length) {
-      activeIndex = Math.max.apply(null, strictHits);
-    } else if (bestLooseIdx >= 0) {
-      activeIndex = bestLooseIdx;
+    if (foundActive >= 0) {
+      activeIndex = foundActive;
     } else {
       var probeY2 = window.scrollY + bdgsStackScrollOffsetPx();
       for (var jj = n - 1; jj >= 0; jj--) {
@@ -1966,6 +2017,16 @@ function bdgsUpdateActiveTab() {
   }
   bdgsTabs.forEach(function(tab, k) {
     tab.classList.toggle('active', k === activeIndex);
+  });
+  bdgsStackCards.forEach(function(card, k) {
+    if (k < activeIndex) {
+      // Stacked behind
+      var scale = 1 - (activeIndex - k) * 0.03;
+      card.style.transform = 'scale(' + scale + ')';
+    } else {
+      // Active or upcoming
+      card.style.transform = 'scale(1)';
+    }
   });
 }
 
@@ -1985,6 +2046,34 @@ window.addEventListener('resize', bdgsScheduleActiveTab);
 
 // Initial state
 bdgsUpdateActiveTab();
+
+// Sync card heights so shorter cards fully cover taller cards stacked behind them
+function bdgsSyncCardHeights() {
+  if (!window.matchMedia('(min-width: 992px)').matches) {
+    bdgsStackCards.forEach(function(c) { c.style.height = ''; });
+    return;
+  }
+  var maxH = 0;
+  // Reset first to find natural height
+  bdgsStackCards.forEach(function(c) {
+    c.style.height = '';
+  });
+  // Measure tallest
+  bdgsStackCards.forEach(function(c) {
+    var h = c.offsetHeight;
+    if (h > maxH) maxH = h;
+  });
+  // Apply to all using height, not minHeight, so absolute children stretch properly
+  bdgsStackCards.forEach(function(c) {
+    c.style.height = maxH + 'px';
+  });
+}
+window.addEventListener('resize', bdgsSyncCardHeights);
+window.addEventListener('load', bdgsSyncCardHeights);
+// Run aggressively during page load to catch font wrapping changes
+setTimeout(bdgsSyncCardHeights, 50);
+setTimeout(bdgsSyncCardHeights, 500);
+setTimeout(bdgsSyncCardHeights, 2000);
 
 // Zoom Clinics — 6:30–7:30 PM Asia/Kolkata (Tue/Thu anchor) → visitor local window
 (function bdgsRenderZoomClinicsLocalTime() {
