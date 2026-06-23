@@ -1270,20 +1270,19 @@ function renderReviewCard(review) {
   if (isNaN(dateObj.getTime())) { dateObj = new Date(); }
   
   return `
-    <article class="bdgsownv2-review-card" itemscope itemtype="http://schema.org/Review">
+    <article class="bdgsownv2-review-card">
       <div class="bdgsownv2-review-top">
         <div>
-          <h3 class="bdgsownv2-review-title" itemprop="name">${review.title || 'Review'}</h3>
+          <h3 class="bdgsownv2-review-title">${review.title || 'Review'}</h3>
           <div class="bdgsownv2-review-meta">
-            By <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">${submitter}</span></span> on <time itemprop="datePublished" datetime="${dateObj.toISOString()}">${review.review_date || 'Recent'}</time>
+            By <span><span>${submitter}</span></span> on <time datetime="${dateObj.toISOString()}">${review.review_date || 'Recent'}</time>
           </div>
         </div>
-        <div class="bdgsownv2-review-stars" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-          <meta itemprop="ratingValue" content="${review.overall_rating || 5}">
+        <div class="bdgsownv2-review-stars">
           ${getStarsHtml(review.overall_rating || 5)}
         </div>
       </div>
-      <div class="bdgsownv2-review-body" itemprop="description">
+      <div class="bdgsownv2-review-body">
         ${review.review_text || ''}
       </div>
       <div class="bdgsownv2-review-details">
@@ -1343,23 +1342,67 @@ async function fetchReviews(offset, limit) {
   }
 }
 
-// Inject AggregateRating Schema dynamically
-function injectAggregateRatingSchema(totalCount) {
-  if (document.getElementById('dynamic-aggregate-schema')) return;
-  const script = document.createElement('script');
-  script.id = 'dynamic-aggregate-schema';
-  script.type = 'application/ld+json';
-  script.text = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Business Labs",
-    "aggregateRating": {
+let schemaGraph = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://bdgrowthsuite.com/#organization",
+  "name": "Business Labs",
+  "url": "https://bdgrowthsuite.com",
+  "aggregateRating": null,
+  "review": []
+};
+
+// Inject and update JSON-LD Schema dynamically
+function updateSchemaGraph(totalCount, newReviews) {
+  if (!schemaGraph.aggregateRating) {
+    schemaGraph.aggregateRating = {
       "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": totalCount.toString()
-    }
+      "ratingValue": "5.0",
+      "reviewCount": totalCount.toString(),
+      "bestRating": "5",
+      "worstRating": "1"
+    };
+  }
+
+  newReviews.forEach(r => {
+    const mId = r.marketplace_review_id || r.review_id || '';
+    const verifyLink = r.verify_link || `https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/${mId}`;
+    let dateObj = new Date(r.review_date);
+    if (isNaN(dateObj.getTime())) { dateObj = new Date(); }
+    
+    schemaGraph.review.push({
+      "@type": "Review",
+      "reviewId": mId.toString(),
+      "url": verifyLink,
+      "datePublished": dateObj.toISOString(),
+      "name": r.title || 'Review',
+      "reviewBody": r.review_text || '',
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": (r.overall_rating || 5).toString(),
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "author": {
+        "@type": "Person",
+        "name": r.submitter_label || "Verified Client"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Brilliant Directories Marketplace",
+        "url": "https://marketplace.brilliantdirectories.com"
+      }
+    });
   });
-  document.head.appendChild(script);
+
+  let script = document.getElementById('dynamic-aggregate-schema');
+  if (!script) {
+    script = document.createElement('script');
+    script.id = 'dynamic-aggregate-schema';
+    script.type = 'application/ld+json';
+    document.head.appendChild(script);
+  }
+  script.text = JSON.stringify(schemaGraph);
 }
 
 let isLoading = false;
@@ -1374,11 +1417,6 @@ async function loadMoreReviews() {
   
   const reviews = await fetchReviews(currentIndex, REVIEWS_PER_PAGE);
   
-  // Dynamically inject schema using the total API count
-  if (totalReviews !== Infinity) {
-    injectAggregateRatingSchema(totalReviews);
-  }
-  
   const indicator = document.getElementById('loadingIndicator');
   if (indicator) indicator.remove();
   
@@ -1386,6 +1424,11 @@ async function loadMoreReviews() {
     const html = reviews.map(renderReviewCard).join('');
     grid.insertAdjacentHTML('beforeend', html);
     currentIndex += reviews.length;
+    
+    // Dynamically update schema graph with the new reviews
+    if (totalReviews !== Infinity) {
+      updateSchemaGraph(totalReviews, reviews);
+    }
   }
   
   isLoading = false;
