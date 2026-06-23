@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews Display Variants - Premium UI/UX</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bdgs-coral: #E74D56;
+    --bdgs-coral-light: #FDF0F0;
+    --bdgs-dark: #1A1A2E;
+    --bdgs-bg: #FAFAFA;
+    --bdgs-white: #FFFFFF;
+    --bdgs-text: #2C2C3A;
+    --bdgs-text-muted: #6B6B80;
+    --bdgs-border: #E8E8EE;
+    --bdgs-gradient: linear-gradient(135deg, #E74D56 0%, #95256E 100%);
+    --font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: #f1f5f9;
+    color: var(--bdgs-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .variant-container {
+    padding: 80px 24px;
+    margin-bottom: 40px;
+    background: var(--bdgs-white);
+    border-bottom: 1px solid var(--bdgs-border);
+  }
+
+  .variant-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 48px;
+  }
+
+  .variant-title {
+    position: absolute;
+    top: 0; left: 0;
+    background: var(--bdgs-coral);
+    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom-right-radius: 12px;
+    z-index: 10;
+  }
+
+  .variant-wrapper {
+    position: relative;
+    border: 2px dashed #cbd5e1;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--bdgs-white);
+    margin: 40px;
+  }
+
+  h2.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 0 16px;
+    letter-spacing: -0.5px;
+    color: var(--bdgs-dark);
+  }
+
+  h2.section-title em {
+    font-style: normal;
+    color: var(--bdgs-coral);
+  }
+
+  .title-strikethrough {
+    text-decoration: line-through;
+    color: var(--bdgs-text-muted);
+    font-weight: 600;
+    text-decoration-thickness: 3px;
+    margin: 0 4px;
+  }
+
+  p.section-sub {
+    font-size: 16px;
+    color: var(--bdgs-text-muted);
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 580px;
+  }
+
+  .bdgsownv2-reviews-more {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .bdgsownv2-reviews-more a {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 15px; font-weight: 600;
+    color: var(--bdgs-coral); text-decoration: none;
+    padding: 12px 24px; border: 1px solid var(--bdgs-coral);
+    border-radius: 10px; transition: all 0.2s;
+  }
+
+  .bdgsownv2-reviews-more a:hover {
+    background: var(--bdgs-coral); color: #fff; text-decoration: none;
+  }
+
+  /* -------------------------------------
+  /* -------------------------------------
+     VARIANT 1: Expanding Accordion Slider
+     ------------------------------------- */
+  .v1-acc-carousel-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden; /* Hide overflow */
+    position: relative;
+    padding: 20px 0;
+  }
+  .v1-acc-track {
+    display: flex;
+    gap: 16px;
+    height: 600px;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .v1-acc-card {
+    flex: 0 0 100px; /* Collapsed width */
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    border: 1px solid var(--bdgs-border);
+    background: var(--bdgs-bg);
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+  }
+  .v1-acc-card.active {
+    flex: 0 0 650px; /* Expanded width */
+    background: var(--bdgs-white);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    cursor: default;
+    border-color: var(--bdgs-coral);
+  }
+  .v1-acc-card .bdgs-review-card {
+    width: 650px;
+    min-width: 650px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    height: 100%;
+    /* Keep native padding inside */
+  }
+  .v1-acc-card.active .bdgs-review-card {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.5s 0.3s; /* Delay fade in */
+  }
+  .v1-acc-collapsed-content {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    white-space: nowrap;
+    font-weight: 700;
+    color: var(--bdgs-text-muted);
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: opacity 0.3s;
+    width: 500px;
+    text-align: center;
+    pointer-events: none;
+  }
+  .v1-acc-card.active .v1-acc-collapsed-content {
+    opacity: 0;
+  }
+  @media(max-width: 900px) {
+    .v1-acc-track { height: 500px; }
+    .v1-acc-card { flex: 0 0 60px; }
+    .v1-acc-card.active { flex: 0 0 80vw; }
+    .v1-acc-card .bdgs-review-card { width: 80vw; min-width: 80vw; }
+  }
+     VARIANT 2: Horizontal Peek Carousel
+     ------------------------------------- */
+  .v2-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+  }
+
+  .v2-carousel-track {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    /* For snap scrolling on mobile */
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    padding: 0 calc(50% - 400px); /* Center the 800px card */
+  }
+
+  .v2-carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .v2-card {
+    flex: 0 0 780px;
+    height: 400px;
+    scroll-snap-align: center;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    border: 1px solid var(--bdgs-border);
+    transition: all 0.4s ease;
+    opacity: 0.4;
+    transform: scale(0.9);
+    cursor: pointer;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .v2-card.active {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+    border-color: var(--bdgs-coral);
+  }
+
+  /* V2-specific card inner layout */
+  .v2-review-card {
+    background: #fff;
+    padding: 28px 32px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .v2-card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+    flex-shrink: 0;
+  }
+
+  .v2-review-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--bdgs-dark);
+    margin: 0;
+    line-height: 1.3;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .v2-submitted-by {
+    font-size: 12px;
+    color: var(--bdgs-text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .v2-submitted-by strong {
+    color: var(--bdgs-text);
+    font-weight: 600;
+  }
+
+  .v2-rating-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+  }
+
+  .v2-rating-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--bdgs-border);
+    background: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--bdgs-text);
+    white-space: nowrap;
+  }
+
+  .v2-rating-pill .pill-stars {
+    display: flex;
+    gap: 1px;
+    color: #F59E0B;
+  }
+
+  .v2-rating-pill .pill-stars svg {
+    width: 11px;
+    height: 11px;
+    fill: currentColor;
+  }
+
+  .v2-review-text {
+    font-size: 14px;
+    color: var(--bdgs-text);
+    line-height: 1.65;
+    margin: 0;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+
+  .v2-review-text::-webkit-scrollbar { width: 4px; }
+  .v2-review-text::-webkit-scrollbar-track { background: transparent; }
+  .v2-review-text::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 4px; }
+  .v2-review-text::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+
+  .v2-card-footer {
+    margin-top: auto;
+    padding-top: 16px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--bdgs-border);
+  }
+
+  .v2-verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #16A34A;
+  }
+
+  .v2-verified-badge svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  .v2-verify-link {
+    font-size: 12px;
+    color: var(--bdgs-text-muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.2s;
+  }
+
+  .v2-verify-link:hover {
+    color: var(--bdgs-coral);
+  }
+
+  /* Progress bar under carousel */
+  .v2-progress-bar {
+    width: 100%;
+    max-width: 780px;
+    margin: 12px auto 0;
+    height: 3px;
+    background: var(--bdgs-border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .v2-progress-fill {
+    height: 100%;
+    background: var(--bdgs-coral);
+    border-radius: 2px;
+    width: 0%;
+    transition: width linear;
+  }
+
+  
+  .v2-controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .v2-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--bdgs-white);
+    border: 1px solid var(--bdgs-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--bdgs-text-muted);
+  }
+  .v2-btn:hover {
+    border-color: var(--bdgs-coral);
+    color: var(--bdgs-coral);
+    box-shadow: 0 4px 12px rgba(231,77,86,0.15);
+  }
+  .v2-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .v2-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .v2-carousel-track {
+      padding: 0 20px; /* smaller padding on mobile */
+      gap: 16px;
+    }
+    .v2-card {
+      flex: 0 0 85%; /* Take up most of the screen */
+    }
+  }
+
+  /* -------------------------------------
+     VARIANT 3: Bento Spotlight
+     ------------------------------------- */
+  .v3-bento-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: start;
+    /* Fixed bento height constraint */
+  }
+
+  .v3-main {
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--bdgs-border);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    background: var(--bdgs-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .v3-main img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+  }
+
+  .v3-thumbs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .v3-thumb {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--bdgs-border);
+    cursor: pointer;
+    transition: all 0.2s;
+    opacity: 0.6;
+    background: var(--bdgs-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+  }
+
+  .v3-thumb:hover, .v3-thumb.active {
+    opacity: 1;
+    border-color: var(--bdgs-coral);
+    box-shadow: 0 4px 12px rgba(231,77,86,0.15);
+    transform: translateX(-4px);
+  }
+
+  .v3-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  @media (max-width: 900px) {
+    .v3-bento-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      height: auto;
+    }
+    .v3-main {
+      grid-column: 1;
+      grid-row: 1;
+      height: auto;
+    }
+    .v3-thumbs-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .v3-thumbs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .v3-thumb {
+      height: 80px;
+    }
+    .v3-thumb:hover, .v3-thumb.active {
+      transform: translateY(-4px) translateX(0);
+    }
+  }
+
+  /* -------------------------------------
+     NATIVE REVIEW CARD STYLES
+     ------------------------------------- */
+  .bdgs-review-card {
+    background: #fff;
+    padding: 32px;
+    border-radius: 12px;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  /* Elegant Custom Scrollbar for the Cards */
+  .bdgs-review-card::-webkit-scrollbar {
+    width: 6px;
+  }
+  .bdgs-review-card::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 8px;
+  }
+  .bdgs-review-card::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 8px;
+  }
+  .bdgs-review-card::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1;
+  }
+
+  .bdgs-review-meta {
+    font-size: 12px;
+    color: var(--bdgs-text-muted);
+  }
+
+  .bdgs-review-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--bdgs-dark);
+    margin: 0;
+  }
+
+  .bdgs-review-ratings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    background: transparent;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--bdgs-border);
+  }
+
+  .bdgs-rating-group {
+    flex: 1 1 calc(33.333% - 16px);
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .bdgs-rating-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--bdgs-text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .bdgs-rating-stars {
+    display: flex;
+    gap: 2px;
+    color: #F59E0B;
+  }
+
+  .bdgs-rating-stars svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+  }
+
+  .bdgs-review-content {
+    font-size: 15px;
+    color: var(--bdgs-text);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Adjustments for the variants */
+  .v1-card, .v2-card {
+    /* override img specific styles */
+    display: flex;
+    align-items: stretch;
+  }
+
+  .v3-main {
+    padding: 0;
+    align-items: stretch;
+  }
+
+  .v3-thumbs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .v3-thumb {
+    padding: 0;
+    display: block;
+    position: relative;
+  }
+
+  /* Thumbnails need a mini-card preview */
+  .v3-thumb-preview {
+    background: #fff;
+    padding: 12px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .v3-thumb-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--bdgs-dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .v3-thumb-stars {
+    color: #F59E0B;
+    display: flex;
+  }
+  .v3-thumb-stars svg { width: 12px; height: 12px; fill: currentColor; }
+
+  @media (max-width: 768px) {
+    .bdgs-review-card {
+      padding: 20px;
+    }
+  }
+
+/* ============================================
+   VARIANT 4: MASONRY WALL
+   ============================================ */
+.bdgs-masonry-grid {
+  column-count: 3;
+  column-gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.bdgs-masonry-grid .bdgs-review-card {
+  break-inside: avoid;
+  margin-bottom: 24px;
+  display: flex;
+  width: 100%;
+  border: 1px solid var(--bdgs-border);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+  transition: all 0.25s;
+  cursor: pointer;
+  padding: 24px;
+  gap: 12px;
+}
+.bdgs-masonry-grid .bdgs-review-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(231,77,86,0.12);
+  border-color: var(--bdgs-coral);
+}
+.bdgs-masonry-grid .bdgs-review-ratings {
+  padding: 12px;
+  gap: 12px;
+}
+.bdgs-masonry-grid .bdgs-rating-group {
+  flex: 1 1 calc(50% - 12px);
+  min-width: 100px;
+}
+.bdgs-masonry-grid .bdgs-review-title {
+  font-size: 17px;
+  line-height: 1.3;
+}
+.bdgs-masonry-grid .bdgs-review-content {
+  font-size: 14px;
+}
+@media (max-width: 991px) {
+  .bdgs-masonry-grid { column-count: 2; }
+}
+@media (max-width: 600px) {
+  .bdgs-masonry-grid { column-count: 1; }
+}
+
+/* ============================================
+   VARIANT 5: VERTICAL TAB SLIDER
+   ============================================ */
+.bdgs-vtabs-container {
+  display: flex;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+.bdgs-vtabs-list {
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 650px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 12px;
+  padding-bottom: 24px;
+}
+.bdgs-vtabs-list::-webkit-scrollbar { width: 4px; }
+.bdgs-vtabs-list::-webkit-scrollbar-track { background: var(--bdgs-bg); border-radius: 4px; }
+.bdgs-vtabs-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+.bdgs-vtab {
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: var(--bdgs-white);
+  border: 1px solid var(--bdgs-border);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+.bdgs-vtab:hover {
+  border-color: #cbd5e1;
+  background: var(--bdgs-bg);
+}
+.bdgs-vtab.active {
+  border-color: var(--bdgs-coral);
+  background: var(--bdgs-coral-light);
+  box-shadow: 0 4px 12px rgba(231,77,86,0.08);
+}
+.bdgs-vtab-author { font-weight: 700; color: var(--bdgs-dark); font-size: 15px; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bdgs-vtab-title { font-size: 12px; color: var(--bdgs-text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.bdgs-vtabs-content {
+  flex: 1;
+  min-width: 0;
+}
+.bdgs-vtabs-content .bdgs-review-card {
+  border: 1px solid var(--bdgs-border);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+/* Animation for changing content */
+.bdgs-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .bdgs-vtabs-container { flex-direction: column; }
+  .bdgs-vtabs-list {
+    flex: auto;
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-right: 0;
+    padding-bottom: 12px;
+  }
+  .bdgs-vtab { flex: 0 0 240px; }
+}
+
+/* ============================================
+   READ MORE MODAL & COMPACT CARDS
+   ============================================ */
+.bdgs-compact-card {
+  height: 380px !important;
+  min-height: 380px !important;
+  overflow: hidden !important;
+}
+
+.bdgs-review-content.compact-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  line-height: 1.5;
+}
+
+.bdgs-read-more-btn {
+  background: none;
+  border: none;
+  color: var(--bdgs-coral);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 8px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+
+.bdgs-read-more-btn:hover {
+  color: #c93b44;
+}
+
+/* Modal Styling */
+.bdgs-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.bdgs-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bdgs-modal-content {
+  background: #fff;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  border-radius: 16px;
+  padding: 40px;
+  position: relative;
+  overflow-y: auto;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+}
+
+.bdgs-modal-overlay.active .bdgs-modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.bdgs-modal-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: #f1f5f9;
+  border: none;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  transition: all 0.2s;
+}
+.bdgs-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* ============================================
+   VARIANT 6: INFINITE CONTINUOUS MARQUEE
+   ============================================ */
+.v6-marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  position: relative;
+  /* Soft fade edges */
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.v6-marquee-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.v6-marquee-wrapper:hover .v6-marquee-track {
+  animation-play-state: paused;
+}
+
+.v6-card {
+  width: 400px;
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 12px)); } /* 50% because we duplicate the items */
+}
+
+/* ============================================
+   VARIANT 7: VERTICAL AUTO-SCROLL FEED
+   ============================================ */
+.v7-feed-container {
+  max-width: 600px;
+  margin: 0 auto;
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 16px;
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.02);
+  border: 1px solid var(--bdgs-border);
+  background: #f8fafc;
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+.v7-feed-track {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px 24px;
+  animation: vertical-feed 30s linear infinite;
+}
+
+.v7-feed-container:hover .v7-feed-track {
+  animation-play-state: paused;
+}
+
+@keyframes vertical-feed {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(calc(-50% - 12px)); }
+}
+
+/* ============================================
+   VARIANT 8: 3D COVERFLOW
+   ============================================ */
+.v8-coverflow-container {
+  perspective: 1200px;
+  width: 100%;
+  height: 460px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.v8-card {
+  position: absolute;
+  width: 420px;
+  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.v8-card.active {
+  transform: translateX(0) scale(1) rotateY(0deg);
+  z-index: 10;
+  opacity: 1;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.v8-card.prev {
+  transform: translateX(-50%) scale(0.85) rotateY(25deg);
+  z-index: 5;
+  opacity: 0.6;
+}
+
+.v8-card.next {
+  transform: translateX(50%) scale(0.85) rotateY(-25deg);
+  z-index: 5;
+  opacity: 0.6;
+}
+
+.v8-card.hidden {
+  transform: translateX(0) scale(0.5) rotateY(0deg);
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.v8-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+</style>
+</head>
+<body>
+
+<div style="padding: 40px; text-align: center; background: #fff; border-bottom: 1px solid #e5e7eb;">
+  <h1 style="margin: 0 0 10px; color: var(--bdgs-dark);">Reviews Display Variants</h1>
+  <p style="margin: 0; color: var(--bdgs-text-muted);">3 premium UI options to display the unreadable marketplace review screenshots cleanly.</p>
+</div>
+
+<!-- ==========================================
+     VARIANT 1: Expanding Accordion Slider
+     ========================================== -->
+<div class="variant-wrapper">
+  <div class="variant-title" style="background: #E74D56;">Variant 1: Expanding Accordion Slider</div>
+  <div class="variant-container">
+    <div class="variant-header">
+      <h2 class="section-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em>VERY HAPPY</em></h2>
+      <p class="section-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue. We delivered beyond their expectations — and we'll do the same for you.</p>
+    </div>
+
+    <div class="v1-acc-carousel-container" id="v1-acc-container">
+      <div class="v1-acc-track" id="v1-acc-track">
+        <!-- Cards will be appended here -->
+      </div>
+    </div>
+
+    <div class="bdgsownv2-reviews-more" style="margin-top: 32px;">
+      <a href="/blabs-review" id="v1-link">See all 169+ reviews →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     VARIANT 2: Horizontal Peek Carousel
+     ========================================== -->
+<div class="variant-wrapper">
+  <div class="variant-title" style="background: #95256E;">Variant 2: Horizontal Peek Carousel</div>
+  <div class="variant-container">
+    <div class="variant-header">
+      <h2 class="section-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em>VERY HAPPY</em></h2>
+      <p class="section-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue. We delivered beyond their expectations — and we'll do the same for you.</p>
+    </div>
+
+    <div class="v2-carousel-wrapper">
+      <div class="v2-carousel-track" id="v2-track">
+        <!-- Cards populated by JS -->
+      </div>
+    </div>
+
+    <div class="v2-progress-bar">
+      <div class="v2-progress-fill"></div>
+    </div>
+    
+    <div class="v2-controls">
+      <button class="v2-btn" id="v2-prev" aria-label="Previous Review">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <button class="v2-btn" id="v2-next" aria-label="Next Review">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+      </button>
+    </div>
+
+    <div class="bdgsownv2-reviews-more">
+      <a href="/blabs-review" id="v2-link">See all 169+ reviews →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     VARIANT 3: Bento Spotlight
+     ========================================== -->
+<div class="variant-wrapper">
+  <div class="variant-title" style="background: #1A1A2E;">Variant 3: Bento Spotlight</div>
+  <div class="variant-container">
+    <div class="variant-header">
+      <h2 class="section-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em style="color: #1A1A2E;">VERY HAPPY</em></h2>
+      <p class="section-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue. We delivered beyond their expectations — and we'll do the same for you.</p>
+    </div>
+
+    <div class="v3-bento-grid" id="v3-bento">
+      <div class="v3-main" id="v3-main-card">
+        <img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/yoga.png" alt="Main Review" id="v3-main-img">
+      </div>
+      <div class="v3-thumbs-container" id="v3-thumbs-container">
+        <!-- Thumbs populated by JS -->
+      </div>
+    </div>
+
+    <div class="bdgsownv2-reviews-more">
+      <a href="/blabs-review" id="v3-link">See all 169+ reviews →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     VARIANT 4: Masonry Wall
+     ========================================== -->
+<div class="variant-wrapper">
+  <div class="variant-title" style="background: #2563EB;">Variant 4: Masonry Wall</div>
+  <div class="variant-container">
+    <div class="variant-header">
+      <h2 class="section-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em>VERY HAPPY</em></h2>
+      <p class="section-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue. We delivered beyond their expectations — and we'll do the same for you.</p>
+    </div>
+    
+    <div class="bdgs-masonry-grid" id="v4-masonry-grid">
+      <!-- Populated by JS -->
+    </div>
+    
+    <div class="bdgsownv2-reviews-more">
+      <a href="/blabs-review">See all 169+ reviews →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     VARIANT 5: Vertical Tab Slider
+     ========================================== -->
+<div class="variant-wrapper">
+  <div class="variant-title" style="background: #16A34A;">Variant 5: Vertical Tab Slider</div>
+  <div class="variant-container">
+    <div class="variant-header">
+      <h2 class="section-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em>VERY HAPPY</em></h2>
+      <p class="section-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue. We delivered beyond their expectations — and we'll do the same for you.</p>
+    </div>
+    
+    <div class="bdgs-vtabs-container">
+      <div class="bdgs-vtabs-list" id="v5-tabs-list">
+        <!-- Tabs populated by JS -->
+      </div>
+      <div class="bdgs-vtabs-content" id="v5-main-content">
+        <!-- Main card populated by JS -->
+      </div>
+    </div>
+    
+    <div class="bdgsownv2-reviews-more">
+      <a href="/blabs-review">See all 169+ reviews →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     VARIANT 6: Infinite Continuous Marquee
+     ========================================== -->
+<div class="variant-wrapper">
+  <div class="variant-title" style="background: #D97706;">Variant 6: Infinite Continuous Marquee</div>
+  <div class="variant-container">
+    <div class="variant-header">
+      <h2 class="section-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em>VERY HAPPY</em></h2>
+      <p class="section-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue.</p>
+    </div>
+
+    <div class="v6-marquee-wrapper">
+      <div class="v6-marquee-track" id="v6-track">
+        <!-- JS populates cards here twice for infinite loop -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     VARIANT 7: Vertical Auto-Scroll Feed
+     ========================================== -->
+<div class="variant-wrapper">
+  <div class="variant-title" style="background: #0D9488;">Variant 7: Vertical Auto-Scroll Feed</div>
+  <div class="variant-container">
+    <div class="variant-header">
+      <h2 class="section-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em>VERY HAPPY</em></h2>
+      <p class="section-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue.</p>
+    </div>
+
+    <div class="v7-feed-container">
+      <div class="v7-feed-track" id="v7-track">
+        <!-- JS populates cards here twice for infinite loop -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     VARIANT 8: 3D Coverflow
+     ========================================== -->
+<div class="variant-wrapper">
+  <div class="variant-title" style="background: #7C3AED;">Variant 8: 3D Coverflow</div>
+  <div class="variant-container">
+    <div class="variant-header">
+      <h2 class="section-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em>VERY HAPPY</em></h2>
+      <p class="section-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue.</p>
+    </div>
+
+    <div class="v8-coverflow-container" id="v8-container">
+      <!-- Populated by JS -->
+    </div>
+    
+    <div class="v2-controls">
+      <button class="v2-btn" id="v8-prev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <button class="v2-btn" id="v8-next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Global Read More Modal -->
+<div class="bdgs-modal-overlay" id="bdgs-readmore-modal">
+  <div class="bdgs-modal-content">
+    <button class="bdgs-modal-close" id="bdgs-modal-close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+    </button>
+    <div id="bdgs-modal-body"></div>
+  </div>
+</div>
+
+
+
+<script>
+  const starSVG = `<svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
+  function getStars(num) {
+    return Array(num).fill(starSVG).join('');
+  }
+
+  const reviews = [
+  {
+    "review_id": 112,
+    "marketplace_review_id": "1609",
+    "overall_rating": 5,
+    "service_rating": 5,
+    "responsiveness_rating": 5,
+    "expertise_rating": 5,
+    "results_rating": 5,
+    "communication_rating": 5,
+    "title": "Highly Recommend BusinessLabs",
+    "review_text": "Great communication, project delivered on time, first class customer service. Would not hesitate to use BusinessLabs for future products",
+    "review_date": "2026-05-07",
+    "verify_link": "https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/1609",
+    "submitter_label": "petrolheadlife.com",
+    "pmp_pid": null,
+    "is_published": 1,
+    "sort_order": 0,
+    "created_at": "2026-06-23 04:39:59",
+    "updated_at": "2026-06-23 04:49:21"
+  },
+  {
+    "review_id": 113,
+    "marketplace_review_id": "1588",
+    "overall_rating": 5,
+    "service_rating": 5,
+    "responsiveness_rating": 5,
+    "expertise_rating": 5,
+    "results_rating": 5,
+    "communication_rating": 5,
+    "title": "Impressive.",
+    "review_text": "We at arendal.net have recently implemented the Google Review Plugin, and the experience has been nothing short of impressive.The team from Business Labs impressed us with their quick response. Every time we had a question, we got an answer right away \u2013 always polite and professional.We recommend them",
+    "review_date": "2026-01-30",
+    "verify_link": "https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/1588",
+    "submitter_label": "Arendal.net",
+    "pmp_pid": null,
+    "is_published": 1,
+    "sort_order": 0,
+    "created_at": "2026-06-23 04:40:01",
+    "updated_at": "2026-06-23 04:49:23"
+  },
+  {
+    "review_id": 114,
+    "marketplace_review_id": "1586",
+    "overall_rating": 5,
+    "service_rating": 5,
+    "responsiveness_rating": 5,
+    "expertise_rating": 5,
+    "results_rating": 5,
+    "communication_rating": 5,
+    "title": "***** Five Star Review for Business Labs",
+    "review_text": "I can confidently recommend Business Labs. They helped design and build ConnectCare.ie and were excellent from start to finish,\u00a0clear communication, fast turnaround, and a very professional approach. They understood what I was trying to achieve, made sensible suggestions, and implemented changes quickly. The site is now far more polished and easier for users to navigate.",
+    "review_date": "2026-01-26",
+    "verify_link": "https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/1586",
+    "submitter_label": "ConnectCare.ie",
+    "pmp_pid": null,
+    "is_published": 1,
+    "sort_order": 0,
+    "created_at": "2026-06-23 04:40:02",
+    "updated_at": "2026-06-23 04:49:24"
+  },
+  {
+    "review_id": 115,
+    "marketplace_review_id": "1585",
+    "overall_rating": 5,
+    "service_rating": 5,
+    "responsiveness_rating": 5,
+    "expertise_rating": 5,
+    "results_rating": 5,
+    "communication_rating": 5,
+    "title": "BLabs Really Knows BD Inside and Out",
+    "review_text": "Brilliant Directories is a powerful directory solution, but with all those features come lots of options and settings. We use Brilliant Labs to get things done quickly without having to learn every little thing ourselves. They're super easy to work with. We just enter a ticket in the portal and typically someone takes care of it by the next day. Like having an expert we can check in with whenever we need to instead of hiring our own person.Praneetha is the team lead for our project, and she's super responsive and helpful. Shares directions via personalized videos and messages, leads customization calls, and puts us on the right path for things we'd like to change or update. She follows up calls with a screen share recording so we have a record of how to do something ourselves in the future. Priyanka is one of the developers on our project, and has been instrumental in setting up the directory so that it works the way we'd like. Whole team is excellent and knowledgeable.",
+    "review_date": "2026-01-24",
+    "verify_link": "https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/1585",
+    "submitter_label": "Home Transition Pros",
+    "pmp_pid": null,
+    "is_published": 1,
+    "sort_order": 0,
+    "created_at": "2026-06-23 04:40:03",
+    "updated_at": "2026-06-23 04:49:25"
+  },
+  {
+    "review_id": 116,
+    "marketplace_review_id": "1584",
+    "overall_rating": 5,
+    "service_rating": 5,
+    "responsiveness_rating": 5,
+    "expertise_rating": 5,
+    "results_rating": 5,
+    "communication_rating": 5,
+    "title": "Amazing Team",
+    "review_text": "Praneetha, Yadkin, and the entire Business Labs team have been instrumental in redeveloping my directory at https://www.uppercervicalcare.com/. We\u2019re still working together as we update and improve pages across the site, and our next step is building a clear strategy to drive more traffic while optimizing for SEO and GEO.Because they have deep experience with Brilliant Directories, the partnership is a natural fit\u2014they feel like an extension of my internal team. The biggest value is peace of mind: I know they\u2019re there to jump in, troubleshoot quickly, and provide practical, smart guidance whenever an issue comes up.",
+    "review_date": "2026-01-23",
+    "verify_link": "https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/1584",
+    "submitter_label": "Upper Cervical Care",
+    "pmp_pid": null,
+    "is_published": 1,
+    "sort_order": 0,
+    "created_at": "2026-06-23 04:40:04",
+    "updated_at": "2026-06-23 04:49:26"
+  },
+  {
+    "review_id": 118,
+    "marketplace_review_id": "1556",
+    "overall_rating": 5,
+    "service_rating": 5,
+    "responsiveness_rating": 5,
+    "expertise_rating": 5,
+    "results_rating": 5,
+    "communication_rating": 5,
+    "title": "Fantastic Customizations by Business Labs \u2013 Highly Recommended!",
+    "review_text": "I worked with Business Labs on several customizations for my Brilliant Directories site, and I couldn\u2019t be happier with the results. They created a Video Preview on Member Profiles, which adds a professional and engaging touch to each profile. They also built Enhanced Member Card Elements in Search Results, giving the search pages a much more polished, modern, and user-friendly look. Finally, they implemented a Google Reviews plugin, which seamlessly integrates reviews and adds credibility to member profiles.Each of these features works flawlessly, performs well, and is easy to manage on the backend. Business Labs was professional, responsive, and delivered exactly what I needed. I\u2019m very satisfied with the quality of their work and would highly recommend them for anyone looking to take their Brilliant Directories website to the next level.",
+    "review_date": "2025-10-10",
+    "verify_link": "https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/1556",
+    "submitter_label": "RealEstatePhotography.com",
+    "pmp_pid": null,
+    "is_published": 1,
+    "sort_order": 0,
+    "created_at": "2026-06-23 04:40:06",
+    "updated_at": "2026-06-23 04:49:28"
+  },
+  {
+    "review_id": 119,
+    "marketplace_review_id": "1547",
+    "overall_rating": 5,
+    "service_rating": 5,
+    "responsiveness_rating": 5,
+    "expertise_rating": 5,
+    "results_rating": 5,
+    "communication_rating": 5,
+    "title": "Google Review Plugin",
+    "review_text": "The  Google Review Plugin is an amazing tool.  My experience working with them has been great. Timely installation & responsive team \u2014 Business Labs installed the plugin in a timely manner. They were prompt, professional, and always available to answer questions. Seamless integration & ease of use \u2014 It connected effortlessly  to the businesses that we had previously imported and within minutes we had live customer reviews showing on our website. Real-time updates & reliability \u2014 New reviews flow through automatically, so our site always reflects the latest feedback. Overall, the Google Review Plugin by Business Labs is more than plugin.  it\u2019s a powerful credibility engine. If you want to showcase reviews, build trust, and convert more visitors into customers, you\u2019ll be hard-pressed to find a better tool.",
+    "review_date": "2025-09-25",
+    "verify_link": "https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/1547",
+    "submitter_label": "Temeshia Johnson",
+    "pmp_pid": null,
+    "is_published": 1,
+    "sort_order": 0,
+    "created_at": "2026-06-23 04:40:07",
+    "updated_at": "2026-06-23 04:49:29"
+  },
+  {
+    "review_id": 120,
+    "marketplace_review_id": "1543",
+    "overall_rating": 5,
+    "service_rating": 5,
+    "responsiveness_rating": 5,
+    "expertise_rating": 5,
+    "results_rating": 5,
+    "communication_rating": 5,
+    "title": "Homepage design work",
+    "review_text": "Great job on the task asked for.Great communication, even \u00a0after I asked for a few changes to the design.Will be using these guys again",
+    "review_date": "2025-09-04",
+    "verify_link": "https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/1543",
+    "submitter_label": "Andy",
+    "pmp_pid": null,
+    "is_published": 1,
+    "sort_order": 0,
+    "created_at": "2026-06-23 04:40:09",
+    "updated_at": "2026-06-23 04:49:31"
+  },
+  {
+    "review_id": 121,
+    "marketplace_review_id": "1541",
+    "overall_rating": 5,
+    "service_rating": 5,
+    "responsiveness_rating": 5,
+    "expertise_rating": 5,
+    "results_rating": 5,
+    "communication_rating": 5,
+    "title": "GREAT WORK!",
+    "review_text": "Can't say enough good things about Business Labs:- Professional- Fast- Great communication- High Quality Results- Great PriceIt is unfortunate but true that some BD Marketplace Partners either can't deliver on quality and/or overbook clients...leaving you waiting for completed work, while chasing then down for response. Having found and worked with Business Labs on multiple projects, there is NO ONE ELSE you need to use!\u00a0Stop searching for a great resource and just contact Business Labs!",
+    "review_date": "2025-09-03",
+    "verify_link": "https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/1541",
+    "submitter_label": "UniversityRetirementCommunities.com",
+    "pmp_pid": null,
+    "is_published": 1,
+    "sort_order": 0,
+    "created_at": "2026-06-23 04:40:10",
+    "updated_at": "2026-06-23 04:49:32"
+  },
+  {
+    "review_id": 122,
+    "marketplace_review_id": "1538",
+    "overall_rating": 5,
+    "service_rating": 5,
+    "responsiveness_rating": 5,
+    "expertise_rating": 5,
+    "results_rating": 5,
+    "communication_rating": 5,
+    "title": "Fantastic Webinar by Jason & Yakin",
+    "review_text": "The BD platform is brilliant but I have not really been able to get much traction previously using BD.\u00a0After watching Yakin\u2019s (Business Labs) and Jason\u2019s webinar which was amazing! Watched it right through to the end and took everything in - in 1 day I set up a site based on their recommendations. (Especially homepage)\u00a0The next day I did some outreach and have secured a member who is happy to pay for leads! Now it\u2019s time for the work to begin!\u00a0What a fantastic job Yakin from BusinessLabs has done alongside Jason from BD. Would recommend this webinar to everyone!",
+    "review_date": "2025-08-18",
+    "verify_link": "https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/1538",
+    "submitter_label": "Nikki",
+    "pmp_pid": null,
+    "is_published": 1,
+    "sort_order": 0,
+    "created_at": "2026-06-23 04:40:11",
+    "updated_at": "2026-06-23 04:49:33"
+  },
+  {
+    "review_id": 123,
+    "marketplace_review_id": "1535",
+    "overall_rating": 5,
+    "service_rating": 5,
+    "responsiveness_rating": 5,
+    "expertise_rating": 5,
+    "results_rating": 5,
+    "communication_rating": 5,
+    "title": "Booking Calendar",
+    "review_text": "Praveen and the team at Business Labs are awesome to work with! It started with a half an hour meeting to understand the requirements and milestones of the project. Shortly after that I received a quote with pricing I was pleasantly surprised with, I honestly thought it would be much more for what I was asking.\u00a0Once I agreed and the project started, Praveen made sure to update me on the progress and status of each step along the way, he even let me know when I could test it out to make sure it was inline with what I wanted. Along the way I did make some requests that would change the scope of the work which I was also anticipating to pay for, but once again they surprised me and decided to do it as part of the original price and scopeThey are totally understood what I was trying to explain, and understood the future projects that would come along with it to better enhance the request as well. Very accommodating, and flexible.\u00a0Cannot say enough good things about their work ethic!!",
+    "review_date": "2025-08-15",
+    "verify_link": "https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/1535",
+    "submitter_label": "Drivebyee",
+    "pmp_pid": null,
+    "is_published": 1,
+    "sort_order": 0,
+    "created_at": "2026-06-23 04:40:12",
+    "updated_at": "2026-06-23 04:49:34"
+  }
+];
+
+  function createCardHTML(review) {
+    return `
+      <div class="bdgs-review-card">
+        <div class="bdgs-review-meta">Submitted by ${review.submitter_label} on ${review.review_date}</div>
+        <h3 class="bdgs-review-title">${review.title}</h3>
+        <div class="bdgs-review-ratings">
+          <div class="bdgs-rating-group"><span class="bdgs-rating-label">Overall Rating</span><div class="bdgs-rating-stars">${getStars(review.overall_rating)}</div></div>
+          <div class="bdgs-rating-group"><span class="bdgs-rating-label">Service</span><div class="bdgs-rating-stars">${getStars(review.service_rating)}</div></div>
+          <div class="bdgs-rating-group"><span class="bdgs-rating-label">Responsiveness</span><div class="bdgs-rating-stars">${getStars(review.responsiveness_rating)}</div></div>
+          <div class="bdgs-rating-group"><span class="bdgs-rating-label">Expertise</span><div class="bdgs-rating-stars">${getStars(review.expertise_rating)}</div></div>
+          <div class="bdgs-rating-group"><span class="bdgs-rating-label">Results</span><div class="bdgs-rating-stars">${getStars(review.results_rating)}</div></div>
+          <div class="bdgs-rating-group"><span class="bdgs-rating-label">Communication</span><div class="bdgs-rating-stars">${getStars(review.communication_rating)}</div></div>
+        </div>
+        <p class="bdgs-review-content">${review.review_text}</p>
+      </div>
+    `;
+  }
+
+  function createThumbHTML(review) {
+    return `
+      <div class="v3-thumb-preview">
+        <div class="v3-thumb-title">${review.title}</div>
+        <div class="v3-thumb-stars">${getStars(5)}</div>
+      </div>
+    `;
+  }
+
+  // --- Variant 1: Expanding Accordion Slider ---
+  const v1AccTrack = document.getElementById('v1-acc-track');
+  let v1AccCurrent = 0;
+  
+  function renderV1Acc() {
+    if (!v1AccTrack) return;
+    v1AccTrack.innerHTML = '';
+    reviews.forEach((review, idx) => {
+      const card = document.createElement('div');
+      card.className = `v1-acc-card ${idx === v1AccCurrent ? 'active' : ''}`;
+      
+      const titleText = review.submitter_label || review.title;
+      card.innerHTML = `<div class="v1-acc-collapsed-content">${titleText}</div>` + createCardHTML(review);
+      
+      card.addEventListener('click', () => {
+        if (v1AccCurrent !== idx) {
+          v1AccCurrent = idx;
+          updateV1Acc();
+        }
+      });
+      v1AccTrack.appendChild(card);
+    });
+    updateV1Acc();
+  }
+
+  function updateV1Acc() {
+    if (!v1AccTrack) return;
+    const cards = v1AccTrack.querySelectorAll('.v1-acc-card');
+    cards.forEach((card, idx) => {
+      if (idx === v1AccCurrent) {
+        card.classList.add('active');
+      } else {
+        card.classList.remove('active');
+      }
+    });
+    
+    // Auto center the active card via scroll transform
+    const containerWidth = v1AccTrack.parentElement.clientWidth || 1200;
+    const activeWidth = window.innerWidth > 900 ? 650 : window.innerWidth * 0.8;
+    const collapsedWidth = window.innerWidth > 900 ? 100 : 60;
+    const gap = 16;
+    
+    let offset = (collapsedWidth + gap) * v1AccCurrent;
+    let centerOffset = (containerWidth - activeWidth) / 2;
+    let translateX = -offset + centerOffset;
+    
+    v1AccTrack.style.transform = `translateX(${translateX}px)`;
+  }
+  
+  let v1AccInterval = setInterval(() => {
+    v1AccCurrent = (v1AccCurrent + 1) % reviews.length;
+    updateV1Acc();
+  }, 4000);
+
+  if (v1AccTrack) {
+    v1AccTrack.parentElement.addEventListener('mouseenter', () => clearInterval(v1AccInterval));
+    v1AccTrack.parentElement.addEventListener('mouseleave', () => {
+      v1AccInterval = setInterval(() => {
+        v1AccCurrent = (v1AccCurrent + 1) % reviews.length;
+        updateV1Acc();
+      }, 4000);
+    });
+  }
+  
+  window.addEventListener('resize', updateV1Acc);
+  renderV1Acc();
+
+  // --- Variant 2: Horizontal Peek Carousel ---
+  function createV2CardHTML(review) {
+    const ratingCategories = [
+      { label: 'Overall', value: review.overall_rating },
+      { label: 'Service', value: review.service_rating },
+      { label: 'Responsiveness', value: review.responsiveness_rating },
+      { label: 'Expertise', value: review.expertise_rating },
+      { label: 'Results', value: review.results_rating },
+      { label: 'Communication', value: review.communication_rating },
+    ];
+
+    const pillsHTML = ratingCategories.map(cat => `
+      <span class="v2-rating-pill">
+        ${cat.label}
+        <span class="pill-stars">${getStars(cat.value)}</span>
+      </span>
+    `).join('');
+
+    const dateStr = new Date(review.review_date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+    return `
+      <div class="v2-review-card">
+        <div class="v2-card-header">
+          <h3 class="v2-review-title">${review.title}</h3>
+          <span class="v2-submitted-by">Submitted by <strong>${review.submitter_label}</strong> on ${dateStr}</span>
+        </div>
+        <div class="v2-rating-pills">${pillsHTML}</div>
+        <p class="v2-review-text">${review.review_text}</p>
+        <div class="v2-card-footer">
+          <span class="v2-verified-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Verified Client Review
+          </span>
+          ${review.verify_link ? `<a class="v2-verify-link" href="${review.verify_link}" target="_blank" rel="noopener">
+            View on Marketplace
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>` : ''}
+        </div>
+      </div>
+    `;
+  }
+
+  const v2Track = document.getElementById('v2-track');
+  let v2CurrentIndex = 0;
+  
+  reviews.forEach((review, idx) => {
+    const card = document.createElement('div');
+    card.className = `v2-card ${idx === 0 ? 'active' : ''}`;
+    card.setAttribute('data-v2-index', idx);
+    card.innerHTML = createV2CardHTML(review);
+    card.addEventListener('click', () => {
+      v2CurrentIndex = idx;
+      updateV2Carousel();
+    });
+    v2Track.appendChild(card);
+  });
+
+  const v2ProgressFill = document.querySelector('.v2-progress-fill');
+  const V2_INTERVAL_MS = 35000;
+  let v2Timer = null;
+  let v2Paused = false;
+  let v2ProgressStart = null;
+  let v2ProgressRaf = null;
+
+  function startV2Progress() {
+    if (v2ProgressFill) {
+      v2ProgressFill.style.transition = 'none';
+      v2ProgressFill.style.width = '0%';
+      // Force reflow
+      void v2ProgressFill.offsetWidth;
+      v2ProgressFill.style.transition = `width ${V2_INTERVAL_MS}ms linear`;
+      v2ProgressFill.style.width = '100%';
+    }
+  }
+
+  function resetV2Progress() {
+    if (v2ProgressFill) {
+      v2ProgressFill.style.transition = 'none';
+      v2ProgressFill.style.width = '0%';
+    }
+  }
+
+  function updateV2Carousel(fromAuto) {
+    const cards = v2Track.querySelectorAll('.v2-card');
+    cards.forEach((card, idx) => {
+      if (idx === v2CurrentIndex) {
+        card.classList.add('active');
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      } else {
+        card.classList.remove('active');
+      }
+    });
+    // Restart progress bar
+    resetV2Progress();
+    if (!v2Paused) startV2Progress();
+  }
+
+  function v2Next() {
+    v2CurrentIndex = (v2CurrentIndex + 1) % reviews.length;
+    updateV2Carousel();
+  }
+
+  function startV2AutoScroll() {
+    clearInterval(v2Timer);
+    v2Timer = setInterval(() => {
+      if (!v2Paused) v2Next();
+    }, V2_INTERVAL_MS);
+    startV2Progress();
+  }
+
+  document.getElementById('v2-next').addEventListener('click', () => {
+    v2CurrentIndex = (v2CurrentIndex + 1) % reviews.length;
+    updateV2Carousel();
+    // Reset the auto-scroll timer so it doesn't fire immediately after manual click
+    clearInterval(v2Timer);
+    v2Timer = setInterval(() => { if (!v2Paused) v2Next(); }, V2_INTERVAL_MS);
+    startV2Progress();
+  });
+  document.getElementById('v2-prev').addEventListener('click', () => {
+    v2CurrentIndex = (v2CurrentIndex - 1 + reviews.length) % reviews.length;
+    updateV2Carousel();
+    clearInterval(v2Timer);
+    v2Timer = setInterval(() => { if (!v2Paused) v2Next(); }, V2_INTERVAL_MS);
+    startV2Progress();
+  });
+
+  // Pause on hover
+  const v2Wrapper = document.querySelector('.v2-carousel-wrapper');
+  if (v2Wrapper) {
+    v2Wrapper.addEventListener('mouseenter', () => {
+      v2Paused = true;
+      if (v2ProgressFill) {
+        // Freeze the progress bar at its current visual position
+        const computed = getComputedStyle(v2ProgressFill).width;
+        const parent = v2ProgressFill.parentElement.offsetWidth;
+        const pct = (parseFloat(computed) / parent * 100).toFixed(2);
+        v2ProgressFill.style.transition = 'none';
+        v2ProgressFill.style.width = pct + '%';
+      }
+    });
+    v2Wrapper.addEventListener('mouseleave', () => {
+      v2Paused = false;
+      // Resume progress bar from current position
+      if (v2ProgressFill) {
+        const computed = getComputedStyle(v2ProgressFill).width;
+        const parent = v2ProgressFill.parentElement.offsetWidth;
+        const currentPct = parseFloat(computed) / parent;
+        const remaining = V2_INTERVAL_MS * (1 - currentPct);
+        v2ProgressFill.style.transition = `width ${remaining}ms linear`;
+        v2ProgressFill.style.width = '100%';
+      }
+    });
+  }
+
+  startV2AutoScroll();
+
+  // --- Variant 3: Bento Spotlight ---
+  const v3ThumbsContainer = document.getElementById('v3-thumbs-container');
+  const v3MainCard = document.getElementById('v3-main-card');
+  
+  // Set initial main card
+  v3MainCard.innerHTML = createCardHTML(reviews[0]);
+  
+  function renderV3Thumbs(activeReview) {
+    v3ThumbsContainer.innerHTML = '';
+    const thumbsToShow = reviews.filter(r => r !== activeReview).slice(0, 5);
+    
+    thumbsToShow.forEach(review => {
+      const thumb = document.createElement('div');
+      thumb.className = 'v3-thumb';
+      thumb.innerHTML = createThumbHTML(review);
+      thumb.addEventListener('click', () => {
+        v3MainCard.style.opacity = 0;
+        setTimeout(() => {
+          v3MainCard.innerHTML = createCardHTML(review);
+          v3MainCard.style.opacity = 1;
+          renderV3Thumbs(review);
+        }, 150);
+      });
+      v3ThumbsContainer.appendChild(thumb);
+    });
+  }
+  
+  renderV3Thumbs(reviews[0]);
+
+  // --- Variant 4: Masonry Wall ---
+  const v4MasonryGrid = document.getElementById('v4-masonry-grid');
+  reviews.forEach(review => {
+    const card = document.createElement('div');
+    // Using the same card HTML but masonry CSS handles the layout
+    card.innerHTML = createCardHTML(review);
+    v4MasonryGrid.appendChild(card);
+  });
+
+  // --- Variant 5: Vertical Tab Slider ---
+  const v5TabsList = document.getElementById('v5-tabs-list');
+  const v5MainContent = document.getElementById('v5-main-content');
+  
+  // Set initial
+  v5MainContent.innerHTML = createCardHTML(reviews[0]);
+  
+  function renderV5Tabs(activeIndex) {
+    v5TabsList.innerHTML = '';
+    reviews.forEach((review, idx) => {
+      const tab = document.createElement('div');
+      tab.className = `bdgs-vtab ${idx === activeIndex ? 'active' : ''}`;
+      tab.innerHTML = `
+        <div class="bdgs-vtab-author">${review.submitter_label}</div>
+        <div class="bdgs-vtab-title">${review.title}</div>
+      `;
+      tab.addEventListener('click', () => {
+        if (idx !== activeIndex) {
+          // Add animation class
+          v5MainContent.classList.remove('bdgs-fade-in');
+          // Force reflow
+          void v5MainContent.offsetWidth;
+          
+          v5MainContent.innerHTML = createCardHTML(review);
+          v5MainContent.classList.add('bdgs-fade-in');
+          
+          // Re-render tabs to update active state
+          renderV5Tabs(idx);
+          
+          // Scroll tab into view if on mobile
+          if (window.innerWidth <= 768) {
+            tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          }
+        }
+      });
+      v5TabsList.appendChild(tab);
+    });
+  }
+  
+  renderV5Tabs(0);
+
+
+  // Modal Logic
+  const readMoreModal = document.getElementById('bdgs-readmore-modal');
+  const readMoreBody = document.getElementById('bdgs-modal-body');
+  const readMoreClose = document.getElementById('bdgs-modal-close');
+  
+  window.openReviewModal = function(index) {
+    const review = reviews[index];
+    // Create non-compact card for modal
+    const html = createCardHTML(review).replace('bdgs-review-card', 'bdgs-review-card modal-card');
+    readMoreBody.innerHTML = html;
+    readMoreModal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // prevent background scroll
+  };
+
+  readMoreClose.addEventListener('click', () => {
+    readMoreModal.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+  readMoreModal.addEventListener('click', (e) => {
+    if (e.target === readMoreModal) {
+      readMoreModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Helper for Compact Cards
+  function createCompactCardHTML(review, index) {
+    // Determine if we need read more button
+    const limit = 180; // approximate character limit for 4 lines
+    let needsReadMore = review.review_text.length > limit;
+    
+    return `
+      <div class="bdgs-review-card bdgs-compact-card">
+        <div class="bdgs-review-meta">Submitted by ${review.submitter_label} on ${review.review_date}</div>
+        <h3 class="bdgs-review-title">${review.title}</h3>
+        <div class="bdgs-review-ratings">
+          <div class="bdgs-rating-group"><span class="bdgs-rating-label">Overall Rating</span><div class="bdgs-rating-stars">${getStars(review.overall_rating)}</div></div>
+          <div class="bdgs-rating-group"><span class="bdgs-rating-label">Service</span><div class="bdgs-rating-stars">${getStars(review.service_rating)}</div></div>
+        </div>
+        <div class="bdgs-review-content compact-text">${review.review_text}</div>
+        ${needsReadMore ? `<button class="bdgs-read-more-btn" onclick="openReviewModal(${index})">Read full review</button>` : ''}
+      </div>
+    `;
+  }
+
+  // --- Variant 6: Marquee ---
+  const v6Track = document.getElementById('v6-track');
+  if (v6Track) {
+    let v6Html = '';
+    reviews.forEach((review, idx) => {
+      v6Html += `<div class="v6-card">${createCompactCardHTML(review, idx)}</div>`;
+    });
+    // Duplicate for infinite loop
+    v6Track.innerHTML = v6Html + v6Html;
+  }
+
+  // --- Variant 7: Vertical Feed ---
+  const v7Track = document.getElementById('v7-track');
+  if (v7Track) {
+    let v7Html = '';
+    reviews.forEach((review, idx) => {
+      v7Html += `<div>${createCompactCardHTML(review, idx)}</div>`;
+    });
+    // Duplicate for infinite loop
+    v7Track.innerHTML = v7Html + v7Html;
+  }
+
+  // --- Variant 8: Coverflow ---
+  const v8Container = document.getElementById('v8-container');
+  let v8Current = 0;
+  if (v8Container) {
+    function renderV8() {
+      v8Container.innerHTML = '';
+      reviews.forEach((review, idx) => {
+        const card = document.createElement('div');
+        card.className = 'v8-card';
+        card.innerHTML = createCompactCardHTML(review, idx);
+        
+        card.addEventListener('click', () => {
+          v8Current = idx;
+          updateV8();
+        });
+        v8Container.appendChild(card);
+      });
+      updateV8();
+    }
+    
+    function updateV8() {
+      const cards = v8Container.querySelectorAll('.v8-card');
+      cards.forEach((card, idx) => {
+        card.className = 'v8-card'; // reset
+        if (idx === v8Current) card.classList.add('active');
+        else if (idx === (v8Current - 1 + reviews.length) % reviews.length) card.classList.add('prev');
+        else if (idx === (v8Current + 1) % reviews.length) card.classList.add('next');
+        else card.classList.add('hidden');
+      });
+    }
+
+    document.getElementById('v8-prev').addEventListener('click', () => {
+      v8Current = (v8Current - 1 + reviews.length) % reviews.length;
+      updateV8();
+    });
+    document.getElementById('v8-next').addEventListener('click', () => {
+      v8Current = (v8Current + 1) % reviews.length;
+      updateV8();
+    });
+    
+    renderV8();
+  }
+
+  </script>
+
+</body>
+</html>

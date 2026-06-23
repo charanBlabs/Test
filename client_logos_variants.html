@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Logos Variants - Premium UI/UX</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bdgs-coral: #E74D56;
+    --bdgs-coral-light: rgba(231,77,86,0.1);
+    --bdgs-dark: #1A1A2E;
+    --bdgs-bg: #F8F9FA;
+    --bdgs-white: #FFFFFF;
+    --bdgs-text: #333333;
+    --bdgs-text-muted: #6B7280;
+    --bdgs-border: #E5E7EB;
+    --bdgs-gradient: linear-gradient(135deg, #1A1A2E 0%, #E74D56 100%);
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: #f1f5f9;
+    color: var(--bdgs-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .variant-container {
+    padding: 80px 24px;
+    margin-bottom: 40px;
+    background: var(--bdgs-white);
+    border-bottom: 1px solid var(--bdgs-border);
+  }
+
+  .variant-container.dark-theme {
+    background: var(--bdgs-dark);
+    color: var(--bdgs-white);
+  }
+
+  .variant-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 48px;
+  }
+
+  .variant-title {
+    position: absolute;
+    top: 0; left: 0;
+    background: var(--bdgs-coral);
+    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom-right-radius: 12px;
+    z-index: 10;
+  }
+
+  .variant-wrapper {
+    position: relative;
+    border: 2px dashed #cbd5e1;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--bdgs-white);
+  }
+
+  .variant-wrapper.dark {
+    background: var(--bdgs-dark);
+  }
+
+  h2.section-title {
+    font-size: 34px;
+    font-weight: 700;
+    margin: 0 0 16px;
+    letter-spacing: -0.5px;
+    color: var(--bdgs-dark);
+  }
+  
+  .dark h2.section-title {
+    color: var(--bdgs-white);
+  }
+
+  h2.section-title em {
+    font-style: normal;
+    background: linear-gradient(to right, var(--bdgs-coral), #f43f5e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .title-strikethrough {
+    text-decoration: line-through;
+    color: var(--bdgs-text-muted);
+    font-weight: 600;
+    text-decoration-thickness: 3px;
+    margin: 0 4px;
+  }
+  
+  .dark .title-strikethrough {
+    color: #64748b;
+  }
+
+  p.section-sub {
+    font-size: 16px;
+    color: var(--bdgs-text-muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .dark p.section-sub {
+    color: #94A3B8;
+  }
+
+  /* -------------------------------------
+     VARIANT 1: Infinite Dual Marquee (Glitch Fixed)
+     ------------------------------------- */
+  .v1-marquee-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 40px 0; /* Increased padding to prevent clipping on hover */
+    margin: -20px 0; /* Offset the padding */
+    /* Fade edges */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .v1-marquee-track {
+    display: flex;
+    width: fit-content;
+    animation: marquee-scroll 40s linear infinite;
+  }
+
+  .v1-marquee-track.reverse {
+    animation: marquee-scroll-reverse 40s linear infinite;
+    margin-top: 24px;
+  }
+
+  .v1-marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .v1-marquee-content {
+    display: flex;
+    gap: 40px;
+    padding-right: 40px; /* Important for seamless loop: padding matches gap */
+  }
+
+  .v1-logo-item {
+    width: 160px;
+    height: 70px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 12px;
+    background: rgba(248, 249, 250, 0.5);
+    border: 1px solid rgba(229, 231, 235, 0.5);
+    transition: all 0.3s ease;
+    filter: grayscale(100%) opacity(0.5);
+  }
+
+  .v1-logo-item:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bdgs-white);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+    border-color: var(--bdgs-border);
+  }
+
+  .v1-logo-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  @keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes marquee-scroll-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  /* -------------------------------------
+     VARIANT 2: Premium Bento Grid
+     ------------------------------------- */
+  .v2-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .v2-bento-item {
+    background: var(--bdgs-white);
+    border: 1px solid rgba(229, 231, 235, 0.8);
+    border-radius: 16px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+  }
+
+  .v2-bento-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(231,77,86,0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .v2-bento-item img {
+    max-width: 120px;
+    max-height: 48px;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.6);
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+  }
+
+  .v2-bento-item:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    border-color: rgba(231,77,86,0.3);
+  }
+
+  .v2-bento-item:hover::before {
+    opacity: 1;
+  }
+
+  .v2-bento-item:hover img {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.05);
+  }
+
+  /* -------------------------------------
+     VARIANT 3: The Spotlight Focus (Dark Mode)
+     ------------------------------------- */
+  .v3-spotlight-section {
+    padding: 80px 24px;
+  }
+  
+  .v3-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .v3-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 80px;
+    transition: all 0.4s ease;
+    opacity: 0.3;
+    filter: grayscale(100%);
+  }
+
+  .v3-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1); 
+  }
+
+  .v3-grid:hover .v3-logo {
+    opacity: 0.1;
+    filter: grayscale(100%) blur(2px);
+  }
+
+  .v3-grid .v3-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%) blur(0px);
+    transform: scale(1.15);
+  }
+  
+  .v3-grid .v3-logo:hover img {
+    filter: none;
+    background: rgba(255,255,255,0.9);
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  /* -------------------------------------
+     VARIANT 4: Staggered Masonry/Pattern
+     ------------------------------------- */
+  .v4-pattern-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    padding: 0 24px;
+    position: relative;
+  }
+  
+  .v4-pattern-grid::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(231,77,86,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .v4-row {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .v4-row:nth-child(even) {
+    transform: translateX(40px);
+  }
+
+  .v4-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 60px;
+  }
+
+  .v4-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .v4-logo:hover img {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.1) translateY(-5px);
+  }
+
+  /* -------------------------------------
+     VARIANT 5: Minimalist Big Logos Strip
+     ------------------------------------- */
+  .v5-big-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    border-top: 1px solid var(--bdgs-border);
+    border-bottom: 1px solid var(--bdgs-border);
+    background: linear-gradient(90deg, rgba(248,249,250,0) 0%, rgba(248,249,250,1) 15%, rgba(248,249,250,1) 85%, rgba(248,249,250,0) 100%);
+  }
+
+  .v5-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+    filter: grayscale(100%);
+  }
+
+  .v5-logo img {
+    max-height: 100%;
+    max-width: 180px;
+    object-fit: contain;
+  }
+
+  .v5-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+
+  /* -------------------------------------
+     VARIANT 6: Vertical Scrolling Columns
+     ------------------------------------- */
+  .v6-vertical-container {
+    height: 440px; /* Increased height to account for padding */
+    padding: 20px 40px; /* Added padding to prevent horizontal/vertical clipping */
+    margin: -20px -40px; /* Offset the padding */
+    overflow: hidden;
+    position: relative;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    /* Fade top and bottom */
+    mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  }
+
+  .v6-column {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: max-content;
+  }
+
+  .v6-col-track {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 24px;
+    animation: vertical-scroll 30s linear infinite;
+  }
+
+  .v6-column.reverse .v6-col-track {
+    animation: vertical-scroll-reverse 35s linear infinite;
+  }
+
+  .v6-column:hover .v6-col-track {
+    animation-play-state: paused;
+  }
+
+  .v6-logo-item {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: var(--bdgs-white);
+    border: 1px solid var(--bdgs-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    filter: grayscale(100%) opacity(0.5);
+    transition: all 0.3s ease;
+  }
+
+  .v6-logo-item:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+    border-color: rgba(231,77,86,0.3);
+    z-index: 2;
+    position: relative;
+  }
+
+  .v6-logo-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  @keyframes vertical-scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+  @keyframes vertical-scroll-reverse {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+  }
+
+  /* -------------------------------------
+     VARIANT 7: 3D Perspective Marquee
+     ------------------------------------- */
+  .v7-perspective-wrapper {
+    perspective: 1200px;
+    padding: 60px 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .v7-tilt-container {
+    transform: rotateX(20deg) rotateZ(-4deg) rotateY(15deg);
+    transform-style: preserve-3d;
+    width: 120%;
+    padding: 60px 0; /* Give the mask a larger bounding box */
+    margin: -60px 0;
+    /* Fade edges in perspective */
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  }
+
+  .v7-track {
+    display: flex;
+    width: fit-content;
+    animation: perspective-scroll 45s linear infinite;
+  }
+
+  .v7-track:hover {
+    animation-play-state: paused;
+  }
+
+  .v7-content {
+    display: flex;
+    gap: 40px;
+    padding-right: 40px;
+  }
+
+  .v7-logo-item {
+    width: 180px;
+    height: 100px;
+    flex-shrink: 0;
+    background: var(--bdgs-white);
+    border: 1px solid var(--bdgs-border);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-shadow: -10px 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    filter: grayscale(100%) opacity(0.6);
+  }
+
+  .v7-logo-item:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: translateZ(30px) translateY(-10px);
+    box-shadow: -20px 20px 30px rgba(231,77,86,0.1);
+    border-color: var(--bdgs-coral);
+  }
+
+  .v7-logo-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  @keyframes perspective-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+
+  /* Responsive styling */
+  @media (max-width: 991px) {
+    .v2-bento-grid { grid-template-columns: repeat(3, 1fr); }
+    .v4-row:nth-child(even) { transform: none; }
+    .v5-big-logos { gap: 32px; }
+  }
+
+  @media (max-width: 768px) {
+    .v2-bento-grid { grid-template-columns: repeat(2, 1fr); }
+    .v5-big-logos { gap: 24px; }
+    .v3-grid { gap: 16px; }
+    h2.section-title { font-size: 28px; }
+    .v6-column:nth-child(3) { display: none; } /* Hide 3rd col on mobile */
+  }
+
+</style>
+</head>
+<body>
+
+<div style="padding: 40px; text-align: center; background: #fff; border-bottom: 1px solid #e5e7eb;">
+  <h1 style="margin: 0 0 10px; color: var(--bdgs-dark);">Client Logos Display Variants</h1>
+  <p style="margin: 0; color: var(--bdgs-text-muted);">7 premium, unique ways to display the "We Made These Directories Happy" section.</p>
+</div>
+
+<!-- ==========================================
+     VARIANT 1: Infinite Dual Marquee (Glitch Fixed)
+     ========================================== -->
+<div class="variant-wrapper" style="margin: 40px;">
+  <div class="variant-title">Variant 1: Smooth Infinite Marquee</div>
+  <div class="variant-container">
+    <div class="variant-header">
+      <h2 class="section-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em>VERY HAPPY</em></h2>
+      <p class="section-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue. We delivered beyond their expectations — and we'll do the same for you.</p>
+    </div>
+
+    <!-- First Row (Scroll Left) -->
+    <div class="v1-marquee-container">
+      <div class="v1-marquee-track">
+        <!-- Content Set 1 -->
+        <div class="v1-marquee-content">
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/1.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/8.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/3.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CCRG-LOGO-edit1.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/supplyseys.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/4.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/hotelsjuction.png" alt="Logo"></div>
+        </div>
+        <!-- Content Set 2 (Exact Duplicate) -->
+        <div class="v1-marquee-content">
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/1.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/8.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/3.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CCRG-LOGO-edit1.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/supplyseys.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/4.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/hotelsjuction.png" alt="Logo"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Second Row (Scroll Right) -->
+    <div class="v1-marquee-container">
+      <div class="v1-marquee-track reverse">
+        <div class="v1-marquee-content">
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/yep.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/7.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/isostylist.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9_1.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/5.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/localbulls.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/insureblack.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/2.png" alt="Logo"></div>
+        </div>
+        <div class="v1-marquee-content">
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/yep.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/7.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/isostylist.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9_1.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/5.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/localbulls.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/insureblack.png" alt="Logo"></div>
+          <div class="v1-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/2.png" alt="Logo"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     VARIANT 6: Vertical Scrolling Columns
+     ========================================== -->
+<div class="variant-wrapper" style="margin: 40px;">
+  <div class="variant-title" style="background: #eab308;">Variant 6: Vertical Scrolling Columns</div>
+  <div class="variant-container">
+    <div class="variant-header">
+      <h2 class="section-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em>VERY HAPPY</em></h2>
+      <p class="section-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue. We delivered beyond their expectations — and we'll do the same for you.</p>
+    </div>
+
+    <div class="v6-vertical-container">
+      <!-- Column 1 (Scrolls Up) -->
+      <div class="v6-column">
+        <div class="v6-col-track">
+          <!-- Double content for infinite loop -->
+          <div class="v1-marquee-content" style="flex-direction: column; padding-right: 0; padding-bottom: 24px; gap: 24px;">
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/1.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/8.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/3.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CCRG-LOGO-edit1.png" alt="Logo"></div>
+          </div>
+          <div class="v1-marquee-content" style="flex-direction: column; padding-right: 0; padding-bottom: 24px; gap: 24px;">
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/1.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/8.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/3.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CCRG-LOGO-edit1.png" alt="Logo"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 2 (Scrolls Down) -->
+      <div class="v6-column reverse">
+        <div class="v6-col-track">
+          <div class="v1-marquee-content" style="flex-direction: column; padding-right: 0; padding-bottom: 24px; gap: 24px;">
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/supplyseys.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/4.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/hotelsjuction.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/yep.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/7.png" alt="Logo"></div>
+          </div>
+          <div class="v1-marquee-content" style="flex-direction: column; padding-right: 0; padding-bottom: 24px; gap: 24px;">
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/supplyseys.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/4.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/hotelsjuction.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/yep.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/7.png" alt="Logo"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 3 (Scrolls Up) -->
+      <div class="v6-column">
+        <div class="v6-col-track" style="animation-duration: 38s;">
+          <div class="v1-marquee-content" style="flex-direction: column; padding-right: 0; padding-bottom: 24px; gap: 24px;">
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/isostylist.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9_1.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/5.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/localbulls.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/insureblack.png" alt="Logo"></div>
+          </div>
+          <div class="v1-marquee-content" style="flex-direction: column; padding-right: 0; padding-bottom: 24px; gap: 24px;">
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/isostylist.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9_1.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/5.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/localbulls.png" alt="Logo"></div>
+            <div class="v6-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/insureblack.png" alt="Logo"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     VARIANT 7: 3D Perspective Marquee
+     ========================================== -->
+<div class="variant-wrapper" style="margin: 40px;">
+  <div class="variant-title" style="background: #0ea5e9;">Variant 7: 3D Perspective Marquee</div>
+  <div class="variant-container" style="background: #f8fafc; overflow: hidden;">
+    <div class="variant-header" style="position: relative; z-index: 10;">
+      <h2 class="section-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em>VERY HAPPY</em></h2>
+      <p class="section-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue. We delivered beyond their expectations — and we'll do the same for you.</p>
+    </div>
+
+    <div class="v7-perspective-wrapper">
+      <div class="v7-tilt-container">
+        <div class="v7-track">
+          <!-- Double content for infinite loop -->
+          <div class="v7-content">
+            <div class="v7-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/1.png" alt="Logo"></div>
+            <div class="v7-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9.png" alt="Logo"></div>
+            <div class="v7-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/8.png" alt="Logo"></div>
+            <div class="v7-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/3.png" alt="Logo"></div>
+            <div class="v7-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CCRG-LOGO-edit1.png" alt="Logo"></div>
+            <div class="v7-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/supplyseys.png" alt="Logo"></div>
+            <div class="v7-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/4.png" alt="Logo"></div>
+          </div>
+          <div class="v7-content">
+            <div class="v7-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/1.png" alt="Logo"></div>
+            <div class="v7-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9.png" alt="Logo"></div>
+            <div class="v7-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/8.png" alt="Logo"></div>
+            <div class="v7-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/3.png" alt="Logo"></div>
+            <div class="v7-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CCRG-LOGO-edit1.png" alt="Logo"></div>
+            <div class="v7-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/supplyseys.png" alt="Logo"></div>
+            <div class="v7-logo-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/4.png" alt="Logo"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     VARIANT 2: Premium Bento Grid
+     ========================================== -->
+<div class="variant-wrapper" style="margin: 40px;">
+  <div class="variant-title" style="background: #0f172a;">Variant 2: Premium Bento Grid</div>
+  <div class="variant-container" style="background: #f8fafc;">
+    <div class="variant-header">
+      <h2 class="section-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em>VERY HAPPY</em></h2>
+      <p class="section-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue. We delivered beyond their expectations — and we'll do the same for you.</p>
+    </div>
+
+    <div class="v2-bento-grid">
+      <div class="v2-bento-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/1.png" alt="Logo"></div>
+      <div class="v2-bento-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9.png" alt="Logo"></div>
+      <div class="v2-bento-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/8.png" alt="Logo"></div>
+      <div class="v2-bento-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/3.png" alt="Logo"></div>
+      <div class="v2-bento-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CCRG-LOGO-edit1.png" alt="Logo"></div>
+      <div class="v2-bento-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/supplyseys.png" alt="Logo"></div>
+      <div class="v2-bento-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/4.png" alt="Logo"></div>
+      <div class="v2-bento-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/hotelsjuction.png" alt="Logo"></div>
+      <div class="v2-bento-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/yep.png" alt="Logo"></div>
+      <div class="v2-bento-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/7.png" alt="Logo"></div>
+      <div class="v2-bento-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/isostylist.png" alt="Logo"></div>
+      <div class="v2-bento-item"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9_1.png" alt="Logo"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     VARIANT 3: The Spotlight Focus (Dark Mode)
+     ========================================== -->
+<div class="variant-wrapper dark" style="margin: 40px;">
+  <div class="variant-title" style="background: #3b82f6;">Variant 3: The Spotlight Focus (Dark Mode)</div>
+  <div class="variant-container dark-theme v3-spotlight-section">
+    <div class="variant-header">
+      <h2 class="section-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em style="background: linear-gradient(to right, #60a5fa, #a78bfa); -webkit-background-clip: text;">VERY HAPPY</em></h2>
+      <p class="section-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue. We delivered beyond their expectations — and we'll do the same for you.</p>
+    </div>
+
+    <div class="v3-grid">
+      <div class="v3-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/1.png" alt="Logo"></div>
+      <div class="v3-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9.png" alt="Logo"></div>
+      <div class="v3-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/8.png" alt="Logo"></div>
+      <div class="v3-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/3.png" alt="Logo"></div>
+      <div class="v3-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CCRG-LOGO-edit1.png" alt="Logo"></div>
+      <div class="v3-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/supplyseys.png" alt="Logo"></div>
+      <div class="v3-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/4.png" alt="Logo"></div>
+      <div class="v3-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/hotelsjuction.png" alt="Logo"></div>
+      <div class="v3-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/yep.png" alt="Logo"></div>
+      <div class="v3-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/7.png" alt="Logo"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     VARIANT 4: Staggered Masonry/Pattern
+     ========================================== -->
+<div class="variant-wrapper" style="margin: 40px;">
+  <div class="variant-title" style="background: #10b981;">Variant 4: Staggered Pattern</div>
+  <div class="variant-container">
+    <div class="variant-header">
+      <h2 class="section-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em>VERY HAPPY</em></h2>
+      <p class="section-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue. We delivered beyond their expectations — and we'll do the same for you.</p>
+    </div>
+
+    <div class="v4-pattern-grid">
+      <div class="v4-row">
+        <div class="v4-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/1.png" alt="Logo"></div>
+        <div class="v4-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9.png" alt="Logo"></div>
+        <div class="v4-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/8.png" alt="Logo"></div>
+        <div class="v4-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/3.png" alt="Logo"></div>
+      </div>
+      <div class="v4-row">
+        <div class="v4-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CCRG-LOGO-edit1.png" alt="Logo"></div>
+        <div class="v4-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/supplyseys.png" alt="Logo"></div>
+        <div class="v4-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/4.png" alt="Logo"></div>
+      </div>
+      <div class="v4-row">
+        <div class="v4-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/hotelsjuction.png" alt="Logo"></div>
+        <div class="v4-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/yep.png" alt="Logo"></div>
+        <div class="v4-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/7.png" alt="Logo"></div>
+        <div class="v4-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/isostylist.png" alt="Logo"></div>
+      </div>
+      <div class="v4-row">
+        <div class="v4-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9_1.png" alt="Logo"></div>
+        <div class="v4-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/5.png" alt="Logo"></div>
+        <div class="v4-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/localbulls.png" alt="Logo"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================
+     VARIANT 5: Minimalist Big Logos Strip
+     ========================================== -->
+<div class="variant-wrapper" style="margin: 40px;">
+  <div class="variant-title" style="background: #8b5cf6;">Variant 5: Minimalist Strip</div>
+  <div class="variant-container" style="padding: 60px 0;">
+    <div class="variant-header" style="margin-bottom: 32px;">
+      <h2 class="section-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em>VERY HAPPY</em></h2>
+      <p class="section-sub" style="margin-bottom: 24px;">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue.</p>
+    </div>
+
+    <div class="v5-big-logos">
+      <div class="v5-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/1.png" alt="Logo"></div>
+      <div class="v5-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9.png" alt="Logo"></div>
+      <div class="v5-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CCRG-LOGO-edit1.png" alt="Logo"></div>
+      <div class="v5-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/supplyseys.png" alt="Logo"></div>
+      <div class="v5-logo"><img src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/hotelsjuction.png" alt="Logo"></div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 24px;">
+      <a href="#" style="font-size: 14px; color: var(--bdgs-coral); text-decoration: none; font-weight: 600;">See all 500+ successful directories &rarr;</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
