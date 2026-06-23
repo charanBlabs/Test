@@ -1287,11 +1287,15 @@ function renderReviewCard(review) {
       </div>
       <div class="bdgsownv2-review-details">
         <div class="bdgsownv2-rating-item">
+          <span class="bdgsownv2-rating-label">Overall Rating</span>
+          <div class="bdgsownv2-review-stars">${getStarsHtml(review.overall_rating || 5)}</div>
+        </div>
+        <div class="bdgsownv2-rating-item">
           <span class="bdgsownv2-rating-label">Service</span>
           <div class="bdgsownv2-review-stars">${getStarsHtml(review.service_rating || 5)}</div>
         </div>
         <div class="bdgsownv2-rating-item">
-          <span class="bdgsownv2-rating-label">Response</span>
+          <span class="bdgsownv2-rating-label">Responsiveness</span>
           <div class="bdgsownv2-review-stars">${getStarsHtml(review.responsiveness_rating || 5)}</div>
         </div>
         <div class="bdgsownv2-rating-item">
@@ -1303,7 +1307,7 @@ function renderReviewCard(review) {
           <div class="bdgsownv2-review-stars">${getStarsHtml(review.results_rating || 5)}</div>
         </div>
         <div class="bdgsownv2-rating-item">
-          <span class="bdgsownv2-rating-label">Comm.</span>
+          <span class="bdgsownv2-rating-label">Communication</span>
           <div class="bdgsownv2-review-stars">${getStarsHtml(review.communication_rating || 5)}</div>
         </div>
       </div>
