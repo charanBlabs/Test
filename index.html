@@ -1698,19 +1698,35 @@ Chatbots. Agents. Smart search.<br>
       <h3>🟢 Join Free Zoom Clinics</h3>
       <p>Small silly things on your directory site? Never pay a developer for those again. Drop into our live Zoom session, get help, learn how BD works.</p>
       <div id="bdgsZoomModalStep1">
-        <p style="background:var(--bdgs-bg);padding:12px 14px;border-radius:8px;font-size:13px;border-left:3px solid var(--bdgs-coral);margin-bottom:16px;"><strong style="color:var(--bdgs-dark)">Next session:</strong> <span id="bdgsZoomSessionDisplay">Loading...</span><br><strong style="color:var(--bdgs-dark)">Format:</strong> 60-min open Q&amp;A with our devs<br><strong style="color:var(--bdgs-dark)">Cost:</strong> Free, forever</p>
-
-        <div style="margin-bottom:16px;">
-          <select id="bdgsZoomTimezone" onchange="bdgsUpdateTimezoneDisplay()" style="padding:12px; border-radius:8px; border:1px solid var(--bdgs-border); width:100%; font-size:14px; background:var(--bdgs-white);">
-            <option value="America/New_York" selected>United States - Eastern Time</option>
-            <option value="America/Chicago">United States - Central Time</option>
-            <option value="America/Denver">United States - Mountain Time</option>
-            <option value="America/Los_Angeles">United States - Pacific Time</option>
-            <option value="Europe/London">United Kingdom (UK)</option>
-            <option value="Europe/Paris">France</option>
-            <option value="Asia/Kolkata">India (IST)</option>
-            <option value="Australia/Sydney">Australia (Sydney)</option>
-          </select>
+        <div style="background:var(--bdgs-bg);padding:12px 14px;border-radius:8px;font-size:13px;border-left:3px solid var(--bdgs-coral);margin-bottom:16px;">
+          <div style="margin-bottom:8px;">
+            <strong style="color:var(--bdgs-dark)">Next session:</strong> <span id="bdgsZoomSessionDisplay">Loading...</span>
+            <div style="display:inline-flex; align-items:center; margin-left:6px; background:#fff; padding:2px 6px; border-radius:4px; border:1px solid var(--bdgs-border);">
+              <span style="font-size:11px; color:var(--bdgs-text-muted); font-weight:600; margin-right:4px;">View in:</span>
+              <select id="bdgsZoomTimezone" onchange="bdgsUpdateTimezoneDisplay()" style="border:none; background:transparent; font-size:13px; font-weight:600; color:var(--bdgs-dark); outline:none; padding:0; cursor:pointer;">
+                <optgroup label="🇺🇸 United States">
+                  <option value="America/New_York" selected>Eastern Time</option>
+                  <option value="America/Chicago">Central Time</option>
+                  <option value="America/Denver">Mountain Time</option>
+                  <option value="America/Los_Angeles">Pacific Time</option>
+                </optgroup>
+                <optgroup label="🇬🇧 United Kingdom">
+                  <option value="Europe/London">London Time</option>
+                </optgroup>
+                <optgroup label="🇫🇷 France">
+                  <option value="Europe/Paris">Paris Time</option>
+                </optgroup>
+                <optgroup label="🇮🇳 India">
+                  <option value="Asia/Kolkata">India (IST)</option>
+                </optgroup>
+                <optgroup label="🇦🇺 Australia">
+                  <option value="Australia/Sydney">Sydney Time</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          <strong style="color:var(--bdgs-dark)">Format:</strong> 60-min open Q&amp;A with our devs<br>
+          <strong style="color:var(--bdgs-dark)">Cost:</strong> Free, forever
         </div>
         
         <p style="font-size:12px;color:var(--bdgs-text-muted);margin-bottom:24px;">Strategy questions? Those need our Founder Concierge or Express Setup. Everything else — come on in.</p>
