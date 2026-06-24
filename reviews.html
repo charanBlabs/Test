@@ -1298,7 +1298,7 @@ function renderReviewCard(review) {
       <div class="bdgsownv2-review-top">
         <div>
           <div class="bdgsownv2-review-meta">
-            By <span style="color:#16A34A;font-weight:600">${submitter}</span> on <time datetime="${dateObj.toISOString()}">${review.review_date || 'Recent'}</time>
+            By ${submitter} on <time datetime="${dateObj.toISOString()}">${review.review_date || 'Recent'}</time>
           </div>
           <h3 class="bdgsownv2-review-title">${review.title || 'Review'}</h3>
         </div>
