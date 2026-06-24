@@ -975,7 +975,7 @@ body {
 .bdgsownv2-submitted-by {
   font-size: 12px;
   color: var(--bdgs-text-muted);
-  white-space: nowrap;
+  white-space: normal;
   flex-shrink: 0;
 }
 .bdgsownv2-rating-pills {
@@ -1131,6 +1131,13 @@ body {
   }
   .bdgsownv2-rating-pills {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .bdgsownv2-rating-pill {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
   }
 }
 
@@ -3165,7 +3172,7 @@ setTimeout(bdgsSyncCardHeights, 2000);
   }
 
   // Fetch count and reviews from the API
-  fetch(API + '?action=list&published_only=1&limit=5&offset=0&bd_api_key=' + KEY)
+  fetch(API + '?action=list&published_only=1&limit=200&offset=0&bd_api_key=' + KEY)
     .then(function(r) { return r.json(); })
     .then(function(data) {
       if (!data.ok) {
@@ -3188,7 +3195,12 @@ setTimeout(bdgsSyncCardHeights, 2000);
 
       // Update carousel with dynamic fresh reviews
       if (data.reviews && data.reviews.length > 0 && bdgsownv2Track) {
-        fetchedReviews = data.reviews;
+        var targetIds = ['910', '912', '862', '928', '932', '881', '864', '848', '742', '838', '827'];
+        var filteredReviews = data.reviews.filter(function(r) {
+          return targetIds.indexOf(String(r.marketplace_review_id)) !== -1 || targetIds.indexOf(String(r.review_id)) !== -1;
+        });
+        
+        fetchedReviews = filteredReviews.length > 0 ? filteredReviews : data.reviews;
         bdgsownv2Track.innerHTML = '';
         var repeatedReviews = [];
         for (var i = 0; i < 10; i++) {
