@@ -1136,7 +1136,7 @@ body {
         <p style="font-size:16px;color:var(--bdgs-text-muted);line-height:1.65;margin-bottom:24px">Jason, CEO of Brilliant Directories, personally endorsed BD Growth Suite across 3 official webinars. When the platform's own CEO recommends a team — that says everything.</p>
         <div class="bdgsownv2-hero-ctas" style="justify-content:flex-start">
           <a href="services.html" class="bdgsownv2-btn-primary">Explore Services</a>
-          <a href="/blabs-review" class="bdgsownv2-btn-secondary bdgsownv2-btn-light">Read 169+ Reviews</a>
+          <a href="/blabs-review" class="bdgsownv2-btn-secondary bdgsownv2-btn-light" id="bdgs-hero-reviews-btn">Read 169+ Reviews</a>
         </div>
       </div>
       <div class="col-md-7">
@@ -1265,7 +1265,7 @@ Chatbots. Agents. Smart search.<br>
     </div>
 
     <div class="bdgsownv2-reviews-more">
-      <a href="/blabs-review">See all 169+ reviews →</a>
+      <a href="/blabs-review" id="bdgs-proof-reviews-link">See all 169+ reviews →</a>
     </div>
   </div>
 </section>
@@ -1282,7 +1282,7 @@ Chatbots. Agents. Smart search.<br>
         <div class="bdgsownv2-stat-label">Directory Sites Served</div>
       </div>
       <div class="bdgsownv2-stat">
-        <div class="bdgsownv2-stat-number bdgsownv2-grad-text">169+</div>
+        <div class="bdgsownv2-stat-number bdgsownv2-grad-text" id="bdgs-stat-reviews-count">169+</div>
         <div class="bdgsownv2-stat-label">Verified Reviews</div>
       </div>
       <div class="bdgsownv2-stat">
@@ -1662,7 +1662,7 @@ Chatbots. Agents. Smart search.<br>
           <li><a href="/solutions">Solutions (61+ done-for-you)</a></li>
           <li><a href="/themes">Directory Themes (6)</a></li>
           <li><a href="/blog">Blog</a></li>
-          <li><a href="/blabs-review">Client Reviews (169+)</a></li>
+          <li><a href="/blabs-review" id="bdgs-footer-reviews-link">Client Reviews (169+)</a></li>
           <li><a href="/about">About Us</a></li>
           <li><a href="/webinars">CEO Webinars</a></li>
         </ul>
@@ -2405,6 +2405,34 @@ setTimeout(bdgsSyncCardHeights, 2000);
   } catch (err) {
     el.textContent = INDIA_RANGE;
   }
+})();
+</script>
+
+<!-- Dynamic review count fetcher -->
+<script>
+(function() {
+  var API = 'https://bdgrowthsuite.com/api/widget/json/get/bdgs-blabs-reviews-api';
+  var KEY = '3d5ca826459ec3a3b47675f7ea0a0cd3';
+  fetch(API + '?action=list&published_only=1&limit=1&offset=0&bd_api_key=' + KEY)
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (!data.ok || !data.total) return;
+      var count = data.total;
+      var label = count + '+';
+      // Hero button
+      var heroBtn = document.getElementById('bdgs-hero-reviews-btn');
+      if (heroBtn) heroBtn.textContent = 'Read ' + label + ' Reviews';
+      // Proof section link
+      var proofLink = document.getElementById('bdgs-proof-reviews-link');
+      if (proofLink) proofLink.textContent = 'See all ' + label + ' reviews \u2192';
+      // Stat strip number
+      var statNum = document.getElementById('bdgs-stat-reviews-count');
+      if (statNum) statNum.textContent = label;
+      // Footer link
+      var footerLink = document.getElementById('bdgs-footer-reviews-link');
+      if (footerLink) footerLink.textContent = 'Client Reviews (' + label + ')';
+    })
+    .catch(function() { /* keep fallback 169+ */ });
 })();
 </script>
 </body>
