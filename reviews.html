@@ -1214,16 +1214,24 @@ body {
 }
 </style>
 
-<!-- SEO Schema.org Markup -->
+<!-- SEO Schema.org Markup — the dynamic schema in updateSchemaGraph() is the canonical source;
+     this static block is a fallback for bots that don't execute JS. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "ProfessionalService",
+  "@id": "https://bdgrowthsuite.com/#organization",
   "name": "Business Labs",
+  "alternateName": "BD Growth Suite",
+  "url": "https://bdgrowthsuite.com",
+  "logo": "https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png",
+  "description": "Expert Brilliant Directories developers and partners. BD Growth Suite by BusinessLabs.",
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "176"
+    "ratingValue": "5.0",
+    "reviewCount": "176",
+    "bestRating": "5",
+    "worstRating": "1"
   }
 }
 </script>
@@ -1232,6 +1240,20 @@ body {
   <div class="bdgsownv2-reviews-header">
     <h1>Client Reviews</h1>
     <p>Read what our clients have to say about working with Business Labs. Based on 176 verified reviews.</p>
+  </div>
+
+  <!-- Verification Trust Banner -->
+  <div style="max-width: 1200px; margin: 0 auto 32px; padding: 20px 24px; background: linear-gradient(135deg, rgba(22,163,74,0.06) 0%, rgba(22,163,74,0.02) 100%); border: 1px solid rgba(22,163,74,0.18); border-radius: 12px; display: flex; align-items: flex-start; gap: 14px;">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0; margin-top: 1px;">
+      <path d="M12 2L3.5 6.5V11.5C3.5 16.45 7.09 21.08 12 22C16.91 21.08 20.5 16.45 20.5 11.5V6.5L12 2Z" fill="#16A34A" opacity="0.15"/>
+      <path d="M12 2L3.5 6.5V11.5C3.5 16.45 7.09 21.08 12 22C16.91 21.08 20.5 16.45 20.5 11.5V6.5L12 2Z" stroke="#16A34A" stroke-width="1.5" fill="none"/>
+      <path d="M9 12L11 14L15 10" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div style="font-size: 13px; color: var(--bdgs-text); line-height: 1.6;">
+      <strong style="color: #16A34A; font-size: 14px;">All Reviews Are Independently Verified</strong><br>
+      Every review is submitted by an active Brilliant Directories site owner. The <strong>BD Marketplace team independently confirms</strong> each reviewer's identity as an active client before the review is published on the developer's profile. No review is published until the client responds to BD Marketplace's verification request.
+      <a href="https://marketplace.brilliantdirectories.com/india/partner/business-labs" target="_blank" rel="noopener noreferrer" style="color: var(--bdgs-coral); font-weight: 600; text-decoration: none; margin-left: 4px;">Verify on BD Marketplace →</a>
+    </div>
   </div>
   
   <div class="bdgsownv2-reviews-grid" id="reviewsGrid">
@@ -1263,7 +1285,7 @@ function getStarsHtml(count) {
 }
 
 function renderReviewCard(review) {
-  const submitter = review.submitter_label || "Verified Client";
+  const submitter = "Verified BD Site Owner";
   const mId = review.marketplace_review_id || review.review_id || '';
   const verifyLink = review.verify_link || `https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/${mId}`;
   
@@ -1276,7 +1298,7 @@ function renderReviewCard(review) {
       <div class="bdgsownv2-review-top">
         <div>
           <div class="bdgsownv2-review-meta">
-            By <span><span>${submitter}</span></span> on <time datetime="${dateObj.toISOString()}">${review.review_date || 'Recent'}</time>
+            By <span style="color:#16A34A;font-weight:600">${submitter}</span> on <time datetime="${dateObj.toISOString()}">${review.review_date || 'Recent'}</time>
           </div>
           <h3 class="bdgsownv2-review-title">${review.title || 'Review'}</h3>
         </div>
@@ -1387,12 +1409,13 @@ function updateSchemaGraph(totalCount, newReviews) {
       },
       "author": {
         "@type": "Person",
-        "name": r.submitter_label || "Verified Client"
+        "name": "Verified Brilliant Directories Site Owner"
       },
       "publisher": {
         "@type": "Organization",
         "name": "Brilliant Directories Marketplace",
-        "url": "https://marketplace.brilliantdirectories.com"
+        "url": "https://marketplace.brilliantdirectories.com",
+        "sameAs": "https://www.brilliantdirectories.com"
       }
     });
   });

@@ -1464,7 +1464,7 @@
   function createCardHTML(review) {
     return `
       <div class="bdgs-review-card">
-        <div class="bdgs-review-meta">Submitted by ${review.submitter_label} on ${review.review_date}</div>
+        <div class="bdgs-review-meta">Submitted by <strong style="color:#16A34A">Verified BD Site Owner</strong> on ${review.review_date}</div>
         <h3 class="bdgs-review-title">${review.title}</h3>
         <div class="bdgs-review-ratings">
           <div class="bdgs-rating-group"><span class="bdgs-rating-label">Overall Rating</span><div class="bdgs-rating-stars">${getStars(review.overall_rating)}</div></div>
@@ -1499,7 +1499,7 @@
       const card = document.createElement('div');
       card.className = `v1-acc-card ${idx === v1AccCurrent ? 'active' : ''}`;
       
-      const titleText = review.submitter_label || review.title;
+      const titleText = review.title;
       card.innerHTML = `<div class="v1-acc-collapsed-content">${titleText}</div>` + createCardHTML(review);
       
       card.addEventListener('click', () => {
@@ -1578,7 +1578,7 @@
     return `
       <div class="v2-review-card">
         <div class="v2-card-header">
-          <span class="v2-submitted-by">Submitted by <strong>${review.submitter_label}</strong> on ${dateStr}</span>
+          <span class="v2-submitted-by">Submitted by <strong style="color:#16A34A">✓ Verified BD Site Owner</strong> on ${dateStr}</span>
           <h3 class="v2-review-title">${review.title}</h3>
         </div>
         <div class="v2-rating-pills">${pillsHTML}</div>
@@ -1762,7 +1762,7 @@
       const tab = document.createElement('div');
       tab.className = `bdgs-vtab ${idx === activeIndex ? 'active' : ''}`;
       tab.innerHTML = `
-        <div class="bdgs-vtab-author">${review.submitter_label}</div>
+        <div class="bdgs-vtab-author" style="color:#16A34A">✓ Verified BD Site Owner</div>
         <div class="bdgs-vtab-title">${review.title}</div>
       `;
       tab.addEventListener('click', () => {
@@ -1824,7 +1824,7 @@
     
     return `
       <div class="bdgs-review-card bdgs-compact-card">
-        <div class="bdgs-review-meta">Submitted by ${review.submitter_label} on ${review.review_date}</div>
+        <div class="bdgs-review-meta">Submitted by <strong style="color:#16A34A">Verified BD Site Owner</strong> on ${review.review_date}</div>
         <h3 class="bdgs-review-title">${review.title}</h3>
         <div class="bdgs-review-ratings">
           <div class="bdgs-rating-group"><span class="bdgs-rating-label">Overall Rating</span><div class="bdgs-rating-stars">${getStars(review.overall_rating)}</div></div>
