@@ -2152,11 +2152,15 @@ Chatbots. Agents. Smart search.<br>
       <p>Stuck on small things? Drop into our live Zoom session to get free help and learn Brilliant Directories.</p>
       <div id="bdgsZoomModalStep1">
         <div style="background:var(--bdgs-bg);padding:16px;border-radius:8px;font-size:14px;border-left:3px solid var(--bdgs-coral);margin-bottom:16px;">
-          <div style="margin-bottom:12px;">
+          <style>
+#bdgsZoomTimezone { transition: background-color 0.2s; }
+#bdgsZoomTimezone:hover { background-color: rgba(17, 24, 39, 0.09) !important; }
+</style>
+          <div style="margin-bottom:16px;">
             <strong style="color:var(--bdgs-dark)">Next session:</strong> <span id="bdgsZoomSessionDisplay">Loading...</span>
-            <div style="margin-top: 2px; margin-bottom: 4px;">
+            <div style="margin-top: 2px;">
               <strong style="color:var(--bdgs-dark)">Timezone:</strong>
-              <select id="bdgsZoomTimezone" onchange="bdgsUpdateTimezoneDisplay()" style="border:none; background:transparent; font-size:inherit; font-family:inherit; color:inherit; cursor:pointer; outline:none; padding:0 16px 0 4px; appearance:none; -webkit-appearance:none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2210%22%20height%3D%226%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M1%201l4%204%204-4%22%20stroke%3D%22%236b7280%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E'); background-repeat:no-repeat; background-position:right center;">
+              <select id="bdgsZoomTimezone" onchange="bdgsUpdateTimezoneDisplay()" style="border:none; background-color:rgba(17, 24, 39, 0.05); border-radius:4px; font-size:inherit; font-family:inherit; color:inherit; cursor:pointer; outline:none; padding:2px 20px 2px 6px; margin-left:4px; appearance:none; -webkit-appearance:none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2210%22%20height%3D%226%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M1%201l4%204%204-4%22%20stroke%3D%22%236b7280%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E'); background-repeat:no-repeat; background-position:calc(100% - 6px) center;">
                 <option value="America/New_York" selected>Eastern Time (EDT / EST) - New York</option>
                 <option value="America/Chicago">Central Time (CST / CDT) - Chicago</option>
                 <option value="America/Denver">Mountain Time (MDT / MST) - Denver</option>
