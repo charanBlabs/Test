@@ -959,7 +959,7 @@ body {
         <div class="sv2-hero-stat-lbl">Directory Sites Served</div>
       </div>
       <div class="sv2-hero-stat">
-        <div class="sv2-hero-stat-num"><span>169+</span></div>
+        <div class="sv2-hero-stat-num"><span id="bdgs-hero-reviews-count">176+</span></div>
         <div class="sv2-hero-stat-lbl">Verified Client Reviews</div>
       </div>
       <div class="sv2-hero-stat">
@@ -1639,7 +1639,7 @@ body {
           <li><a href="/solutions">Solutions (61+ done-for-you)</a></li>
           <li><a href="/themes">Directory Themes (6)</a></li>
           <li><a href="/blog">Blog</a></li>
-          <li><a href="/blabs-review">Client Reviews (169+)</a></li>
+          <li><a href="/blabs-review" id="bdgs-footer-reviews-link">Client Reviews (176+)</a></li>
           <li><a href="/about">About Us</a></li>
           <li><a href="/webinars">CEO Webinars</a></li>
         </ul>
@@ -1957,7 +1957,26 @@ if ('IntersectionObserver' in window) {
     {"@type":"ListItem","position":5,"name":"Zoom Clinics","url":"/zoom-clinics","description":"Free live Zoom sessions. Drop in. Get help from our BD developers."},
     {"@type":"ListItem","position":6,"name":"Founder's Track","url":"/founders-track","description":"Co-founder level strategy + AI dev fleet. By application only. For founders aiming at $1M+."}
   ]
-}
+</script>
+
+<!-- Dynamic review count fetcher -->
+<script>
+(function() {
+  var API = 'https://bdgrowthsuite.com/api/widget/json/get/bdgs-blabs-reviews-api';
+  var KEY = '3d5ca826459ec3a3b47675f7ea0a0cd3';
+  fetch(API + '?action=list&published_only=1&limit=1&offset=0&bd_api_key=' + KEY)
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (!data.ok || !data.total) return;
+      var count = data.total;
+      var label = count + '+';
+      var heroStat = document.getElementById('bdgs-hero-reviews-count');
+      if (heroStat) heroStat.textContent = label;
+      var footerLink = document.getElementById('bdgs-footer-reviews-link');
+      if (footerLink) footerLink.textContent = 'Client Reviews (' + label + ')';
+    })
+    .catch(function() { /* keep fallback 176+ */ });
+})();
 </script>
 </body>
 </html>

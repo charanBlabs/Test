@@ -817,34 +817,199 @@ body {
 .bdgsownv2-client-logo img {
   max-width: 100%; max-height: 100%; object-fit: contain;
 }
-/* Review screenshots */
-.bdgsownv2-reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  margin-bottom: 32px;
+/* Variant 2: Horizontal Peek Carousel for Homepage */
+.v2-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
 }
-.bdgsownv2-review-card {
+.v2-carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 calc(50% - 390px);
+}
+.v2-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+.v2-card {
+  flex: 0 0 780px;
+  height: 480px;
+  scroll-snap-align: center;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  border: 1px solid var(--bdgs-border);
+  transition: all 0.4s ease;
+  opacity: 0.4;
+  transform: scale(0.9);
+  cursor: pointer;
+  display: flex;
+  align-items: stretch;
+}
+.v2-card.active {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+  border-color: var(--bdgs-coral);
+}
+.v2-review-card {
+  background: #fff;
+  padding: 28px 32px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+}
+.v2-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+.v2-review-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--bdgs-dark);
+  margin: 0;
+  line-height: 1.3;
+  flex: 1;
+  min-width: 0;
+}
+.v2-submitted-by {
+  font-size: 12px;
+  color: var(--bdgs-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.v2-rating-pills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px dashed var(--bdgs-border);
+  flex-shrink: 0;
+}
+.v2-rating-pill {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bdgs-text);
+  white-space: nowrap;
+}
+.v2-rating-pill .pill-stars {
+  display: flex;
+  gap: 1px;
+  color: #F59E0B;
+}
+.v2-rating-pill .pill-stars svg {
+  width: 11px;
+  height: 11px;
+  fill: currentColor;
+}
+.v2-review-text {
+  font-size: 14px;
+  color: var(--bdgs-text);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+  text-align: left;
+}
+.v2-review-text::-webkit-scrollbar { width: 4px; }
+.v2-review-text::-webkit-scrollbar-track { background: transparent; }
+.v2-review-text::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 4px; }
+.v2-review-text::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+.v2-card-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--bdgs-border);
+}
+.v2-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #16A34A;
+}
+.v2-verified-badge svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.v2-verify-link {
+  font-size: 12px;
+  color: var(--bdgs-text-muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+.v2-verify-link:hover {
+  color: var(--bdgs-coral);
+}
+.v2-progress-bar {
+  width: 100%;
+  max-width: 780px;
+  margin: 12px auto 0;
+  height: 3px;
+  background: var(--bdgs-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.v2-progress-fill {
+  height: 100%;
+  background: var(--bdgs-coral);
+  border-radius: 2px;
+  width: 0%;
+  transition: width linear;
+}
+.v2-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+.v2-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   background: var(--bdgs-white);
   border: 1px solid var(--bdgs-border);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
-  transition: all 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  display: block;
-  text-decoration: none;
+  transition: all 0.2s;
+  color: var(--bdgs-text-muted);
 }
-.bdgsownv2-review-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(231,77,86,0.12);
+.v2-btn:hover {
   border-color: var(--bdgs-coral);
-  text-decoration: none;
+  color: var(--bdgs-coral);
+  box-shadow: 0 4px 12px rgba(231,77,86,0.15);
 }
-.bdgsownv2-review-card img {
-  width: 100%;
-  height: auto;
-  display: block;
+.v2-btn svg {
+  width: 24px;
+  height: 24px;
 }
 .bdgsownv2-reviews-more {
   text-align: center;
@@ -862,11 +1027,23 @@ body {
 }
 @media (max-width: 991px) {
   .bdgsownv2-logo-grid { grid-template-columns: repeat(4, 1fr); }
-  .bdgsownv2-reviews-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 480px) {
   .bdgsownv2-logo-grid { grid-template-columns: repeat(3, 1fr); }
-  .bdgsownv2-reviews-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .v2-carousel-track {
+    padding: 0 20px;
+    gap: 16px;
+  }
+  .v2-card {
+    flex: 0 0 85vw;
+    height: auto;
+    min-height: 400px;
+  }
+  .v2-rating-pills {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* ============================================
@@ -1008,6 +1185,77 @@ body {
     padding: 10px 16px;
     margin: 0;
   }
+}
+
+/* Skeleton Loading Shimmer Styles */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+.v2-card.skeleton {
+  pointer-events: none;
+}
+.skeleton-card {
+  background: #fff;
+  padding: 28px 32px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.skeleton-line {
+  height: 16px;
+  background: #f6f7f8;
+  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 104px;
+  display: inline-block;
+  position: relative;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+.skeleton-line.short {
+  width: 40%;
+  height: 12px;
+}
+.skeleton-line.title {
+  width: 70%;
+  height: 22px;
+  margin-top: 4px;
+}
+.skeleton-line.text {
+  width: 100%;
+  height: 14px;
+  margin-bottom: 8px;
+}
+.skeleton-line.text.short {
+  width: 60%;
+}
+.skeleton-line.badge {
+  width: 130px;
+  height: 16px;
+}
+.skeleton-line.link {
+  width: 110px;
+  height: 16px;
+}
+.skeleton-pill {
+  height: 24px;
+  border-radius: 12px;
+  background: #f6f7f8;
+  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+}
+.skeleton-body {
+  margin-top: 10px;
+  flex: 1;
 }
 </style>
 </head>
@@ -1249,22 +1497,106 @@ Chatbots. Agents. Smart search.<br>
       <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/2.png" alt="Client logo"></div>
     </div>
 
-    <!-- Review Screenshots Grid (11 screenshots, 3 rows × 4 = 12 slots, last row uses 3) -->
-    <div class="bdgsownv2-reviews-grid">
-      <a href="/blabs-review" class="bdgsownv2-review-card"><img width="800" height="300" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/yoga.png" alt="Client review"></a>
-      <a href="/blabs-review" class="bdgsownv2-review-card"><img width="800" height="300" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CoachMatch-.png" alt="Client review"></a>
-      <a href="/blabs-review" class="bdgsownv2-review-card"><img width="800" height="300" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/Emergency-Management-Logistics-Canada.png" alt="Client review"></a>
-      <a href="/blabs-review" class="bdgsownv2-review-card"><img width="800" height="300" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/MKB-.png" alt="Client review"></a>
-      <a href="/blabs-review" class="bdgsownv2-review-card"><img width="800" height="300" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/International-Times-Corporation.png" alt="Client review"></a>
-      <a href="/blabs-review" class="bdgsownv2-review-card"><img width="800" height="300" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/PhilipScreenshot_1.png" alt="Client review"></a>
-      <a href="/blabs-review" class="bdgsownv2-review-card"><img width="800" height="300" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/Place-marketing-Screenshot_2.png" alt="Client review"></a>
-      <a href="/blabs-review" class="bdgsownv2-review-card"><img width="800" height="300" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/Upper-Screenshot_4.png" alt="Client review"></a>
-      <a href="/blabs-review" class="bdgsownv2-review-card"><img width="800" height="300" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/Capecod-Screenshot_5.png" alt="Client review"></a>
-      <a href="/blabs-review" class="bdgsownv2-review-card"><img width="800" height="300" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/Christin-lawrens-Screenshot_6.png" alt="Client review"></a>
-      <a href="/blabs-review" class="bdgsownv2-review-card"><img width="800" height="300" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/Got-clearens-Screenshot_7.png" alt="Client review"></a>
+    <!-- Dynamic Reviews Horizontal Peek Carousel (Variant 2) -->
+    <div class="v2-carousel-wrapper">
+      <div class="v2-carousel-track" id="v2-track">
+        <!-- Skeleton Card 1 (Active) -->
+        <div class="v2-card active skeleton" data-v2-index="0">
+          <div class="skeleton-card">
+            <div class="v2-card-header">
+              <span class="skeleton-line short"></span>
+              <span class="skeleton-line title"></span>
+            </div>
+            <div class="v2-rating-pills">
+              <span class="skeleton-pill"></span>
+              <span class="skeleton-pill"></span>
+              <span class="skeleton-pill"></span>
+              <span class="skeleton-pill"></span>
+              <span class="skeleton-pill"></span>
+              <span class="skeleton-pill"></span>
+            </div>
+            <div class="skeleton-body">
+              <span class="skeleton-line text"></span>
+              <span class="skeleton-line text"></span>
+              <span class="skeleton-line text short"></span>
+            </div>
+            <div class="v2-card-footer">
+              <span class="skeleton-line badge"></span>
+              <span class="skeleton-line link"></span>
+            </div>
+          </div>
+        </div>
+        <!-- Skeleton Card 2 -->
+        <div class="v2-card skeleton" data-v2-index="1">
+          <div class="skeleton-card">
+            <div class="v2-card-header">
+              <span class="skeleton-line short"></span>
+              <span class="skeleton-line title"></span>
+            </div>
+            <div class="v2-rating-pills">
+              <span class="skeleton-pill"></span>
+              <span class="skeleton-pill"></span>
+              <span class="skeleton-pill"></span>
+              <span class="skeleton-pill"></span>
+              <span class="skeleton-pill"></span>
+              <span class="skeleton-pill"></span>
+            </div>
+            <div class="skeleton-body">
+              <span class="skeleton-line text"></span>
+              <span class="skeleton-line text"></span>
+              <span class="skeleton-line text short"></span>
+            </div>
+            <div class="v2-card-footer">
+              <span class="skeleton-line badge"></span>
+              <span class="skeleton-line link"></span>
+            </div>
+          </div>
+        </div>
+        <!-- Skeleton Card 3 -->
+        <div class="v2-card skeleton" data-v2-index="2">
+          <div class="skeleton-card">
+            <div class="v2-card-header">
+              <span class="skeleton-line short"></span>
+              <span class="skeleton-line title"></span>
+            </div>
+            <div class="v2-rating-pills">
+              <span class="skeleton-pill"></span>
+              <span class="skeleton-pill"></span>
+              <span class="skeleton-pill"></span>
+              <span class="skeleton-pill"></span>
+              <span class="skeleton-pill"></span>
+              <span class="skeleton-pill"></span>
+            </div>
+            <div class="skeleton-body">
+              <span class="skeleton-line text"></span>
+              <span class="skeleton-line text"></span>
+              <span class="skeleton-line text short"></span>
+            </div>
+            <div class="v2-card-footer">
+              <span class="skeleton-line badge"></span>
+              <span class="skeleton-line link"></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="bdgsownv2-reviews-more">
+    <!-- Progress bar under carousel -->
+    <div class="v2-progress-bar">
+      <div class="v2-progress-fill"></div>
+    </div>
+    
+    <!-- Controls under carousel -->
+    <div class="v2-controls">
+      <button class="v2-btn" id="v2-prev" aria-label="Previous Review">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <button class="v2-btn" id="v2-next" aria-label="Next Review">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+      </button>
+    </div>
+
+    <div class="bdgsownv2-reviews-more" style="margin-top: 32px;">
       <a href="/blabs-review" id="bdgs-proof-reviews-link">See all 176+ reviews →</a>
     </div>
   </div>
@@ -2408,31 +2740,279 @@ setTimeout(bdgsSyncCardHeights, 2000);
 })();
 </script>
 
-<!-- Dynamic review count fetcher -->
+<!-- Dynamic review fetcher & Variant 2 Carousel logic -->
 <script>
 (function() {
   var API = 'https://bdgrowthsuite.com/api/widget/json/get/bdgs-blabs-reviews-api';
   var KEY = '3d5ca826459ec3a3b47675f7ea0a0cd3';
-  fetch(API + '?action=list&published_only=1&limit=1&offset=0&bd_api_key=' + KEY)
+  var v2Track = document.getElementById('v2-track');
+  var v2ProgressFill = document.querySelector('.v2-progress-fill');
+  var V2_INTERVAL_MS = 12000;
+  var v2Timer = null;
+  var v2Paused = false;
+  var v2CurrentIndex = 0;
+  var fetchedReviews = [];
+
+  var FALLBACK_REVIEWS = [
+    {
+      review_date: '7 May 2026',
+      title: 'Highly Recommend BusinessLabs',
+      overall_rating: 5, service_rating: 5, responsiveness_rating: 5, expertise_rating: 5, results_rating: 5, communication_rating: 5,
+      review_text: 'Great communication, project delivered on time, first class customer service. Would not hesitate to use BusinessLabs for future products.',
+      marketplace_review_id: '1609'
+    },
+    {
+      review_date: '30 Jan 2026',
+      title: 'Impressive Response & Service',
+      overall_rating: 5, service_rating: 5, responsiveness_rating: 5, expertise_rating: 5, results_rating: 5, communication_rating: 5,
+      review_text: 'We have recently implemented the Google Review Plugin, and the experience has been nothing short of impressive. The team from Business Labs impressed us with their quick response. Every time we had a question, we got an answer right away – always polite and professional. We recommend them.',
+      marketplace_review_id: '1588'
+    },
+    {
+      review_date: '26 Jan 2026',
+      title: 'Sensible Suggestions & Professional Work',
+      overall_rating: 5, service_rating: 5, responsiveness_rating: 5, expertise_rating: 5, results_rating: 5, communication_rating: 5,
+      review_text: 'I can confidently recommend Business Labs. They helped design and build our directory website and were excellent from start to finish, clear communication, fast turnaround, and a very professional approach. They understood what I was trying to achieve, made sensible suggestions, and implemented changes quickly. The site is now far more polished and easier for users to navigate.',
+      marketplace_review_id: '1586'
+    },
+    {
+      review_date: '24 Jan 2026',
+      title: 'BLabs Really Knows BD Inside and Out',
+      overall_rating: 5, service_rating: 5, responsiveness_rating: 5, expertise_rating: 5, results_rating: 5, communication_rating: 5,
+      review_text: "Brilliant Directories is a powerful directory solution, but with all those features come lots of options and settings. We use Brilliant Labs to get things done quickly without having to learn every little thing ourselves. They're super easy to work with. We just enter a ticket in the portal and typically someone takes care of it by the next day. Like having an expert we can check in with whenever we need to instead of hiring our own person.",
+      marketplace_review_id: '1585'
+    }
+  ];
+
+  function getStars(num) {
+    var starSVG = '<svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>';
+    var html = '';
+    for (var i = 0; i < num; i++) {
+      html += starSVG;
+    }
+    return html;
+  }
+
+  function anonymizeReviewText(text) {
+    if (!text) return '';
+    var clean = text
+      .replace(/arendal\.net/gi, 'our directory website')
+      .replace(/ConnectCare\.ie/gi, 'our directory website')
+      .replace(/uppercervicalcare\.com/gi, 'our directory website')
+      .replace(/RealEstatePhotography\.com/gi, 'our directory website')
+      .replace(/petrolheadlife\.com/gi, 'our directory website');
+    clean = clean.replace(/\b([a-z0-9]+(-[a-z0-9]+)*\.)+(com|net|org|ie|co|io|edu|gov|co\.uk)\b/gi, 'our directory website');
+    return clean;
+  }
+
+  function createV2CardHTML(review) {
+    var ratingCategories = [
+      { label: 'Overall', value: review.overall_rating },
+      { label: 'Service', value: review.service_rating },
+      { label: 'Responsiveness', value: review.responsiveness_rating },
+      { label: 'Expertise', value: review.expertise_rating },
+      { label: 'Results', value: review.results_rating },
+      { label: 'Communication', value: review.communication_rating },
+    ];
+
+    var pillsHTML = ratingCategories.map(function(cat) {
+      return '<span class="v2-rating-pill">' + cat.label + ' <span class="pill-stars">' + getStars(cat.value) + '</span></span>';
+    }).join('');
+
+    var dateObj = new Date(review.review_date);
+    var dateStr = '';
+    if (isNaN(dateObj.getTime())) { 
+      // If review_date is already a formatted string like '7 May 2026'
+      dateStr = review.review_date;
+    } else {
+      dateStr = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+    var cleanText = anonymizeReviewText(review.review_text);
+    var cleanTitle = anonymizeReviewText(review.title);
+    var verifyLink = review.marketplace_review_id || review.review_id ? 'https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/' + (review.marketplace_review_id || review.review_id) : 'https://marketplace.brilliantdirectories.com/india/partner/business-labs';
+
+    return '<div class="v2-review-card">' +
+      '<div class="v2-card-header">' +
+        '<span class="v2-submitted-by">Submitted by Verified Brilliant Directories Site Owner on ' + dateStr + '</span>' +
+        '<h3 class="v2-review-title">' + cleanTitle + '</h3>' +
+      '</div>' +
+      '<div class="v2-rating-pills">' + pillsHTML + '</div>' +
+      '<p class="v2-review-text">' + cleanText + '</p>' +
+      '<div class="v2-card-footer">' +
+        '<span class="v2-verified-badge">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>' +
+          'Verified Client Review' +
+        '</span>' +
+        '<a class="v2-verify-link" href="' + verifyLink + '" target="_blank" rel="noopener">' +
+          'View on Marketplace ' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>' +
+        '</a>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function startV2Progress() {
+    if (v2ProgressFill) {
+      v2ProgressFill.style.transition = 'none';
+      v2ProgressFill.style.width = '0%';
+      void v2ProgressFill.offsetWidth;
+      v2ProgressFill.style.transition = 'width ' + V2_INTERVAL_MS + 'ms linear';
+      v2ProgressFill.style.width = '100%';
+    }
+  }
+
+  function resetV2Progress() {
+    if (v2ProgressFill) {
+      v2ProgressFill.style.transition = 'none';
+      v2ProgressFill.style.width = '0%';
+    }
+  }
+
+  function updateV2Carousel() {
+    var cards = v2Track.querySelectorAll('.v2-card');
+    cards.forEach(function(card, idx) {
+      if (idx === v2CurrentIndex) {
+        card.classList.add('active');
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      } else {
+        card.classList.remove('active');
+      }
+    });
+    resetV2Progress();
+    if (!v2Paused) startV2Progress();
+  }
+
+  function v2Next() {
+    var cards = v2Track.querySelectorAll('.v2-card');
+    if (!cards.length) return;
+    v2CurrentIndex = (v2CurrentIndex + 1) % cards.length;
+    updateV2Carousel();
+  }
+
+  function v2Prev() {
+    var cards = v2Track.querySelectorAll('.v2-card');
+    if (!cards.length) return;
+    v2CurrentIndex = (v2CurrentIndex - 1 + cards.length) % cards.length;
+    updateV2Carousel();
+  }
+
+  function startV2AutoScroll() {
+    clearInterval(v2Timer);
+    v2Timer = setInterval(function() {
+      if (!v2Paused) v2Next();
+    }, V2_INTERVAL_MS);
+    startV2Progress();
+  }
+
+  function bindV2Events() {
+    var nextBtn = document.getElementById('v2-next');
+    var prevBtn = document.getElementById('v2-prev');
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function() {
+        v2Next();
+        startV2AutoScroll();
+      });
+    }
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function() {
+        v2Prev();
+        startV2AutoScroll();
+      });
+    }
+
+    var v2Wrapper = document.querySelector('.v2-carousel-wrapper');
+    if (v2Wrapper) {
+      v2Wrapper.addEventListener('mouseenter', function() {
+        v2Paused = true;
+        if (v2ProgressFill) {
+          var computed = getComputedStyle(v2ProgressFill).width;
+          var parent = v2ProgressFill.parentElement.offsetWidth;
+          var pct = (parseFloat(computed) / parent * 100).toFixed(2);
+          v2ProgressFill.style.transition = 'none';
+          v2ProgressFill.style.width = pct + '%';
+        }
+      });
+      v2Wrapper.addEventListener('mouseleave', function() {
+        v2Paused = false;
+        if (v2ProgressFill) {
+          var computed = getComputedStyle(v2ProgressFill).width;
+          var parent = v2ProgressFill.parentElement.offsetWidth;
+          var currentPct = parseFloat(computed) / parent;
+          var remaining = V2_INTERVAL_MS * (1 - currentPct);
+          v2ProgressFill.style.transition = 'width ' + remaining + 'ms linear';
+          v2ProgressFill.style.width = '100%';
+        }
+      });
+    }
+
+    // Allow clicking on cards to navigate
+    var trackCards = v2Track.querySelectorAll('.v2-card');
+    trackCards.forEach(function(card, idx) {
+      card.addEventListener('click', function() {
+        v2CurrentIndex = idx;
+        updateV2Carousel();
+        startV2AutoScroll();
+      });
+    });
+  }
+
+  // Fetch count and reviews from the API
+  fetch(API + '?action=list&published_only=1&limit=5&offset=0&bd_api_key=' + KEY)
     .then(function(r) { return r.json(); })
     .then(function(data) {
-      if (!data.ok || !data.total) return;
-      var count = data.total;
-      var label = count + '+';
-      // Hero button
-      var heroBtn = document.getElementById('bdgs-hero-reviews-btn');
-      if (heroBtn) heroBtn.textContent = 'Read ' + label + ' Reviews';
-      // Proof section link
-      var proofLink = document.getElementById('bdgs-proof-reviews-link');
-      if (proofLink) proofLink.textContent = 'See all ' + label + ' reviews \u2192';
-      // Stat strip number
-      var statNum = document.getElementById('bdgs-stat-reviews-count');
-      if (statNum) statNum.textContent = label;
-      // Footer link
-      var footerLink = document.getElementById('bdgs-footer-reviews-link');
-      if (footerLink) footerLink.textContent = 'Client Reviews (' + label + ')';
+      if (!data.ok) {
+        throw new Error('API ok was false');
+      }
+      
+      // Update count if available
+      if (data.total) {
+        var count = data.total;
+        var label = count + '+';
+        var heroBtn = document.getElementById('bdgs-hero-reviews-btn');
+        if (heroBtn) heroBtn.textContent = 'Read ' + label + ' Reviews';
+        var proofLink = document.getElementById('bdgs-proof-reviews-link');
+        if (proofLink) proofLink.textContent = 'See all ' + label + ' reviews \u2192';
+        var statNum = document.getElementById('bdgs-stat-reviews-count');
+        if (statNum) statNum.textContent = label;
+        var footerLink = document.getElementById('bdgs-footer-reviews-link');
+        if (footerLink) footerLink.textContent = 'Client Reviews (' + label + ')';
+      }
+
+      // Update carousel with dynamic fresh reviews
+      if (data.reviews && data.reviews.length > 0 && v2Track) {
+        fetchedReviews = data.reviews;
+        v2Track.innerHTML = '';
+        fetchedReviews.forEach(function(review, idx) {
+          var card = document.createElement('div');
+          card.className = 'v2-card' + (idx === 0 ? ' active' : '');
+          card.setAttribute('data-v2-index', idx);
+          card.innerHTML = createV2CardHTML(review);
+          v2Track.appendChild(card);
+        });
+        v2CurrentIndex = 0;
+        bindV2Events();
+        startV2AutoScroll();
+      } else {
+        throw new Error('No reviews returned');
+      }
     })
-    .catch(function() { /* keep fallback 169+ */ });
+    .catch(function(err) {
+      console.error('Error loading reviews, using fallback array:', err);
+      // Fallback: Populate track with FALLBACK_REVIEWS
+      if (v2Track) {
+        v2Track.innerHTML = '';
+        FALLBACK_REVIEWS.forEach(function(review, idx) {
+          var card = document.createElement('div');
+          card.className = 'v2-card' + (idx === 0 ? ' active' : '');
+          card.setAttribute('data-v2-index', idx);
+          card.innerHTML = createV2CardHTML(review);
+          v2Track.appendChild(card);
+        });
+        v2CurrentIndex = 0;
+        bindV2Events();
+        startV2AutoScroll();
+      }
+    });
 })();
 </script>
 </body>

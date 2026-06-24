@@ -1023,7 +1023,7 @@ body {
     </a>
     <ul class="bdgsownv2-nav-links">
       <li class="bdgsownv2-nav-item bdgsownv2-nav-item-mega">
-        <a class="bdgsownv2-nav-link" href="services.html">Services <svg viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <a class="bdgsownv2-nav-link" href="/services">Services <svg viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
         <div class="bdgsownv2-dropdown bdgsownv2-dropdown-mega">
           <div class="bdgsownv2-dropdown-mega-layout">
             <div class="bdgsownv2-dropdown-mega-services">
@@ -1087,399 +1087,895 @@ body {
     <button type="button" class="bdgsownv2-cta-btn" onclick="bdgsOpenInquiryModal(); return false;">Get Started →</button>
   </nav>
 </header>
-<style>
-.bdgsownv2-reviews-page {
-  padding: 60px 24px;
-  background: var(--bdgs-bg);
-  min-height: 100vh;
-}
-.bdgsownv2-reviews-header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 40px;
-}
-.bdgsownv2-reviews-header h1 {
-  font-size: 36px;
-  font-weight: 700;
-  color: var(--bdgs-dark);
-  margin: 0 0 12px;
-}
-.bdgsownv2-reviews-header p {
-  font-size: 16px;
-  color: var(--bdgs-text-muted);
-}
-.bdgsownv2-reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-@media (max-width: 768px) {
-  .bdgsownv2-reviews-grid {
-    grid-template-columns: 1fr;
-  }
-}
-.bdgsownv2-review-card {
-  background: var(--bdgs-white);
-  border: 1px solid var(--bdgs-border);
-  border-radius: 12px;
-  padding: 24px;
-  transition: transform 0.2s, box-shadow 0.2s;
-  display: flex;
-  flex-direction: column;
-}
-.bdgsownv2-review-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.04);
-}
-.bdgsownv2-review-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 12px;
-}
-.bdgsownv2-review-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--bdgs-dark);
-  margin: 0 0 6px;
-}
-.bdgsownv2-review-meta {
-  font-size: 12px;
-  color: var(--bdgs-text-muted);
-  margin-bottom: 12px;
-}
-.bdgsownv2-review-stars {
-  color: #F59E0B; /* Amber/Gold */
-  font-size: 14px;
-  display: flex;
-  gap: 2px;
-}
-.bdgsownv2-review-body {
-  font-size: 15px;
-  color: var(--bdgs-text);
-  line-height: 1.6;
-  margin-bottom: 20px;
-  flex-grow: 1;
-}
-.bdgsownv2-review-details {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  padding-bottom: 16px;
-  margin-bottom: 16px;
-  border-bottom: 1px dashed var(--bdgs-border);
-}
-@media (max-width: 480px) {
-  .bdgsownv2-review-details {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-.bdgsownv2-rating-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.bdgsownv2-rating-label {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: var(--bdgs-text-muted);
-  letter-spacing: 0.05em;
-}
-.bdgsownv2-load-more-container {
-  text-align: center;
-  margin-top: 40px;
-}
-.bdgsownv2-load-more-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--bdgs-coral);
-  background: var(--bdgs-coral-light);
-  border: 1px solid rgba(231,77,86,0.2);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.bdgsownv2-load-more-btn:hover {
-  background: var(--bdgs-coral);
-  color: var(--bdgs-white);
-}
-.bdgsownv2-load-more-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-</style>
 
-<!-- SEO Schema.org Markup — the dynamic schema in updateSchemaGraph() is the canonical source;
-     this static block is a fallback for bots that don't execute JS. -->
+
+<!-- ============================================
+     EXPLORE SERVICES: PREMIUM HERO
+     ============================================ -->
+<section class="bdgsownv2-section" style="background:var(--bdgs-dark);padding:100px 0 80px;text-align:center;position:relative;overflow:hidden">
+  <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:var(--bdgs-gradient);opacity:0.05"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);padding:6px 12px;border-radius:20px;margin-bottom:24px;border:1px solid rgba(255,255,255,0.1)">
+      <span style="font-size:12px">🏅</span>
+      <span style="color:#fff;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase">Gold Certified Brilliant Directories Partner</span>
+    </div>
+    <h1 style="color:#fff;font-size:48px;font-weight:800;letter-spacing:-1.5px;margin-bottom:20px;line-height:1.1">Expert Services for<br>Your Directory</h1>
+    <p style="color:rgba(255,255,255,0.7);font-size:18px;max-width:640px;margin:0 auto;line-height:1.6">From zero-to-launch setups to co-founder level strategy.<br>Brilliant Directories developers who think like co-founders—with directory website expert judgment baked in.</p>
+  </div>
+</section>
+
+<!-- ============================================
+     EXPLORE SERVICES: BENTO GRID
+     ============================================ -->
+<section class="bdgsownv2-section" style="background:var(--bdgs-bg);padding:100px 0">
+  <div class="container">
+    
+    <!-- ACCELERATOR: Setup & Launch (Full Width) -->
+    <div class="row" style="margin-bottom:30px">
+      <div class="col-md-12">
+        <div style="background:var(--bdgs-white);border:1px solid var(--bdgs-border);border-radius:16px;padding:0;display:flex;flex-wrap:wrap;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.03);transition:transform 0.3s, box-shadow 0.3s">
+          <div class="col-md-6" style="padding:48px;background:var(--bdgs-gradient-subtle)">
+            <span style="display:inline-block;padding:4px 12px;font-size:11px;font-weight:700;border-radius:20px;letter-spacing:1px;background:var(--bdgs-white);color:var(--bdgs-coral);border:1px solid rgba(231,77,86,0.2);margin-bottom:16px">THE ACCELERATOR</span>
+            <h3 style="font-size:32px;font-weight:800;color:var(--bdgs-dark);margin:0 0 12px;letter-spacing:-1px">Setup &amp; Launch</h3>
+            <p style="font-size:16px;color:var(--bdgs-text-muted);line-height:1.6;margin-bottom:32px">Concierge directory launch. We handle the technical configuration, design, and initial architecture so you can focus entirely on onboarding your first members and growing your business.</p>
+            <a href="/setup" class="bdgsownv2-btn-primary">View Setup Plans &rarr;</a>
+          </div>
+          <div class="col-md-6" style="padding:48px;display:flex;flex-direction:column;justify-content:center">
+            <h4 style="font-size:16px;font-weight:700;color:var(--bdgs-dark);margin-bottom:20px;text-transform:uppercase;letter-spacing:1px">What's Included</h4>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px">
+              <li style="display:flex;align-items:flex-start;gap:12px">
+                <span style="color:var(--bdgs-coral);font-size:18px;line-height:1">✓</span>
+                <span style="color:var(--bdgs-text);font-size:15px;line-height:1.5">Complete platform configuration and settings tuning</span>
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:12px">
+                <span style="color:var(--bdgs-coral);font-size:18px;line-height:1">✓</span>
+                <span style="color:var(--bdgs-text);font-size:15px;line-height:1.5">Custom homepage design with premium UI blocks</span>
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:12px">
+                <span style="color:var(--bdgs-coral);font-size:18px;line-height:1">✓</span>
+                <span style="color:var(--bdgs-text);font-size:15px;line-height:1.5">Membership tier strategy and payment gateway setup</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE ENGINE ROOM: Custom Projects & Maintenance -->
+    <div class="row" style="display:flex;flex-wrap:wrap;margin-bottom:30px">
+      <!-- Custom Projects -->
+      <div class="col-md-6" style="display:flex;padding-right:15px;margin-bottom:0">
+        <div style="background:var(--bdgs-white);border:1px solid var(--bdgs-border);border-radius:16px;padding:40px;width:100%;box-shadow:0 10px 30px rgba(0,0,0,0.02);transition:all 0.3s;position:relative;display:flex;flex-direction:column">
+          <div style="font-size:32px;margin-bottom:20px;background:var(--bdgs-bg);width:64px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:12px">⚡</div>
+          <h3 style="font-size:24px;font-weight:700;color:var(--bdgs-dark);margin-bottom:12px;letter-spacing:-0.5px">Custom Projects</h3>
+          <p style="font-size:15px;color:var(--bdgs-text-muted);line-height:1.6;margin-bottom:24px;flex-grow:1">Scoped one-off development work. From complex API integrations to custom search widgets, we build the specific features your members have been asking for.</p>
+          <a href="/customization" style="font-size:15px;font-weight:600;color:var(--bdgs-coral);text-decoration:none;display:inline-flex;align-items:center;gap:6px">Start a Project &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Maintenance Plans -->
+      <div class="col-md-6" style="display:flex;padding-left:15px">
+        <div style="background:var(--bdgs-white);border:1px solid var(--bdgs-border);border-radius:16px;padding:40px;width:100%;box-shadow:0 10px 30px rgba(0,0,0,0.02);transition:all 0.3s;position:relative;display:flex;flex-direction:column">
+          <div style="font-size:32px;margin-bottom:20px;background:var(--bdgs-bg);width:64px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:12px">🛠️</div>
+          <h3 style="font-size:24px;font-weight:700;color:var(--bdgs-dark);margin-bottom:12px;letter-spacing:-0.5px">Maintenance Plans</h3>
+          <p style="font-size:15px;color:var(--bdgs-text-muted);line-height:1.6;margin-bottom:24px;flex-grow:1">Ongoing technical support, performance optimizations, and security updates. We keep the engine running smoothly so you never have to worry about downtime.</p>
+          <a href="/maintenance" style="font-size:15px;font-weight:600;color:var(--bdgs-coral);text-decoration:none;display:inline-flex;align-items:center;gap:6px">Explore Maintenance &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE STRATEGY TIER: Consultation & Founder's Track -->
+    <div class="row" style="display:flex;flex-wrap:wrap">
+      <!-- Consultation -->
+      <div class="col-md-6" style="display:flex;padding-right:15px;margin-bottom:0">
+        <div style="background:var(--bdgs-white);border:1px solid var(--bdgs-border);border-radius:16px;padding:40px;width:100%;box-shadow:0 10px 30px rgba(0,0,0,0.02);transition:all 0.3s;position:relative;display:flex;flex-direction:column">
+          <div style="font-size:32px;margin-bottom:20px;background:var(--bdgs-bg);width:64px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:12px">📞</div>
+          <h3 style="font-size:24px;font-weight:700;color:var(--bdgs-dark);margin-bottom:12px;letter-spacing:-0.5px">Strategic Consultation</h3>
+          <p style="font-size:15px;color:var(--bdgs-text-muted);line-height:1.6;margin-bottom:24px;flex-grow:1">1-on-1 strategic deep dives with Yakin's team. Get actionable insights, architecture reviews, and growth strategies drawn from 500+ successful directories.</p>
+          <a href="/consultation" style="font-size:15px;font-weight:600;color:var(--bdgs-coral);text-decoration:none;display:inline-flex;align-items:center;gap:6px">Book a Session &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Founder's Track -->
+      <div class="col-md-6" style="display:flex;padding-left:15px">
+        <div style="background:var(--bdgs-dark);border:1px solid var(--bdgs-dark-mid);border-radius:16px;padding:40px;width:100%;box-shadow:0 20px 40px rgba(0,0,0,0.2);transition:all 0.3s;position:relative;display:flex;flex-direction:column;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;right:0;height:4px;background:var(--bdgs-gradient)"></div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px">
+            <div style="font-size:32px;background:rgba(255,255,255,0.05);width:64px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:12px">👑</div>
+            <span style="display:inline-block;padding:4px 12px;font-size:11px;font-weight:700;border-radius:20px;letter-spacing:1px;background:rgba(231,77,86,0.15);color:#ff7a83">APPLY ONLY</span>
+          </div>
+          <h3 style="font-size:24px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:-0.5px">Founder's Track</h3>
+          <p style="font-size:15px;color:rgba(255,255,255,0.7);line-height:1.6;margin-bottom:24px;flex-grow:1">By application only. Co-founder level strategy, dedicated AI dev fleet, and aggressive growth execution. A team of AI agents + supervisor working on your directory. Pay for one. Get the throughput of many.</p>
+          <a href="/founders-track" style="font-size:15px;font-weight:600;color:#ff7a83;text-decoration:none;display:inline-flex;align-items:center;gap:6px">Apply to Join &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER (V3 — Locked)
+     ============================================ -->
+<footer class="bdgsownv2-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/setup">Setup &amp; Launch</a></li>
+          <li><a href="/solutions">Solutions (Done-For-You)</a></li>
+          <li><a href="/hire-developer">Dedicated Developers</a></li>
+          <li><a href="/maintenance">Maintenance Plans</a></li>
+          <li><a href="/consultation">Consultation</a></li>
+          <li><a href="/growth-plans">Growth Plan (Apply)</a></li>
+          <li><a href="/zoom-clinics" style="color:var(--bdgs-coral)">Free Zoom Clinics 🟢</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <h4>Grow with AI</h4>
+        <ul>
+          <li><a href="/ai-development">AI-Powered Development</a></li>
+          <li><a href="/ai-dev-fleet">AI Dev Fleet</a></li>
+          <li><a href="/ai-for-your-site">AI for Your Directory</a></li>
+          <li><a href="/bd-automation">Directory Automation</a></li>
+          <li><a href="/seo-growth">SEO &amp; Growth</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/tools">Tools &amp; Themes</a></li>
+          <li><a href="/solutions">Solutions (61+ done-for-you)</a></li>
+          <li><a href="/themes">Directory Themes (6)</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/blabs-review" id="bdgs-footer-reviews-link">Client Reviews (176+)</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/webinars">CEO Webinars</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <h4>Get Started</h4>
+        <ul>
+          <li><a href="https://wa.me/917799285123">WhatsApp Chat</a></li>
+          <li><a href="/consultation">Book a Consultation</a></li>
+          <li><button type="button" class="bdgsownv2-footer-link" onclick="bdgsOpenInquiryModal(); return false;">Contact Us</button></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bdgsownv2-footer-bottom">
+      <p>&copy; 2026 BD Growth Suite by BusinessLabs. All rights reserved. &nbsp;|&nbsp; <a href="/terms" style="color:rgba(255,255,255,0.4)">Terms</a> &nbsp;|&nbsp; <a href="/privacy" style="color:rgba(255,255,255,0.4)">Privacy</a></p>
+      <div class="bdgsownv2-footer-badges">
+        <span class="bdgsownv2-footer-badge">🏅 Gold Certified Brilliant Directories Partner</span>
+        <span class="bdgsownv2-footer-badge">🤖 Claude / Anthropic Partner</span>
+        <span class="bdgsownv2-footer-badge">🌍 500+ Sites · 7+ Countries</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Zoom Clinics Modal -->
+<div class="bdgsownv2-modal-overlay" id="bdgsZoomModal">
+  <div class="bdgsownv2-modal">
+    <button class="bdgsownv2-modal-close" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; top: 14px; right: 14px; padding: 0;" onclick="bdgsCloseZoomModal()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div id="bdgsZoomModalContent">
+      <h3>🟢 Join Free Zoom Clinics</h3>
+      <p>Small silly things on your directory site? Never pay a developer for those again. Drop into our live Zoom session, get help, learn how BD works.</p>
+      <div id="bdgsZoomModalStep1">
+        <p style="background:var(--bdgs-bg);padding:12px 14px;border-radius:8px;font-size:13px;border-left:3px solid var(--bdgs-coral);margin-bottom:16px;"><strong style="color:var(--bdgs-dark)">Next session:</strong> <span id="bdgsZoomSessionDisplay">Loading...</span><br><strong style="color:var(--bdgs-dark)">Format:</strong> 60-min open Q&amp;A with our devs<br><strong style="color:var(--bdgs-dark)">Cost:</strong> Free, forever</p>
+
+        <div style="margin-bottom:16px;">
+          <select id="bdgsZoomTimezone" onchange="bdgsUpdateTimezoneDisplay()" style="padding:12px; border-radius:8px; border:1px solid var(--bdgs-border); width:100%; font-size:14px; background:var(--bdgs-white);">
+            <option value="America/New_York" selected>United States - Eastern Time</option>
+            <option value="America/Chicago">United States - Central Time</option>
+            <option value="America/Denver">United States - Mountain Time</option>
+            <option value="America/Los_Angeles">United States - Pacific Time</option>
+            <option value="Europe/London">United Kingdom (UK)</option>
+            <option value="Europe/Paris">France</option>
+            <option value="Asia/Kolkata">India (IST)</option>
+            <option value="Australia/Sydney">Australia (Sydney)</option>
+          </select>
+        </div>
+        
+        <p style="font-size:12px;color:var(--bdgs-text-muted);margin-bottom:24px;">Strategy questions? Those need our Founder Concierge or Express Setup. Everything else — come on in.</p>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <button type="button" onclick="bdgsShowZoomForm()" class="bdgsownv2-btn-primary" style="width:100%;padding:14px 20px;font-size:15px;text-align:center;">Schedule Session</button>
+          <a href="/zoom-clinics" style="font-size:13px;color:var(--bdgs-coral);font-weight:600;text-decoration:none;">See full schedule &rarr;</a>
+        </div>
+      </div>
+
+      <form id="bdgsZoomBookingForm" onsubmit="event.preventDefault(); bdgsProcessZoomBooking();" style="display:none;">
+        <h4 style="margin:0 0 8px; font-size:18px; color:var(--bdgs-dark);">Your Details</h4>
+        <p style="font-size:13px; color:var(--bdgs-text-muted); margin-bottom:16px;">Please enter your name and email to receive the calendar invite.</p>
+        <div class="bdgsownv2-modal-form" style="margin-top:0; margin-bottom:24px;">
+          <input type="text" id="bdgsZoomName" name="name" placeholder="Your Name" required>
+          <input type="email" id="bdgsZoomEmail" name="email" placeholder="Your Email" required>
+        </div>
+        <div style="display:flex; gap:10px;">
+          <button type="button" onclick="bdgsHideZoomForm()" class="bdgsownv2-btn-secondary bdgsownv2-btn-light" style="flex:1;">Back</button>
+          <button type="submit" id="bdgsZoomScheduleBtn" class="bdgsownv2-btn-primary" style="flex:2;padding:14px 20px;font-size:15px;text-align:center;">Confirm Booking</button>
+        </div>
+      </form>
+    </div>
+    <div id="bdgsZoomModalSuccess" style="display:none;text-align:center;padding:40px 20px;">
+      <div style="font-size:64px;margin-bottom:20px;display:inline-block;text-shadow: 0 10px 30px rgba(231,77,86,0.2);">🎉</div>
+      <h3 style="color:var(--bdgs-coral);font-size:26px;margin-bottom:12px;letter-spacing:-0.5px;">You're Booked!</h3>
+      <p style="font-size:15px;color:var(--bdgs-text-muted);line-height:1.6;">We've sent the calendar invite to your email.<br>See you at the session!</p>
+    </div>
+  </div>
+</div>
+
+<!-- Final CTA Inquiry Modal (front-end shell; backend automation to be wired later) -->
+<div class="bdgsownv2-modal-overlay" id="bdgsInquiryModal">
+  <div class="bdgsownv2-modal">
+    <button class="bdgsownv2-modal-close" onclick="bdgsCloseInquiryModal()">×</button>
+    <div id="bdgsInquiryFormWrap">
+      <h3>Get Started with BDGS</h3>
+      <p>Tell us about your directory. After submission, this will trigger email, WhatsApp, and SMS updates for you and our internal team once connected to automation.</p>
+      <form class="bdgsownv2-modal-form" id="bdgsInquiryForm">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Email address" required>
+        <input type="tel" name="phone" placeholder="Phone / WhatsApp number" required>
+        <input type="url" name="site" placeholder="Directory website URL (if any)">
+        <select name="need" required>
+          <option value="">What do you need help with?</option>
+          <option>Setup & Launch</option>
+          <option>Dedicated Developer</option>
+          <option>AI / Automation</option>
+          <option>Solutions / Tools / Themes</option>
+          <option>Growth Plan</option>
+          <option>Not sure yet</option>
+        </select>
+        <textarea name="message" placeholder="What are you trying to build or fix?"></textarea>
+        <p class="bdgsownv2-modal-note">Automation note: this form UI is ready. Email, WhatsApp, and SMS delivery need backend/Zapier/Make/API wiring next.</p>
+        <button type="submit" class="bdgsownv2-btn-primary" style="border:none;cursor:pointer">Submit Inquiry</button>
+      </form>
+    </div>
+    <div class="bdgsownv2-modal-thanks" id="bdgsInquiryThanks">
+      <div class="check">✓</div>
+      <h3>Thank you. We received it.</h3>
+      <p>Your request is ready to route to the BDGS team. Once automation is connected, you and our team will receive email, WhatsApp, and SMS confirmations.</p>
+      <button onclick="bdgsCloseInquiryModal()" class="bdgsownv2-btn-primary" style="border:none;cursor:pointer">Done</button>
+    </div>
+  </div>
+</div>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": "https://bdgrowthsuite.com/#organization",
-  "name": "Business Labs",
-  "alternateName": "BD Growth Suite",
-  "url": "https://bdgrowthsuite.com",
-  "logo": "https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png",
-  "description": "Expert Brilliant Directories developers and partners. BD Growth Suite by BusinessLabs.",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "176",
-    "bestRating": "5",
-    "worstRating": "1"
-  }
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does BD Growth Suite actually do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BD Growth Suite helps Brilliant Directories site owners launch, improve, automate, and scale directory websites. We offer setup, dedicated BD developers, BD automation, AI-powered development, design, SEO, tools, themes, and growth support."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you Brilliant Directories developers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. BDGS is built for Brilliant Directories site owners. Our team works on Brilliant Directories websites every day, including setup, custom features, member flows, search pages, schema, SEO, design, automation, and ongoing development."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you only work with Brilliant Directories websites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We are Brilliant Directories first, but not limited to only BD. If your business uses CRMs, email platforms, automation systems, or AI tools, our team can connect those systems around your directory business."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a dedicated BD developer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A dedicated BD developer is a long-term developer who learns your directory, niche, goals, and codebase. Instead of explaining every task from scratch, you get ongoing execution from someone who understands your business."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why hire a dedicated developer instead of doing one-off projects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A directory website is a technology business. If you want to keep improving, testing, launching ideas, and growing revenue, ongoing development matters. One-off projects fix tasks. A dedicated developer helps you keep moving."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is BD automation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BD automation means using workflows, AI, integrations, follow-ups, lead routing, content systems, and internal tools to make your Brilliant Directories business run faster. It can include member follow-up, lead generation, AI search, CRM syncing, and custom automations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help if I just bought Brilliant Directories and feel stuck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This is one of the main reasons BDGS exists. We help new Brilliant Directories site owners go from \"I bought BD, now what?\" to a launched, structured, and growth-ready directory website."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you a directory website expert or just a development agency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BDGS is a directory website expert team, not a generic agency. We understand Brilliant Directories, directory monetization, member experiences, search pages, SEO, schema, lead generation, and the founder journey from launch to scale."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can BD Growth Suite help with SEO for directory websites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We help with directory SEO, schema implementation, member results pages, jobs results pages, speed improvements, on-page structure, content planning, and technical fixes built around Brilliant Directories."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why choose BDGS over other business directories developers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BDGS combines Brilliant Directories experience, dedicated developers, AI automation, SEO, design, tools, themes, and founder-led strategy. We do not just build features. We help you build and scale the directory business behind them."
+      }
+    }
+  ]
 }
 </script>
-
-<main class="bdgsownv2-reviews-page">
-  <div class="bdgsownv2-reviews-header">
-    <h1>Client Reviews</h1>
-    <p>Read what our clients have to say about working with Business Labs. Based on <span id="bdgs-reviews-total-count">176</span> verified reviews.</p>
-  </div>
-
-  
-  
-  <div class="bdgsownv2-reviews-grid" id="reviewsGrid">
-    <!-- Reviews will be injected here -->
-  </div>
-  
-  <div class="bdgsownv2-load-more-container">
-    <button id="loadMoreBtn" class="bdgsownv2-load-more-btn" onclick="loadMoreReviews()">Load More Reviews</button>
-  </div>
-</main>
-
-<!-- Dynamic reviews will be fetched from BD API -->
 
 <script>
-const API_ENDPOINT = 'https://bdgrowthsuite.com/api/widget/json/get/bdgs-blabs-reviews-api';
-let currentIndex = 0;
-let totalReviews = Infinity; // We will update this on first fetch
-const REVIEWS_PER_PAGE = 30;
-const grid = document.getElementById('reviewsGrid');
-const loadMoreBtn = document.getElementById('loadMoreBtn');
+// Modal — Zoom Clinics
+// A static future date mimicking the "db value"
+const ZOOM_SESSION_DB_DATE = new Date();
+ZOOM_SESSION_DB_DATE.setUTCDate(ZOOM_SESSION_DB_DATE.getUTCDate() + (4 - ZOOM_SESSION_DB_DATE.getUTCDay() + 7) % 7); // Next Thursday
+ZOOM_SESSION_DB_DATE.setUTCHours(13, 0, 0, 0); // 13:00 UTC = 9:00 AM Eastern Time
 
-function getStarsHtml(count) {
-  let stars = '';
-  for(let i=0; i<5; i++) {
-    if(i < count) stars += '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>';
-    else stars += '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>';
-  }
-  return stars;
-}
-
-function anonymizeReviewText(text) {
-  if (!text) return '';
-  var clean = text
-    .replace(/arendal\.net/gi, 'our directory website')
-    .replace(/ConnectCare\.ie/gi, 'our directory website')
-    .replace(/uppercervicalcare\.com/gi, 'our directory website')
-    .replace(/RealEstatePhotography\.com/gi, 'our directory website')
-    .replace(/petrolheadlife\.com/gi, 'our directory website');
-  clean = clean.replace(/\b([a-z0-9]+(-[a-z0-9]+)*\.)+(com|net|org|ie|co|io|edu|gov|co\.uk)\b/gi, 'our directory website');
-  return clean;
-}
-
-function renderReviewCard(review) {
-  const submitter = "Verified Brilliant Directories Site Owner";
-  const mId = review.marketplace_review_id || review.review_id || '';
-  const verifyLink = review.verify_link || `https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/${mId}`;
-  
-  // Gracefully handle date parsing safely
-  let dateObj = new Date(review.review_date);
-  if (isNaN(dateObj.getTime())) { dateObj = new Date(); }
-  
-  const cleanText = anonymizeReviewText(review.review_text || '');
-  const cleanTitle = anonymizeReviewText(review.title || 'Review');
-  
-  return `
-    <article class="bdgsownv2-review-card">
-      <div class="bdgsownv2-review-top">
-        <div>
-          <div class="bdgsownv2-review-meta">
-            By ${submitter} on <time datetime="${dateObj.toISOString()}">${review.review_date || 'Recent'}</time>
-          </div>
-          <h3 class="bdgsownv2-review-title">${cleanTitle}</h3>
-        </div>
-      </div>
-      <div class="bdgsownv2-review-details">
-        <div class="bdgsownv2-rating-item">
-          <span class="bdgsownv2-rating-label">Overall Rating</span>
-          <div class="bdgsownv2-review-stars">${getStarsHtml(review.overall_rating || 5)}</div>
-        </div>
-        <div class="bdgsownv2-rating-item">
-          <span class="bdgsownv2-rating-label">Service</span>
-          <div class="bdgsownv2-review-stars">${getStarsHtml(review.service_rating || 5)}</div>
-        </div>
-        <div class="bdgsownv2-rating-item">
-          <span class="bdgsownv2-rating-label">Responsiveness</span>
-          <div class="bdgsownv2-review-stars">${getStarsHtml(review.responsiveness_rating || 5)}</div>
-        </div>
-        <div class="bdgsownv2-rating-item">
-          <span class="bdgsownv2-rating-label">Expertise</span>
-          <div class="bdgsownv2-review-stars">${getStarsHtml(review.expertise_rating || 5)}</div>
-        </div>
-        <div class="bdgsownv2-rating-item">
-          <span class="bdgsownv2-rating-label">Results</span>
-          <div class="bdgsownv2-review-stars">${getStarsHtml(review.results_rating || 5)}</div>
-        </div>
-        <div class="bdgsownv2-rating-item">
-          <span class="bdgsownv2-rating-label">Communication</span>
-          <div class="bdgsownv2-review-stars">${getStarsHtml(review.communication_rating || 5)}</div>
-        </div>
-      </div>
-      <div class="bdgsownv2-review-body">
-        ${cleanText}
-      </div>
-      <div style="margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--bdgs-border); text-align: right;">
-        <a href="${verifyLink}" target="_blank" rel="noopener noreferrer" style="font-size: 13px; font-weight: 600; color: var(--bdgs-coral); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
-          Verify review
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-        </a>
-      </div>
-    </article>
-  `;
-}
-
-const API_KEY = '3d5ca826459ec3a3b47675f7ea0a0cd3';
-
-// Optimized Async Fetch Function for the BD Endpoint
-async function fetchReviews(offset, limit) {
-  try {
-    const url = `${API_ENDPOINT}?action=list&published_only=1&limit=${limit}&offset=${offset}&bd_api_key=${API_KEY}`;
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const data = await response.json();
-    if (!data.ok) {
-      throw new Error(data.message || 'API returned an error');
-    }
-    // Update total count from API
-    if (data.total !== undefined) {
-      totalReviews = data.total;
-      const totalEl = document.getElementById('bdgs-reviews-total-count');
-      if (totalEl) totalEl.textContent = totalReviews;
-    }
-    return data.reviews || [];
-  } catch(error) {
-    console.error("Failed to fetch reviews:", error);
-    return [];
+function bdgsZoomAutoFill() {
+  // Logic to auto-fill logged-in user data
+  const loggedInUser = null; // placeholder for user object
+  if(loggedInUser) {
+    document.getElementById('bdgsZoomName').value = loggedInUser.name || '';
+    document.getElementById('bdgsZoomEmail').value = loggedInUser.email || '';
   }
 }
 
-let schemaGraph = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": "https://bdgrowthsuite.com/#organization",
-  "name": "Business Labs",
-  "url": "https://bdgrowthsuite.com",
-  "aggregateRating": null,
-  "review": []
-};
-
-// Inject and update JSON-LD Schema dynamically
-function updateSchemaGraph(totalCount, newReviews) {
-  if (!schemaGraph.aggregateRating) {
-    schemaGraph.aggregateRating = {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": totalCount.toString(),
-      "bestRating": "5",
-      "worstRating": "1"
-    };
+function bdgsUpdateTimezoneDisplay() {
+  const tz = document.getElementById('bdgsZoomTimezone').value;
+  const display = document.getElementById('bdgsZoomSessionDisplay');
+  if(display) {
+    try {
+      const timeFmt = new Intl.DateTimeFormat('en-US', {
+        hour: 'numeric', minute: '2-digit', timeZone: tz
+      }).format(ZOOM_SESSION_DB_DATE);
+      
+      const timeEndDate = new Date(ZOOM_SESSION_DB_DATE.getTime() + 60*60*1000); // +1 hour duration
+      const timeEndFmt = new Intl.DateTimeFormat('en-US', {
+        hour: 'numeric', minute: '2-digit', timeZoneName: 'short', timeZone: tz
+      }).format(timeEndDate);
+      
+      const dateFmt = new Intl.DateTimeFormat('en-US', {
+        weekday: 'short', month: 'short', day: 'numeric', timeZone: tz
+      }).format(ZOOM_SESSION_DB_DATE);
+      
+      display.innerText = `${dateFmt} — ${timeFmt} to ${timeEndFmt}`;
+    } catch(e) {
+      display.innerText = '9:00 AM - 10:00 AM ET'; // Fallback
+    }
   }
+}
 
-  newReviews.forEach(r => {
-    const mId = r.marketplace_review_id || r.review_id || '';
-    const verifyLink = r.verify_link || `https://marketplace.brilliantdirectories.com/india/partner/business-labs/reviews/${mId}`;
-    let dateObj = new Date(r.review_date);
-    if (isNaN(dateObj.getTime())) { dateObj = new Date(); }
+function bdgsShowZoomForm() {
+  document.getElementById('bdgsZoomModalStep1').style.display = 'none';
+  document.getElementById('bdgsZoomBookingForm').style.display = 'block';
+}
+
+function bdgsHideZoomForm() {
+  document.getElementById('bdgsZoomBookingForm').style.display = 'none';
+  document.getElementById('bdgsZoomModalStep1').style.display = 'block';
+}
+
+function bdgsOpenZoomModal() {
+  bdgsZoomAutoFill();
+  bdgsUpdateTimezoneDisplay(); // Init timezone display on open
+  document.getElementById('bdgsZoomModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function bdgsCloseZoomModal() {
+  document.getElementById('bdgsZoomModal').classList.remove('active');
+  document.body.style.overflow = '';
+  // Reset the modal content smoothly
+  setTimeout(() => {
+    const content = document.getElementById('bdgsZoomModalContent');
+    const success = document.getElementById('bdgsZoomModalSuccess');
+    if (content && success) {
+      content.style.display = 'block';
+      content.style.opacity = '1';
+      content.style.transform = 'none';
+      success.style.display = 'none';
+      document.getElementById('bdgsZoomModalStep1').style.display = 'block';
+      document.getElementById('bdgsZoomBookingForm').style.display = 'none';
+      document.getElementById('bdgsZoomBookingForm').reset();
+      bdgsUpdateTimezoneDisplay();
+    }
+  }, 300);
+}
+
+function bdgsProcessZoomBooking() {
+  const btn = document.getElementById('bdgsZoomScheduleBtn');
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '<span style="opacity:0.8; letter-spacing: 0.5px;">Scheduling...</span>';
+  btn.disabled = true;
+  
+  setTimeout(() => {
+    const content = document.getElementById('bdgsZoomModalContent');
+    const success = document.getElementById('bdgsZoomModalSuccess');
     
-    schemaGraph.review.push({
-      "@type": "Review",
-      "url": verifyLink,
-      "datePublished": dateObj.toISOString(),
-      "name": anonymizeReviewText(r.title) || 'Review',
-      "reviewBody": anonymizeReviewText(r.review_text) || '',
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": (r.overall_rating || 5).toString(),
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Verified Brilliant Directories Site Owner"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Brilliant Directories Marketplace",
-        "url": "https://marketplace.brilliantdirectories.com",
-        "sameAs": "https://www.brilliantdirectories.com"
-      }
-    });
-  });
-
-  let script = document.getElementById('dynamic-aggregate-schema');
-  if (!script) {
-    script = document.createElement('script');
-    script.id = 'dynamic-aggregate-schema';
-    script.type = 'application/ld+json';
-    document.head.appendChild(script);
-  }
-  script.text = JSON.stringify(schemaGraph);
-}
-
-let isLoading = false;
-async function loadMoreReviews() {
-  if (isLoading || currentIndex >= totalReviews) return;
-  isLoading = true;
-  
-  const loadingHtml = '<div id="loadingIndicator" style="text-align:center; padding: 20px; color: var(--bdgs-text-muted); grid-column: 1 / -1;">Loading more reviews...</div>';
-  grid.insertAdjacentHTML('beforeend', loadingHtml);
-  
-  if (loadMoreBtn) loadMoreBtn.style.display = 'none';
-  
-  const reviews = await fetchReviews(currentIndex, REVIEWS_PER_PAGE);
-  
-  const indicator = document.getElementById('loadingIndicator');
-  if (indicator) indicator.remove();
-  
-  if (reviews && reviews.length > 0) {
-    const html = reviews.map(renderReviewCard).join('');
-    grid.insertAdjacentHTML('beforeend', html);
-    currentIndex += reviews.length;
+    // Fade out form
+    content.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+    content.style.opacity = '0';
+    content.style.transform = 'translateY(-10px)';
     
-    // Dynamically update schema graph with the new reviews
-    if (totalReviews !== Infinity) {
-      updateSchemaGraph(totalReviews, reviews);
-    }
-  }
-  
-  isLoading = false;
+    setTimeout(() => {
+      content.style.display = 'none';
+      
+      // Prepare and fade in success message with slight pop
+      success.style.display = 'block';
+      success.style.opacity = '0';
+      success.style.transform = 'scale(0.92)';
+      success.style.transition = 'opacity 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      
+      // Trigger reflow
+      void success.offsetWidth;
+      
+      success.style.opacity = '1';
+      success.style.transform = 'scale(1)';
+      
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }, 500);
+    }, 250);
+  }, 1200);
 }
-
-// Initial Load & Infinite Scroll Observer
-document.addEventListener('DOMContentLoaded', () => {
-  loadMoreReviews();
-  
-  const loadContainer = document.querySelector('.bdgsownv2-load-more-container');
-  if (loadContainer) {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        loadMoreReviews();
-      }
-    }, { rootMargin: '400px' });
-    
-    observer.observe(loadContainer);
+function bdgsOpenInquiryModal() {
+  document.getElementById('bdgsInquiryModal').classList.add('active');
+  document.getElementById('bdgsInquiryFormWrap').style.display = 'block';
+  document.getElementById('bdgsInquiryThanks').classList.remove('active');
+  document.body.style.overflow = 'hidden';
+}
+function bdgsCloseInquiryModal() {
+  document.getElementById('bdgsInquiryModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+// Close modal on overlay click
+document.getElementById('bdgsZoomModal').addEventListener('click', function(e) {
+  if (e.target === this) bdgsCloseZoomModal();
+});
+document.getElementById('bdgsInquiryModal').addEventListener('click', function(e) {
+  if (e.target === this) bdgsCloseInquiryModal();
+});
+document.getElementById('bdgsInquiryForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('bdgsInquiryFormWrap').style.display = 'none';
+  document.getElementById('bdgsInquiryThanks').classList.add('active');
+});
+// Close modal on Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    bdgsCloseZoomModal();
+    bdgsCloseInquiryModal();
   }
 });
+
+// Sticky header
+window.addEventListener('scroll', function() {
+  document.getElementById('bdgsHeader').classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// Menu - click + hover based toggle with 0.5s grace period
+var menuHoverTimeout;
+document.querySelectorAll('.bdgsownv2-nav-item').forEach(function(item) {
+  var link = item.querySelector('.bdgsownv2-nav-link');
+  var dropdown = item.querySelector('.bdgsownv2-dropdown');
+
+  if (dropdown && link) {
+    // Click to toggle
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      document.querySelectorAll('.bdgsownv2-nav-item.active').forEach(function(otherItem) {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+        }
+      });
+
+      item.classList.toggle('active');
+    });
+
+    // Hover to open (no click needed)
+    item.addEventListener('mouseenter', function() {
+      clearTimeout(menuHoverTimeout);
+
+      document.querySelectorAll('.bdgsownv2-nav-item.active').forEach(function(otherItem) {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+        }
+      });
+
+      item.classList.add('active');
+    });
+
+    // 0.5s grace period before closing on mouseleave
+    item.addEventListener('mouseleave', function() {
+      var currentItem = item;
+      menuHoverTimeout = setTimeout(function() {
+        currentItem.classList.remove('active');
+      }, 500);
+    });
+  }
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.bdgsownv2-nav-item')) {
+    clearTimeout(menuHoverTimeout);
+    document.querySelectorAll('.bdgsownv2-nav-item.active').forEach(function(item) {
+      item.classList.remove('active');
+    });
+  }
+});
+
+// Close dropdown when clicking on a dropdown item
+document.querySelectorAll('.bdgsownv2-dropdown-item').forEach(function(item) {
+  item.addEventListener('click', function() {
+    clearTimeout(menuHoverTimeout);
+    document.querySelectorAll('.bdgsownv2-nav-item.active').forEach(function(navItem) {
+      navItem.classList.remove('active');
+    });
+  });
+});
+
+// Stack cards now handled purely by CSS sticky positioning
+
+// Tab → card mapping (tab href matches card ID)
+var bdgsTabs = document.querySelectorAll('.bdgsownv2-stack-tab');
+var bdgsStackCards = document.querySelectorAll('.bdgsownv2-stack-card');
+var bdgsStackSectionEl = document.querySelector('.bdgsownv2-services-stack');
+
+function bdgsStackScrollOffsetPx() {
+  return window.matchMedia('(min-width: 992px)').matches ? 168 : 112;
+}
+
+// 1. Tab click → smooth scroll to card + immediate active
+bdgsTabs.forEach(function(tab) {
+  tab.addEventListener('click', function(e) {
+    e.preventDefault();
+    var targetId = this.getAttribute('href').replace('#', '');
+    var target = document.getElementById(targetId);
+    if (target) {
+      // Temporarily unstick and un-transform to get the true document Y position
+      var oldPos = target.style.position;
+      var oldTransform = target.style.transform;
+      target.style.position = 'static';
+      target.style.transform = 'none';
+      
+      var targetUnstuckTop = target.getBoundingClientRect().top + window.scrollY;
+      
+      target.style.position = oldPos;
+      target.style.transform = oldTransform;
+      
+      var idx = Array.prototype.indexOf.call(bdgsStackCards, target);
+      var offset = bdgsStackScrollOffsetPx();
+      
+      // On desktop, scroll exactly to the sticky rail offset
+      if (idx >= 0 && window.matchMedia('(min-width: 992px)').matches) {
+        offset = bdgsStackStickyTopsPx[idx];
+      }
+      
+      var top = targetUnstuckTop - offset;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      
+      if (idx >= 0) {
+        bdgsTabs.forEach(function(t, i) {
+          t.classList.toggle('active', i === idx);
+        });
+      }
+    }
+  });
+});
+
+// 2. Auto-activate tab — see bdgsUpdateActiveTab() comment (desktop stack rail + fallbacks).
+
+/** Must stay in sync with `.bdgsownv2-stack-cards > .bdgsownv2-stack-card:nth-child(n){ top: … }` */
+var bdgsStackStickyTopsPx = [140, 156, 172, 188, 204, 220];
+
+function bdgsDocTopFromViewport(el) {
+  var rect = el.getBoundingClientRect();
+  return rect.top + window.scrollY;
+}
+
+/**
+ * Desktop stack: several cards can be sticky at their CSS `top` at once (each layer has its own rail).
+ * Tab must track the visually front layer (highest z-index among layers currently parked on the rail).
+ *
+ * Rule:
+ * 1) "At rail" for card i: rect.bottom shows it is on-screen, and rect.top is within RAIL_STRICT_PX of
+ *    bdgsStackStickyTopsPx[i] (must match nth-child `top` in CSS).
+ * 2) If multiple indices qualify (common while scrolling the stack), take Math.max — highest card wins.
+ * 3) If none qualify in the strict band (subpixel / zoom / in-between scroll), take cards whose top is
+ *    within a looser band under their rail (still "in the stack") and pick the one with the largest
+ *    rect.bottom (extends lowest in the viewport ≈ front face of the pile); ties → higher index.
+ * 4) Else fall back to document probe (same idea as mobile).
+ * 5) If the whole services section has scrolled past above the viewport, keep the last tab (Growth)
+ *    so the strip does not snap backward to Setup.
+ */
+function bdgsUpdateActiveTab() {
+  var activeIndex = 0;
+  var stackDesktop = window.matchMedia('(min-width: 992px)').matches;
+  var n = bdgsStackCards.length;
+
+  if (!stackDesktop) {
+    var probeY = window.scrollY + 130;
+    for (var j = n - 1; j >= 0; j--) {
+      if (probeY + 1 >= bdgsDocTopFromViewport(bdgsStackCards[j])) {
+        activeIndex = j;
+        break;
+      }
+    }
+  } else {
+    if (bdgsStackSectionEl) {
+      var srect = bdgsStackSectionEl.getBoundingClientRect();
+      if (srect.bottom < 80) {
+        activeIndex = n - 1;
+        bdgsTabs.forEach(function(tab, k) {
+          tab.classList.toggle('active', k === activeIndex);
+        });
+        return;
+      }
+    }
+
+    var minBottom = 100;
+    var RAIL_STRICT_PX = 22;
+    var foundActive = -1;
+
+    for (var i = 0; i < n; i++) {
+      var rect = bdgsStackCards[i].getBoundingClientRect();
+      var t = bdgsStackStickyTopsPx[i];
+      if (rect.bottom <= minBottom) continue;
+
+      // If the card has reached its sticky rail (or been pushed past it), it's a candidate.
+      // Since later cards stack on top, the highest index candidate is the visible front card.
+      if (rect.top <= t + RAIL_STRICT_PX) {
+        foundActive = i;
+      }
+    }
+
+    if (foundActive >= 0) {
+      activeIndex = foundActive;
+    } else {
+      var probeY2 = window.scrollY + bdgsStackScrollOffsetPx();
+      for (var jj = n - 1; jj >= 0; jj--) {
+        if (probeY2 + 1 >= bdgsDocTopFromViewport(bdgsStackCards[jj])) {
+          activeIndex = jj;
+          break;
+        }
+      }
+    }
+  }
+  bdgsTabs.forEach(function(tab, k) {
+    tab.classList.toggle('active', k === activeIndex);
+  });
+  bdgsStackCards.forEach(function(card, k) {
+    if (k < activeIndex) {
+      // Stacked behind
+      var scale = 1 - (activeIndex - k) * 0.03;
+      card.style.transform = 'scale(' + scale + ')';
+    } else {
+      // Active or upcoming
+      card.style.transform = 'scale(1)';
+    }
+  });
+}
+
+// Throttled scroll + resize
+var bdgsScrollTicking = false;
+function bdgsScheduleActiveTab() {
+  if (!bdgsScrollTicking) {
+    window.requestAnimationFrame(function() {
+      bdgsUpdateActiveTab();
+      bdgsScrollTicking = false;
+    });
+    bdgsScrollTicking = true;
+  }
+}
+window.addEventListener('scroll', bdgsScheduleActiveTab, { passive: true });
+window.addEventListener('resize', bdgsScheduleActiveTab);
+
+// Initial state
+bdgsUpdateActiveTab();
+
+// Smooth scroll for Explore Services links to perfectly align with the first card
+var svcLinks = document.querySelectorAll('a[href="#svc"]');
+svcLinks.forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    var target = document.getElementById('svc-setup');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Sync card heights so shorter cards fully cover taller cards stacked behind them
+function bdgsSyncCardHeights() {
+  if (!window.matchMedia('(min-width: 992px)').matches) {
+    bdgsStackCards.forEach(function(c) { c.style.height = ''; });
+    return;
+  }
+  var maxH = 0;
+  // Reset first to find natural height
+  bdgsStackCards.forEach(function(c) {
+    c.style.height = '';
+  });
+  // Measure tallest
+  bdgsStackCards.forEach(function(c) {
+    var h = c.offsetHeight;
+    if (h > maxH) maxH = h;
+  });
+  // Apply to all using height, not minHeight, so absolute children stretch properly
+  bdgsStackCards.forEach(function(c) {
+    c.style.height = maxH + 'px';
+  });
+}
+window.addEventListener('resize', bdgsSyncCardHeights);
+window.addEventListener('load', bdgsSyncCardHeights);
+// Run aggressively during page load to catch font wrapping changes
+setTimeout(bdgsSyncCardHeights, 50);
+setTimeout(bdgsSyncCardHeights, 500);
+setTimeout(bdgsSyncCardHeights, 2000);
+
+// Zoom Clinics — 6:30–7:30 PM Asia/Kolkata (Tue/Thu anchor) → visitor local window
+(function bdgsRenderZoomClinicsLocalTime() {
+  var el = document.getElementById('bdgs-zoom-clinics-local-time');
+  if (!el) return;
+
+  var IST = 'Asia/Kolkata';
+  var INDIA_ZONES = { 'Asia/Kolkata': 1, 'Asia/Calcutta': 1 };
+  var IST_OFFSET_MIN = 330;
+  var INDIA_RANGE = '6:30–7:30 PM IST';
+
+  function partsInZone(instant, tz) {
+    var dtf = new Intl.DateTimeFormat('en-US', {
+      timeZone: tz,
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit',
+      hour12: false, weekday: 'short'
+    });
+    var map = {};
+    dtf.formatToParts(instant).forEach(function(p) {
+      if (p.type !== 'literal') map[p.type] = p.value;
+    });
+    return map;
+  }
+
+  function instantAtLocalTime(y, mo, d, h, mi, tz) {
+    var utcGuess = Date.UTC(y, mo - 1, d, h, mi, 0);
+    for (var n = 0; n < 3; n++) {
+      var p = partsInZone(new Date(utcGuess), tz);
+      var asUtc = Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour, +p.minute, +p.second || 0);
+      utcGuess += Date.UTC(y, mo - 1, d, h, mi, 0) - asUtc;
+    }
+    return new Date(utcGuess);
+  }
+
+  function nextTueOrThuYMD() {
+    var now = new Date();
+    for (var i = 0; i < 14; i++) {
+      var probe = new Date(now.getTime() + i * 86400000);
+      var p = partsInZone(probe, IST);
+      if (p.weekday === 'Tue' || p.weekday === 'Thu') {
+        return { y: +p.year, mo: +p.month, d: +p.day };
+      }
+    }
+    return { y: 2026, mo: 5, d: 19 };
+  }
+
+  function tzOffsetMinutesAt(instant, tz) {
+    var parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: tz,
+      timeZoneName: 'longOffset',
+      hour: 'numeric'
+    }).formatToParts(instant);
+    var name = '';
+    for (var i = 0; i < parts.length; i++) {
+      if (parts[i].type === 'timeZoneName') name = parts[i].value;
+    }
+    var m = name.match(/GMT([+-])(\d{1,2})(?::(\d{2}))?/);
+    if (!m) return null;
+    var sign = m[1] === '+' ? 1 : -1;
+    return sign * (parseInt(m[2], 10) * 60 + (m[3] ? parseInt(m[3], 10) : 0));
+  }
+
+  function isIndiaVisitor(userTz, sessionInstant) {
+    if (INDIA_ZONES[userTz]) return true;
+    var userOff = tzOffsetMinutesAt(sessionInstant, userTz);
+    var istOff = tzOffsetMinutesAt(sessionInstant, IST);
+    return userOff !== null && userOff === istOff && userOff === IST_OFFSET_MIN;
+  }
+
+  function clockParts(instant, tz, withTz) {
+    var opts = {
+      timeZone: tz,
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true
+    };
+    if (withTz) opts.timeZoneName = 'short';
+    var map = {};
+    new Intl.DateTimeFormat('en-US', opts).formatToParts(instant).forEach(function(p) {
+      if (p.type !== 'literal') map[p.type] = p.value;
+    });
+    return map;
+  }
+
+  function hm(p) {
+    return p.minute === '00' ? p.hour + ':00' : p.hour + ':' + p.minute;
+  }
+
+  function formatVisitorLocalRange(startInstant, endInstant, tz) {
+    var sp = clockParts(startInstant, tz, false);
+    var ep = clockParts(endInstant, tz, true);
+    var tzAbbr = ep.timeZoneName ? ' ' + ep.timeZoneName : '';
+    if (sp.dayPeriod === ep.dayPeriod) {
+      return hm(sp) + '–' + hm(ep) + ' ' + ep.dayPeriod + tzAbbr;
+    }
+    return hm(sp) + ' ' + sp.dayPeriod + '–' + hm(ep) + ' ' + ep.dayPeriod + tzAbbr;
+  }
+
+  try {
+    var ymd = nextTueOrThuYMD();
+    var sessionStart = instantAtLocalTime(ymd.y, ymd.mo, ymd.d, 18, 30, IST);
+    var sessionEnd = instantAtLocalTime(ymd.y, ymd.mo, ymd.d, 19, 30, IST);
+    var userTz = Intl.DateTimeFormat().resolvedOptions().timeZone || IST;
+
+    if (isIndiaVisitor(userTz, sessionStart)) {
+      el.textContent = INDIA_RANGE;
+    } else {
+      el.textContent = formatVisitorLocalRange(sessionStart, sessionEnd, userTz);
+    }
+  } catch (err) {
+    el.textContent = INDIA_RANGE;
+  }
+})();
 </script>
 
+<!-- Dynamic review count fetcher -->
+<script>
+(function() {
+  var API = 'https://bdgrowthsuite.com/api/widget/json/get/bdgs-blabs-reviews-api';
+  var KEY = '3d5ca826459ec3a3b47675f7ea0a0cd3';
+  fetch(API + '?action=list&published_only=1&limit=1&offset=0&bd_api_key=' + KEY)
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (!data.ok || !data.total) return;
+      var count = data.total;
+      var label = count + '+';
+      // Footer link
+      var footerLink = document.getElementById('bdgs-footer-reviews-link');
+      if (footerLink) footerLink.textContent = 'Client Reviews (' + label + ')';
+    })
+    .catch(function() { /* keep fallback 176+ */ });
+})();
+</script>
 </body>
 </html>

@@ -1042,7 +1042,7 @@
     </div>
 
     <div class="bdgsownv2-reviews-more" style="margin-top: 32px;">
-      <a href="/blabs-review" id="v1-link">See all 169+ reviews →</a>
+      <a href="/blabs-review" id="v1-link">See all 176+ reviews →</a>
     </div>
   </div>
 </div>
@@ -1078,7 +1078,7 @@
     </div>
 
     <div class="bdgsownv2-reviews-more">
-      <a href="/blabs-review" id="v2-link">See all 169+ reviews →</a>
+      <a href="/blabs-review" id="v2-link">See all 176+ reviews →</a>
     </div>
   </div>
 </div>
@@ -1104,7 +1104,7 @@
     </div>
 
     <div class="bdgsownv2-reviews-more">
-      <a href="/blabs-review" id="v3-link">See all 169+ reviews →</a>
+      <a href="/blabs-review" id="v3-link">See all 176+ reviews →</a>
     </div>
   </div>
 </div>
@@ -1125,7 +1125,7 @@
     </div>
     
     <div class="bdgsownv2-reviews-more">
-      <a href="/blabs-review">See all 169+ reviews →</a>
+      <a href="/blabs-review">See all 176+ reviews →</a>
     </div>
   </div>
 </div>
@@ -1151,7 +1151,7 @@
     </div>
     
     <div class="bdgsownv2-reviews-more">
-      <a href="/blabs-review">See all 169+ reviews →</a>
+      <a href="/blabs-review">See all 176+ reviews →</a>
     </div>
   </div>
 </div>
@@ -1575,14 +1575,30 @@
 
     const dateStr = new Date(review.review_date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 
+    // Helper to remove website/domain names from reviews
+    function anonymizeReviewText(text) {
+      if (!text) return '';
+      var clean = text
+        .replace(/arendal\.net/gi, 'our directory website')
+        .replace(/ConnectCare\.ie/gi, 'our directory website')
+        .replace(/uppercervicalcare\.com/gi, 'our directory website')
+        .replace(/RealEstatePhotography\.com/gi, 'our directory website')
+        .replace(/petrolheadlife\.com/gi, 'our directory website');
+      clean = clean.replace(/\b([a-z0-9]+(-[a-z0-9]+)*\.)+(com|net|org|ie|co|io|edu|gov|co\.uk)\b/gi, 'our directory website');
+      return clean;
+    }
+
+    const cleanText = anonymizeReviewText(review.review_text);
+    const cleanTitle = anonymizeReviewText(review.title);
+
     return `
       <div class="v2-review-card">
         <div class="v2-card-header">
-          <span class="v2-submitted-by">Submitted by Verified BD Site Owner on ${dateStr}</span>
-          <h3 class="v2-review-title">${review.title}</h3>
+          <span class="v2-submitted-by">Submitted by Verified Brilliant Directories Site Owner on ${dateStr}</span>
+          <h3 class="v2-review-title">${cleanTitle}</h3>
         </div>
         <div class="v2-rating-pills">${pillsHTML}</div>
-        <p class="v2-review-text">${review.review_text}</p>
+        <p class="v2-review-text">${cleanText}</p>
         <div class="v2-card-footer">
           <span class="v2-verified-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
