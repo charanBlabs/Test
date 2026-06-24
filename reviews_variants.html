@@ -245,9 +245,8 @@
 
   .v2-card-header {
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 16px;
+    flex-direction: column;
+    gap: 6px;
     margin-bottom: 14px;
     flex-shrink: 0;
   }
@@ -1583,8 +1582,8 @@
     return `
       <div class="v2-review-card">
         <div class="v2-card-header">
-          <h3 class="v2-review-title">${review.title}</h3>
           <span class="v2-submitted-by">Submitted by <strong>${review.submitter_label}</strong> on ${dateStr}</span>
+          <h3 class="v2-review-title">${review.title}</h3>
         </div>
         <div class="v2-rating-pills">${pillsHTML}</div>
         <p class="v2-review-text">${review.review_text}</p>
@@ -1618,7 +1617,7 @@
   });
 
   const v2ProgressFill = document.querySelector('.v2-progress-fill');
-  const V2_INTERVAL_MS = 35000;
+  const V2_INTERVAL_MS = 12000;
   let v2Timer = null;
   let v2Paused = false;
   let v2ProgressStart = null;
