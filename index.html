@@ -2454,7 +2454,6 @@ function bdgsUpdateTimezoneDisplay() {
     }
   });
 }
-}
 
 function bdgsShowZoomForm() {
   document.getElementById('bdgsZoomModalStep1').style.display = 'none';
@@ -2487,6 +2486,11 @@ function bdgsCloseZoomModal() {
       document.getElementById('bdgsZoomModalStep1').style.display = 'block';
       document.getElementById('bdgsZoomBookingForm').style.display = 'none';
       document.getElementById('bdgsZoomBookingForm').reset();
+      const btn = document.getElementById('bdgsZoomScheduleBtn');
+      if(btn) {
+        btn.innerHTML = 'Complete Registration';
+        btn.disabled = false;
+      }
       bdgsUpdateTimezoneDisplay();
     }
   }, 300);
