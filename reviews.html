@@ -1166,8 +1166,9 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
-  padding-top: 16px;
-  border-top: 1px dashed var(--bdgs-border);
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px dashed var(--bdgs-border);
 }
 @media (max-width: 480px) {
   .bdgsownv2-review-details {
@@ -1278,12 +1279,6 @@ function renderReviewCard(review) {
             By <span><span>${submitter}</span></span> on <time datetime="${dateObj.toISOString()}">${review.review_date || 'Recent'}</time>
           </div>
         </div>
-        <div class="bdgsownv2-review-stars">
-          ${getStarsHtml(review.overall_rating || 5)}
-        </div>
-      </div>
-      <div class="bdgsownv2-review-body">
-        ${review.review_text || ''}
       </div>
       <div class="bdgsownv2-review-details">
         <div class="bdgsownv2-rating-item">
@@ -1310,6 +1305,9 @@ function renderReviewCard(review) {
           <span class="bdgsownv2-rating-label">Communication</span>
           <div class="bdgsownv2-review-stars">${getStarsHtml(review.communication_rating || 5)}</div>
         </div>
+      </div>
+      <div class="bdgsownv2-review-body">
+        ${review.review_text || ''}
       </div>
       <div style="margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--bdgs-border); text-align: right;">
         <a href="${verifyLink}" target="_blank" rel="noopener noreferrer" style="font-size: 13px; font-weight: 600; color: var(--bdgs-coral); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
