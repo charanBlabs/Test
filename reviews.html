@@ -1143,11 +1143,12 @@ body {
   font-size: 18px;
   font-weight: 700;
   color: var(--bdgs-dark);
-  margin: 0 0 4px;
+  margin: 0;
 }
 .bdgsownv2-review-meta {
   font-size: 12px;
   color: var(--bdgs-text-muted);
+  margin-bottom: 6px;
 }
 .bdgsownv2-review-stars {
   color: #F59E0B; /* Amber/Gold */
@@ -1274,10 +1275,10 @@ function renderReviewCard(review) {
     <article class="bdgsownv2-review-card">
       <div class="bdgsownv2-review-top">
         <div>
-          <h3 class="bdgsownv2-review-title">${review.title || 'Review'}</h3>
           <div class="bdgsownv2-review-meta">
             By <span><span>${submitter}</span></span> on <time datetime="${dateObj.toISOString()}">${review.review_date || 'Recent'}</time>
           </div>
+          <h3 class="bdgsownv2-review-title">${review.title || 'Review'}</h3>
         </div>
       </div>
       <div class="bdgsownv2-review-details">
