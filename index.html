@@ -2869,13 +2869,13 @@ setTimeout(bdgsSyncCardHeights, 2000);
     }
   }
 
-  function updateBdgsownv2Carousel() {
+  function updateBdgsownv2Carousel(isInit) {
     var cards = bdgsownv2Track.querySelectorAll('.bdgsownv2-card');
     cards.forEach(function(card, idx) {
       if (idx === bdgsownv2CurrentIndex) {
         card.classList.add('active');
         var scrollPos = card.offsetLeft - bdgsownv2Track.offsetLeft - (bdgsownv2Track.clientWidth - card.clientWidth) / 2;
-        bdgsownv2Track.scrollTo({ left: scrollPos, behavior: 'smooth' });
+        bdgsownv2Track.scrollTo({ left: scrollPos, behavior: isInit ? 'auto' : 'smooth' });
       } else {
         card.classList.remove('active');
       }
@@ -2988,16 +2988,17 @@ setTimeout(bdgsSyncCardHeights, 2000);
         for (var i = 0; i < 10; i++) {
           repeatedReviews = repeatedReviews.concat(fetchedReviews);
         }
+        bdgsownv2CurrentIndex = Math.floor(50 / 2);
+        bdgsownv2CurrentIndex = bdgsownv2CurrentIndex - (bdgsownv2CurrentIndex % 5);
         repeatedReviews.forEach(function(review, idx) {
           var card = document.createElement('div');
-          card.className = 'bdgsownv2-card' + (idx === 0 ? ' active' : '');
+          card.className = 'bdgsownv2-card' + (idx === bdgsownv2CurrentIndex ? ' active' : '');
           card.setAttribute('data-bdgsownv2-index', idx);
           card.innerHTML = createBdgsownv2CardHTML(review);
           bdgsownv2Track.appendChild(card);
         });
-        bdgsownv2CurrentIndex = Math.floor(50 / 2);
-        bdgsownv2CurrentIndex = bdgsownv2CurrentIndex - (bdgsownv2CurrentIndex % 5);
         bindBdgsownv2Events();
+        updateBdgsownv2Carousel(true);
         startBdgsownv2AutoScroll();
       } else {
         throw new Error('No reviews returned');
@@ -3012,16 +3013,17 @@ setTimeout(bdgsSyncCardHeights, 2000);
         for (var i = 0; i < 10; i++) {
           repeatedReviewsFallback = repeatedReviewsFallback.concat(FALLBACK_REVIEWS);
         }
+        bdgsownv2CurrentIndex = Math.floor(50 / 2);
+        bdgsownv2CurrentIndex = bdgsownv2CurrentIndex - (bdgsownv2CurrentIndex % 5);
         repeatedReviewsFallback.forEach(function(review, idx) {
           var card = document.createElement('div');
-          card.className = 'bdgsownv2-card' + (idx === 0 ? ' active' : '');
+          card.className = 'bdgsownv2-card' + (idx === bdgsownv2CurrentIndex ? ' active' : '');
           card.setAttribute('data-bdgsownv2-index', idx);
           card.innerHTML = createBdgsownv2CardHTML(review);
           bdgsownv2Track.appendChild(card);
         });
-        bdgsownv2CurrentIndex = Math.floor(50 / 2);
-        bdgsownv2CurrentIndex = bdgsownv2CurrentIndex - (bdgsownv2CurrentIndex % 5);
         bindBdgsownv2Events();
+        updateBdgsownv2Carousel(true);
         startBdgsownv2AutoScroll();
       }
     });
