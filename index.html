@@ -2153,27 +2153,34 @@ Chatbots. Agents. Smart search.<br>
       <div id="bdgsZoomModalStep1">
         <div style="background:var(--bdgs-bg);padding:16px;border-radius:8px;font-size:14px;border-left:3px solid var(--bdgs-coral);margin-bottom:16px;">
           <style>
-.bdgs-tz-wrapper { transition: background-color 0.2s; }
+.bdgs-tz-wrapper { position:relative; display:inline-flex; align-items:center; background-color:rgba(17, 24, 39, 0.05); border-radius:6px; padding:4px 10px; margin-left:4px; cursor:pointer; user-select:none; transition: background-color 0.2s; }
 .bdgs-tz-wrapper:hover { background-color: rgba(17, 24, 39, 0.09) !important; }
+.bdgs-custom-dropdown { display:none; position:absolute; top:calc(100% + 4px); left:0; min-width:100%; width:max-content; background:var(--bdgs-white); border:1px solid rgba(0,0,0,0.08); border-radius:8px; box-shadow:0 12px 28px -6px rgba(0,0,0,0.12), 0 8px 16px -8px rgba(0,0,0,0.08); z-index:1000; padding:6px; flex-direction:column; gap:2px; }
+.bdgs-custom-dropdown.show { display:flex; animation: bdgsDropdownFade 0.2s ease; }
+@keyframes bdgsDropdownFade { from { opacity:0; transform:translateY(-5px); } to { opacity:1; transform:translateY(0); } }
+.bdgs-tz-option { padding:8px 12px; font-size:13px; color:var(--bdgs-dark); border-radius:4px; cursor:pointer; transition:background 0.2s, color 0.2s; font-weight: 500; }
+.bdgs-tz-option:hover, .bdgs-tz-option.selected { background:rgba(231,77,86,0.08); color:var(--bdgs-coral); }
 </style>
           <div style="margin-bottom:8px;">
             <strong style="color:var(--bdgs-dark)">Next session:</strong> <span id="bdgsZoomSessionDisplay">Loading...</span>
             <div style="margin-top: 2px;">
               <strong style="color:var(--bdgs-dark)">Timezone:</strong>
               
-              <div class="bdgs-tz-wrapper" style="position:relative; display:inline-flex; align-items:center; background-color:rgba(17, 24, 39, 0.05); border-radius:4px; padding:2px 6px 2px 6px; margin-left:4px;">
-                <span id="bdgsZoomTimezoneText" style="font-size:inherit; color:inherit; margin-right:6px; pointer-events:none;">Eastern Time (EDT / EST) - New York</span>
-                <svg width="10" height="6" xmlns="http://www.w3.org/2000/svg" style="pointer-events:none;"><path d="M1 1l4 4 4-4" stroke="#6b7280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <select id="bdgsZoomTimezone" onchange="bdgsUpdateTimezoneDisplay()" style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; cursor:pointer; font-size:16px;">
-                  <option value="America/New_York" selected>Eastern Time (EDT / EST) - New York</option>
-                <option value="America/Chicago">Central Time (CST / CDT) - Chicago</option>
-                <option value="America/Denver">Mountain Time (MDT / MST) - Denver</option>
-                <option value="America/Los_Angeles">Pacific Time (PDT / PST) - Los Angeles</option>
-                <option value="America/Anchorage">Alaska Time (AKDT / AKST) - Anchorage</option>
-                <option value="Europe/London">British Summer Time (BST / GMT) - London</option>
-                <option value="Australia/Sydney">Australian Eastern Time (AEST / AEDT) - Sydney</option>
-                <option value="Asia/Kolkata">Indian Standard Time (IST) - New Delhi</option>
-                </select>
+              <div class="bdgs-tz-wrapper" id="bdgsTzWrapper" onclick="document.getElementById('bdgsTzDropdown').classList.toggle('show')">
+                <span id="bdgsZoomTimezoneText" style="font-size:13px; color:inherit; margin-right:8px; pointer-events:none; font-weight:600;">Eastern Time (EDT / EST) - New York</span>
+                <svg width="10" height="6" xmlns="http://www.w3.org/2000/svg" style="pointer-events:none; flex-shrink:0;"><path d="M1 1l4 4 4-4" stroke="#6b7280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <input type="hidden" id="bdgsZoomTimezone" value="America/New_York">
+                
+                <div class="bdgs-custom-dropdown" id="bdgsTzDropdown">
+                  <div class="bdgs-tz-option selected" data-value="America/New_York" onclick="bdgsSelectTimezone(this, event)">Eastern Time (EDT / EST) - New York</div>
+                  <div class="bdgs-tz-option" data-value="America/Chicago" onclick="bdgsSelectTimezone(this, event)">Central Time (CST / CDT) - Chicago</div>
+                  <div class="bdgs-tz-option" data-value="America/Denver" onclick="bdgsSelectTimezone(this, event)">Mountain Time (MDT / MST) - Denver</div>
+                  <div class="bdgs-tz-option" data-value="America/Los_Angeles" onclick="bdgsSelectTimezone(this, event)">Pacific Time (PDT / PST) - Los Angeles</div>
+                  <div class="bdgs-tz-option" data-value="America/Anchorage" onclick="bdgsSelectTimezone(this, event)">Alaska Time (AKDT / AKST) - Anchorage</div>
+                  <div class="bdgs-tz-option" data-value="Europe/London" onclick="bdgsSelectTimezone(this, event)">British Summer Time (BST / GMT) - London</div>
+                  <div class="bdgs-tz-option" data-value="Australia/Sydney" onclick="bdgsSelectTimezone(this, event)">Australian Eastern Time (AEST / AEDT) - Sydney</div>
+                  <div class="bdgs-tz-option" data-value="Asia/Kolkata" onclick="bdgsSelectTimezone(this, event)">Indian Standard Time (IST) - New Delhi</div>
+                </div>
               </div>
             </div>
           </div>
@@ -2352,11 +2359,7 @@ function bdgsZoomAutoFill() {
 function bdgsUpdateTimezoneDisplay() {
   const tz = document.getElementById('bdgsZoomTimezone').value;
   const display = document.getElementById('bdgsZoomSessionDisplay');
-  const tzText = document.getElementById('bdgsZoomTimezoneText');
-  if(tzText) {
-    const selectEl = document.getElementById('bdgsZoomTimezone');
-    tzText.innerText = selectEl.options[selectEl.selectedIndex].text;
-  }
+  
   if(display) {
     try {
       const timeFmt = new Intl.DateTimeFormat('en-US', {
@@ -3157,6 +3160,25 @@ setTimeout(bdgsSyncCardHeights, 2000);
       }
     });
 })();
+
+function bdgsSelectTimezone(el, event) {
+  event.stopPropagation();
+  document.getElementById('bdgsZoomTimezone').value = el.getAttribute('data-value');
+  document.getElementById('bdgsZoomTimezoneText').innerText = el.innerText;
+  const options = document.querySelectorAll('.bdgs-tz-option');
+  options.forEach(opt => opt.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('bdgsTzDropdown').classList.remove('show');
+  bdgsUpdateTimezoneDisplay();
+}
+
+document.addEventListener('click', function(e) {
+  const wrapper = document.getElementById('bdgsTzWrapper');
+  const dropdown = document.getElementById('bdgsTzDropdown');
+  if (wrapper && dropdown && !wrapper.contains(e.target)) {
+    dropdown.classList.remove('show');
+  }
+});
 </script>
 </body>
 </html>
