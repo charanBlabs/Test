@@ -2153,15 +2153,19 @@ Chatbots. Agents. Smart search.<br>
       <div id="bdgsZoomModalStep1">
         <div style="background:var(--bdgs-bg);padding:16px;border-radius:8px;font-size:14px;border-left:3px solid var(--bdgs-coral);margin-bottom:16px;">
           <style>
-#bdgsZoomTimezone { transition: background-color 0.2s; }
-#bdgsZoomTimezone:hover { background-color: rgba(17, 24, 39, 0.09) !important; }
+.bdgs-tz-wrapper { transition: background-color 0.2s; }
+.bdgs-tz-wrapper:hover { background-color: rgba(17, 24, 39, 0.09) !important; }
 </style>
-          <div style="margin-bottom:16px;">
+          <div style="margin-bottom:8px;">
             <strong style="color:var(--bdgs-dark)">Next session:</strong> <span id="bdgsZoomSessionDisplay">Loading...</span>
             <div style="margin-top: 2px;">
               <strong style="color:var(--bdgs-dark)">Timezone:</strong>
-              <select id="bdgsZoomTimezone" onchange="bdgsUpdateTimezoneDisplay()" style="border:none; background-color:rgba(17, 24, 39, 0.05); border-radius:4px; font-size:inherit; font-family:inherit; color:inherit; cursor:pointer; outline:none; padding:2px 20px 2px 6px; margin-left:4px; appearance:none; -webkit-appearance:none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2210%22%20height%3D%226%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M1%201l4%204%204-4%22%20stroke%3D%22%236b7280%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E'); background-repeat:no-repeat; background-position:calc(100% - 6px) center;">
-                <option value="America/New_York" selected>Eastern Time (EDT / EST) - New York</option>
+              
+              <div class="bdgs-tz-wrapper" style="position:relative; display:inline-flex; align-items:center; background-color:rgba(17, 24, 39, 0.05); border-radius:4px; padding:2px 6px 2px 6px; margin-left:4px;">
+                <span id="bdgsZoomTimezoneText" style="font-size:inherit; color:inherit; margin-right:6px; pointer-events:none;">Eastern Time (EDT / EST) - New York</span>
+                <svg width="10" height="6" xmlns="http://www.w3.org/2000/svg" style="pointer-events:none;"><path d="M1 1l4 4 4-4" stroke="#6b7280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <select id="bdgsZoomTimezone" onchange="bdgsUpdateTimezoneDisplay()" style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; cursor:pointer; font-size:16px;">
+                  <option value="America/New_York" selected>Eastern Time (EDT / EST) - New York</option>
                 <option value="America/Chicago">Central Time (CST / CDT) - Chicago</option>
                 <option value="America/Denver">Mountain Time (MDT / MST) - Denver</option>
                 <option value="America/Los_Angeles">Pacific Time (PDT / PST) - Los Angeles</option>
@@ -2169,7 +2173,8 @@ Chatbots. Agents. Smart search.<br>
                 <option value="Europe/London">British Summer Time (BST / GMT) - London</option>
                 <option value="Australia/Sydney">Australian Eastern Time (AEST / AEDT) - Sydney</option>
                 <option value="Asia/Kolkata">Indian Standard Time (IST) - New Delhi</option>
-              </select>
+                </select>
+              </div>
             </div>
           </div>
           <strong style="color:var(--bdgs-dark)">Format:</strong> 60-min open Q&amp;A with our devs<br>
@@ -2347,6 +2352,11 @@ function bdgsZoomAutoFill() {
 function bdgsUpdateTimezoneDisplay() {
   const tz = document.getElementById('bdgsZoomTimezone').value;
   const display = document.getElementById('bdgsZoomSessionDisplay');
+  const tzText = document.getElementById('bdgsZoomTimezoneText');
+  if(tzText) {
+    const selectEl = document.getElementById('bdgsZoomTimezone');
+    tzText.innerText = selectEl.options[selectEl.selectedIndex].text;
+  }
   if(display) {
     try {
       const timeFmt = new Intl.DateTimeFormat('en-US', {
