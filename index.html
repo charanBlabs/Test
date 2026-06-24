@@ -2172,15 +2172,16 @@ Chatbots. Agents. Smart search.<br>
                 <input type="hidden" id="bdgsZoomTimezone" value="America/New_York">
                 
                 <div class="bdgs-custom-dropdown" id="bdgsTzDropdown">
-                  <div class="bdgs-tz-option selected" data-value="America/New_York" onclick="bdgsSelectTimezone(this, event)">Eastern Time (EDT / EST) - New York</div>
-                  <div class="bdgs-tz-option" data-value="America/Chicago" onclick="bdgsSelectTimezone(this, event)">Central Time (CST / CDT) - Chicago</div>
-                  <div class="bdgs-tz-option" data-value="America/Denver" onclick="bdgsSelectTimezone(this, event)">Mountain Time (MDT / MST) - Denver</div>
-                  <div class="bdgs-tz-option" data-value="America/Los_Angeles" onclick="bdgsSelectTimezone(this, event)">Pacific Time (PDT / PST) - Los Angeles</div>
-                  <div class="bdgs-tz-option" data-value="America/Anchorage" onclick="bdgsSelectTimezone(this, event)">Alaska Time (AKDT / AKST) - Anchorage</div>
-                  <div class="bdgs-tz-option" data-value="Europe/London" onclick="bdgsSelectTimezone(this, event)">British Summer Time (BST / GMT) - London</div>
-                  <div class="bdgs-tz-option" data-value="Australia/Sydney" onclick="bdgsSelectTimezone(this, event)">Australian Eastern Time (AEST / AEDT) - Sydney</div>
-                  <div class="bdgs-tz-option" data-value="Asia/Kolkata" onclick="bdgsSelectTimezone(this, event)">Indian Standard Time (IST) - New Delhi</div>
+                  <div class="bdgs-tz-option selected" data-value="America/New_York" data-base="Eastern Time ({tz}) - New York" onclick="bdgsSelectTimezone(this, event)">Eastern Time - New York</div>
+                  <div class="bdgs-tz-option" data-value="America/Chicago" data-base="Central Time ({tz}) - Chicago" onclick="bdgsSelectTimezone(this, event)">Central Time - Chicago</div>
+                  <div class="bdgs-tz-option" data-value="America/Denver" data-base="Mountain Time ({tz}) - Denver" onclick="bdgsSelectTimezone(this, event)">Mountain Time - Denver</div>
+                  <div class="bdgs-tz-option" data-value="America/Los_Angeles" data-base="Pacific Time ({tz}) - Los Angeles" onclick="bdgsSelectTimezone(this, event)">Pacific Time - Los Angeles</div>
+                  <div class="bdgs-tz-option" data-value="America/Anchorage" data-base="Alaska Time ({tz}) - Anchorage" onclick="bdgsSelectTimezone(this, event)">Alaska Time - Anchorage</div>
+                  <div class="bdgs-tz-option" data-value="Europe/London" data-base="British Time ({tz}) - London" onclick="bdgsSelectTimezone(this, event)">British Time - London</div>
+                  <div class="bdgs-tz-option" data-value="Australia/Sydney" data-base="Australian Eastern Time ({tz}) - Sydney" onclick="bdgsSelectTimezone(this, event)">Australian Eastern Time - Sydney</div>
+                  <div class="bdgs-tz-option" data-value="Asia/Kolkata" data-base="Indian Standard Time ({tz}) - New Delhi" onclick="bdgsSelectTimezone(this, event)">Indian Standard Time - New Delhi</div>
                 </div>
+              </div>
               </div>
             </div>
           </div>
@@ -2346,6 +2347,34 @@ Chatbots. Agents. Smart search.<br>
 const ZOOM_SESSION_DB_DATE = new Date();
 ZOOM_SESSION_DB_DATE.setUTCDate(ZOOM_SESSION_DB_DATE.getUTCDate() + (4 - ZOOM_SESSION_DB_DATE.getUTCDay() + 7) % 7); // Next Thursday
 ZOOM_SESSION_DB_DATE.setUTCHours(13, 0, 0, 0); // 13:00 UTC = 9:00 AM Eastern Time
+
+function bdgsInitTimezoneDropdown() {
+  document.querySelectorAll('.bdgs-tz-option').forEach(opt => {
+    const tz = opt.getAttribute('data-value');
+    const base = opt.getAttribute('data-base');
+    if(base) {
+      try {
+        const tzShort = new Intl.DateTimeFormat('en-US', { timeZone: tz, timeZoneName: 'short' })
+          .formatToParts(ZOOM_SESSION_DB_DATE)
+          .find(p => p.type === 'timeZoneName').value;
+        opt.innerText = base.replace('{tz}', tzShort);
+      } catch(e) {
+        opt.innerText = base.replace(' ({tz})', '');
+      }
+    }
+  });
+  const selectedOpt = document.querySelector('.bdgs-tz-option.selected');
+  if(selectedOpt && document.getElementById('bdgsZoomTimezoneText')) {
+    document.getElementById('bdgsZoomTimezoneText').innerText = selectedOpt.innerText;
+  }
+}
+// Run init on load
+if(document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bdgsInitTimezoneDropdown);
+} else {
+  bdgsInitTimezoneDropdown();
+}
+
 
 function bdgsZoomAutoFill() {
   // Logic to auto-fill logged-in user data
