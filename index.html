@@ -874,6 +874,8 @@ body {
 
   .bdgsownv1-marquee-content {
     display: flex;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
     gap: 40px;
     padding-right: 40px;
   }
@@ -886,18 +888,13 @@ body {
     align-items: center;
     justify-content: center;
     padding: 12px 24px;
-    border-radius: 12px;
-    background: rgba(248, 249, 250, 0.5);
-    border: 1px solid rgba(229, 231, 235, 0.5);
     transition: all 0.3s ease;
-    filter: grayscale(100%) opacity(0.5);
+    filter: grayscale(100%) opacity(0.55);
   }
 
   .bdgsownv1-logo-item:hover {
     filter: grayscale(0%) opacity(1);
-    background: var(--bdgs-bg);
-    border-color: rgba(229, 231, 235, 1);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transform: scale(1.05);
   }
 
   .bdgsownv1-logo-item img {
@@ -1485,9 +1482,8 @@ body {
         <div style="text-align: center; margin-top: 16px;">
           <a href="https://www.youtube.com/@BrilliantDirectories/videos" target="_blank" style="font-size: 14px; color: var(--bdgs-coral); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: opacity 0.2s;">Check out more webinars →</a>
         </div>
-      </div>
+        </div>
     </div>
-  </div>
 </section>
 
 
@@ -1726,9 +1722,7 @@ Chatbots. Agents. Smart search.<br>
     <div class="bdgsownv2-reviews-more" style="margin-top: 32px;">
       <a href="/blabs-review" id="bdgs-proof-reviews-link">See all reviews &rarr;</a>
     </div>
-  </div>
-</section>
-
+  </section>
 
 <!-- ============================================
      HOME: Stats (Proof Strip)
