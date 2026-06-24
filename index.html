@@ -817,7 +817,98 @@ body {
 .bdgsownv2-client-logo img {
   max-width: 100%; max-height: 100%; object-fit: contain;
 }
-/* Variant 2: Horizontal Peek Carousel for Homepage */
+
+  /* ============================================
+     VARIANT 1: Infinite Dual Marquee Logos
+     ============================================ */
+  @keyframes bdgsownv1-marqueeLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 20px)); } /* 20px is half of gap (40px) */
+  }
+
+  @keyframes bdgsownv1-marqueeRight {
+    0% { transform: translateX(calc(-50% - 20px)); }
+    100% { transform: translateX(0); }
+  }
+
+  .bdgsownv1-marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 12px; /* Reduced space between rows */
+  }
+
+  .bdgsownv1-marquee-container::before,
+  .bdgsownv1-marquee-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .bdgsownv1-marquee-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bdgs-bg), rgba(255,255,255,0));
+  }
+  .bdgsownv1-marquee-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bdgs-bg), rgba(255,255,255,0));
+  }
+
+  .bdgsownv1-marquee-track {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: bdgsownv1-marqueeLeft 40s linear infinite;
+    width: max-content;
+  }
+
+  .bdgsownv1-marquee-track.reverse {
+    animation: bdgsownv1-marqueeRight 40s linear infinite;
+  }
+
+  .bdgsownv1-marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .bdgsownv1-marquee-content {
+    display: flex;
+    gap: 40px;
+    padding-right: 40px;
+  }
+
+  .bdgsownv1-logo-item {
+    width: 160px;
+    height: 70px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 12px;
+    background: rgba(248, 249, 250, 0.5);
+    border: 1px solid rgba(229, 231, 235, 0.5);
+    transition: all 0.3s ease;
+    filter: grayscale(100%) opacity(0.5);
+  }
+
+  .bdgsownv1-logo-item:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bdgs-bg);
+    border-color: rgba(229, 231, 235, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+
+  .bdgsownv1-logo-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  /* End Variant 1 Logos CSS */
+
+  /* Variant 2: Horizontal Peek Carousel for Homepage */
 .bdgsownv2-carousel-wrapper {
   position: relative;
   width: 100%;
@@ -1478,25 +1569,61 @@ Chatbots. Agents. Smart search.<br>
     <p class="proof-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue. We delivered beyond their expectations — and we'll do the same for you.</p>
 
     <!-- Client Logos Grid (16 logos in 2 rows of 8) -->
-    <div class="bdgsownv2-logo-grid">
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/1.png" alt="Client logo"></div>
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9.png" alt="Client logo"></div>
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/8.png" alt="Client logo"></div>
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/3.png" alt="Client logo"></div>
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CCRG-LOGO-edit1.png" alt="CCRG"></div>
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/supplyseys.png" alt="Supplyseys"></div>
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/4.png" alt="Client logo"></div>
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/hotelsjuction.png" alt="Hotels Junction"></div>
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/yep.png" alt="Yep"></div>
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/7.png" alt="Client logo"></div>
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/isostylist.png" alt="ISO Stylist"></div>
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9_1.png" alt="Client logo"></div>
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/5.png" alt="Client logo"></div>
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/localbulls.png" alt="LocalBulls"></div>
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/insureblack.png" alt="Insure Black"></div>
-      <div class="bdgsownv2-client-logo"><img width="160" height="64" referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/2.png" alt="Client logo"></div>
+    <!-- Variant 1: Smooth Infinite Marquee (Two Rows) -->
+    <!-- First Row (Scroll Left) -->
+    <div class="bdgsownv1-marquee-container">
+      <div class="bdgsownv1-marquee-track">
+        <!-- Content Set 1 -->
+        <div class="bdgsownv1-marquee-content">
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/1.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/8.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/3.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CCRG-LOGO-edit1.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/supplyseys.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/4.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/hotelsjuction.png" alt="Logo"></div>
+        </div>
+        <!-- Content Set 2 (Exact Duplicate) -->
+        <div class="bdgsownv1-marquee-content">
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/1.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/8.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/3.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CCRG-LOGO-edit1.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/supplyseys.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/4.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/hotelsjuction.png" alt="Logo"></div>
+        </div>
+      </div>
     </div>
-
+    
+    <!-- Second Row (Scroll Right) -->
+    <div class="bdgsownv1-marquee-container" style="margin-bottom: 56px;">
+      <div class="bdgsownv1-marquee-track reverse">
+        <div class="bdgsownv1-marquee-content">
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/yep.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/7.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/isostylist.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9_1.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/5.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/localbulls.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/insureblack.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/2.png" alt="Logo"></div>
+        </div>
+        <div class="bdgsownv1-marquee-content">
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/yep.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/7.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/isostylist.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9_1.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/5.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/localbulls.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/insureblack.png" alt="Logo"></div>
+          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/2.png" alt="Logo"></div>
+        </div>
+      </div>
+    </div>
+    
     <!-- Dynamic Reviews Horizontal Peek Carousel (Variant 2) -->
     <div class="bdgsownv2-carousel-wrapper">
       <div class="bdgsownv2-carousel-track" id="bdgsownv2-track">
@@ -2998,8 +3125,10 @@ setTimeout(bdgsSyncCardHeights, 2000);
           bdgsownv2Track.appendChild(card);
         });
         bindBdgsownv2Events();
-        updateBdgsownv2Carousel(true);
-        startBdgsownv2AutoScroll();
+        setTimeout(function() {
+          updateBdgsownv2Carousel(true);
+          startBdgsownv2AutoScroll();
+        }, 50);
       } else {
         throw new Error('No reviews returned');
       }
@@ -3023,8 +3152,10 @@ setTimeout(bdgsSyncCardHeights, 2000);
           bdgsownv2Track.appendChild(card);
         });
         bindBdgsownv2Events();
-        updateBdgsownv2Carousel(true);
-        startBdgsownv2AutoScroll();
+        setTimeout(function() {
+          updateBdgsownv2Carousel(true);
+          startBdgsownv2AutoScroll();
+        }, 50);
       }
     });
 })();
