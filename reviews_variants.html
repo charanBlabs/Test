@@ -275,18 +275,21 @@
   }
 
   .v2-rating-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding-bottom: 16px;
     margin-bottom: 16px;
+    border-bottom: 1px dashed var(--bdgs-border);
     flex-shrink: 0;
   }
 
   .v2-rating-pill {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 6px;
-    padding: 5px 10px;
+    padding: 6px 12px;
     border-radius: 20px;
     border: 1px solid var(--bdgs-border);
     background: #fff;
