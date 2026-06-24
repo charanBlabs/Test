@@ -2241,7 +2241,7 @@ Chatbots. Agents. Smart search.<br>
       </form>
     </div>
     <div id="bdgsZoomModalSuccess" style="display:none;text-align:center;padding:24px 20px;">
-      <div style="font-size:56px;margin-bottom:16px;display:inline-block;text-shadow: 0 10px 30px rgba(231,77,86,0.2);">🎊</div>
+      <div style="font-size:64px;margin-bottom:20px;display:inline-block;text-shadow: 0 10px 30px rgba(231,77,86,0.2);">🎉</div>
       <h3 style="color:var(--bdgs-coral);font-size:24px;margin-bottom:12px;letter-spacing:-0.5px;">Registration Complete!</h3>
       <p style="font-size:15px;color:var(--bdgs-text-muted);line-height:1.6;margin-bottom:24px;">We've sent the calendar invite to your email.<br>See you at the session!</p>
       
@@ -2419,8 +2419,11 @@ function bdgsInitTimezoneDropdown() {
     }
   });
   const selectedOpt = document.querySelector('.bdgs-tz-option.selected');
-  if(selectedOpt && document.getElementById('bdgsZoomTimezoneText')) {
-    document.getElementById('bdgsZoomTimezoneText').innerText = selectedOpt.innerText;
+  if(selectedOpt) {
+    ['', 'Form'].forEach(sfx => {
+      const textSpan = document.getElementById('bdgsZoomTimezoneText' + sfx);
+      if(textSpan) textSpan.innerText = selectedOpt.innerText;
+    });
   }
 }
 // Run init on load
@@ -3239,21 +3242,37 @@ setTimeout(bdgsSyncCardHeights, 2000);
 
 function bdgsSelectTimezone(el, event) {
   event.stopPropagation();
-  document.getElementById('bdgsZoomTimezone').value = el.getAttribute('data-value');
-  document.getElementById('bdgsZoomTimezoneText').innerText = el.innerText;
-  const options = document.querySelectorAll('.bdgs-tz-option');
-  options.forEach(opt => opt.classList.remove('selected'));
-  el.classList.add('selected');
-  document.getElementById('bdgsTzDropdown').classList.remove('show');
+  const value = el.getAttribute('data-value');
+  const text = el.innerText;
+  
+  // Update both hidden inputs and display texts
+  ['', 'Form'].forEach(sfx => {
+    const input = document.getElementById('bdgsZoomTimezone' + sfx);
+    const textSpan = document.getElementById('bdgsZoomTimezoneText' + sfx);
+    if(input) input.value = value;
+    if(textSpan) textSpan.innerText = text;
+    
+    // Update selected class for both dropdowns
+    const options = document.querySelectorAll('#bdgsTzDropdown' + sfx + ' .bdgs-tz-option');
+    options.forEach(opt => opt.classList.remove('selected'));
+    const matchingOpt = document.querySelector('#bdgsTzDropdown' + sfx + ' .bdgs-tz-option[data-value="'+value+'"]');
+    if(matchingOpt) matchingOpt.classList.add('selected');
+    
+    const dropdown = document.getElementById('bdgsTzDropdown' + sfx);
+    if(dropdown) dropdown.classList.remove('show');
+  });
+  
   bdgsUpdateTimezoneDisplay();
 }
 
 document.addEventListener('click', function(e) {
-  const wrapper = document.getElementById('bdgsTzWrapper');
-  const dropdown = document.getElementById('bdgsTzDropdown');
-  if (wrapper && dropdown && !wrapper.contains(e.target)) {
-    dropdown.classList.remove('show');
-  }
+  ['', 'Form'].forEach(sfx => {
+    const wrapper = document.getElementById('bdgsTzWrapper' + sfx);
+    const dropdown = document.getElementById('bdgsTzDropdown' + sfx);
+    if (wrapper && dropdown && !wrapper.contains(e.target)) {
+      dropdown.classList.remove('show');
+    }
+  });
 });
 </script>
 </body>
