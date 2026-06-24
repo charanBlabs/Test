@@ -2148,9 +2148,9 @@ Chatbots. Agents. Smart search.<br>
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
     </button>
     <div id="bdgsZoomModalContent">
+      <h3>🟢 Join Free Zoom Clinics</h3>
+      <p>Stuck on small things? Drop into our live Zoom session to get free help and learn Brilliant Directories.</p>
       <div id="bdgsZoomModalStep1">
-        <h3>🟢 Join Free Zoom Clinics</h3>
-        <p>Stuck on small things? Drop into our live Zoom session to get free help and learn Brilliant Directories.</p>
         <div style="background:var(--bdgs-bg);padding:16px;border-radius:8px;font-size:14px;border-left:3px solid var(--bdgs-coral);margin-bottom:16px;">
           <style>
 .bdgs-tz-wrapper { position:relative; display:inline-flex; align-items:center; background-color:rgba(17, 24, 39, 0.05); border-radius:6px; padding:4px 10px; margin-left:4px; cursor:pointer; user-select:none; transition: background-color 0.2s; }
@@ -2200,14 +2200,16 @@ Chatbots. Agents. Smart search.<br>
       </div>
 
       <form id="bdgsZoomBookingForm" onsubmit="event.preventDefault(); bdgsProcessZoomBooking();" style="display:none;">
-        <div style="background:rgba(17, 24, 39, 0.03); padding:16px; border-radius:8px; margin-bottom:20px; border:1px solid rgba(0,0,0,0.05);">
-          <div style="font-size:15px; font-weight:600; color:var(--bdgs-dark); margin-bottom:8px;">Zoom Clinic: Live Website Reviews &amp; Open Q&amp;A</div>
-          <div style="font-size:14px; color:var(--bdgs-dark); margin-bottom:8px;">
+        <div style="margin-bottom:28px;">
+          <h3 style="font-size:20px; font-weight:700; color:var(--bdgs-dark); margin:0 0 16px; letter-spacing:-0.5px;">Zoom Clinic: Live Website Reviews &amp; Open Q&amp;A</h3>
+          
+          <div style="font-size:14px; color:var(--bdgs-dark); margin-bottom:10px;">
             <strong>Next session:</strong> <span id="bdgsZoomSessionDisplayForm">Loading...</span>
           </div>
-          <div style="font-size:14px; color:var(--bdgs-dark); margin-bottom:12px;">
+          
+          <div style="font-size:14px; color:var(--bdgs-dark); margin-bottom:16px; display:flex; align-items:center;">
             <strong>Timezone:</strong>
-            <div class="bdgs-tz-wrapper" id="bdgsTzWrapperForm" onclick="document.getElementById('bdgsTzDropdownForm').classList.toggle('show')">
+            <div class="bdgs-tz-wrapper" id="bdgsTzWrapperForm" onclick="document.getElementById('bdgsTzDropdownForm').classList.toggle('show')" style="background-color:rgba(17, 24, 39, 0.04);">
               <span id="bdgsZoomTimezoneTextForm" style="font-size:13px; color:inherit; margin-right:8px; pointer-events:none; font-weight:600;">Eastern Time (EDT / EST) - New York</span>
               <svg width="10" height="6" xmlns="http://www.w3.org/2000/svg" style="pointer-events:none; flex-shrink:0;"><path d="M1 1l4 4 4-4" stroke="#6b7280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <input type="hidden" id="bdgsZoomTimezoneForm" value="America/New_York">
@@ -2223,24 +2225,25 @@ Chatbots. Agents. Smart search.<br>
               </div>
             </div>
           </div>
-          <div style="font-size:13px; color:var(--bdgs-text-muted); line-height:1.5;">Stuck on small things? Drop into our live Zoom session to get free help and learn Brilliant Directories.</div>
+          
+          <p style="font-size:14px; color:var(--bdgs-text-muted); line-height:1.6; margin:0;">Stuck on small things? Drop into our live Zoom session to get free help and learn Brilliant Directories.</p>
         </div>
 
-        <h4 style="margin:0 0 6px; font-size:16px; font-weight:600; color:var(--bdgs-dark);">Your details please:</h4>
+        <h4 style="margin:0 0 6px; font-size:16px; font-weight:700; color:var(--bdgs-dark); letter-spacing:-0.2px;">Your details please:</h4>
         <p style="font-size:13px; color:var(--bdgs-text-muted); margin-bottom:16px;">Please enter your name and email to receive the calendar invite.</p>
         
         <div class="bdgsownv2-modal-form" style="margin-top:0; margin-bottom:24px;">
-          <input type="text" id="bdgsZoomName" name="name" placeholder="Your Name" required>
-          <input type="email" id="bdgsZoomEmail" name="email" placeholder="Your Email" required>
+          <input type="text" id="bdgsZoomName" name="name" placeholder="Your Name" required style="border-radius:8px; border:1px solid rgba(0,0,0,0.08); padding:12px 16px; width:100%; margin-bottom:12px; font-size:15px; outline:none; transition:border-color 0.2s, box-shadow 0.2s;">
+          <input type="email" id="bdgsZoomEmail" name="email" placeholder="Your Email" required style="border-radius:8px; border:1px solid rgba(0,0,0,0.08); padding:12px 16px; width:100%; font-size:15px; outline:none; transition:border-color 0.2s, box-shadow 0.2s;">
         </div>
         
-        <button type="submit" id="bdgsZoomScheduleBtn" class="bdgsownv2-btn-primary" style="width:100%;padding:14px 20px;font-size:15px;text-align:center;">Complete Registration</button>
+        <button type="submit" id="bdgsZoomScheduleBtn" class="bdgsownv2-btn-primary" style="width:100%;padding:14px 20px;font-size:15px;text-align:center;border-radius:8px;font-weight:600;">Complete Registration</button>
       </form>
     </div>
     <div id="bdgsZoomModalSuccess" style="display:none;text-align:center;padding:24px 20px;">
-      <div style="font-size:48px;margin-bottom:16px;display:inline-block;">🟢</div>
+      <div style="font-size:56px;margin-bottom:16px;display:inline-block;text-shadow: 0 10px 30px rgba(231,77,86,0.2);">🎉</div>
       <h3 style="color:var(--bdgs-coral);font-size:24px;margin-bottom:12px;letter-spacing:-0.5px;">Registration Complete!</h3>
-      <p style="font-size:15px;color:var(--bdgs-text-muted);line-height:1.6;margin-bottom:24px;">You are all set! Please add the session to your calendar using the links below.<br>We will also send you a reminder email before the clinic starts.</p>
+      <p style="font-size:15px;color:var(--bdgs-text-muted);line-height:1.6;margin-bottom:24px;">We've sent the calendar invite to your email.<br>See you at the session!</p>
       
       <div style="display:flex; flex-direction:column; gap:12px; align-items:center;">
         <a id="bdgsGoogleCalLink" target="_blank" href="#" class="bdgsownv2-btn-primary" style="width:100%; max-width:280px; padding:12px; font-size:14px; text-decoration:none; display:flex; justify-content:center; align-items:center; gap:8px;">
@@ -2486,11 +2489,6 @@ function bdgsCloseZoomModal() {
       document.getElementById('bdgsZoomModalStep1').style.display = 'block';
       document.getElementById('bdgsZoomBookingForm').style.display = 'none';
       document.getElementById('bdgsZoomBookingForm').reset();
-      const btn = document.getElementById('bdgsZoomScheduleBtn');
-      if(btn) {
-        btn.innerHTML = 'Complete Registration';
-        btn.disabled = false;
-      }
       bdgsUpdateTimezoneDisplay();
     }
   }, 300);
